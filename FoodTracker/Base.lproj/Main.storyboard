@@ -38,6 +38,7 @@
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="labelButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z3g-Yi-Tco"/>
+                                            <action selector="labelUpdateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Yb-NQ-eZp"/>
                                         </connections>
                                     </button>
                                 </subviews>
