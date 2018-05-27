@@ -33,12 +33,11 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GU-Gz-uEw">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhv-WS-jNf">
                                         <rect key="frame" x="0.0" y="66.5" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="labelButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z3g-Yi-Tco"/>
-                                            <action selector="labelUpdateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Yb-NQ-eZp"/>
+                                            <action selector="setLabelName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F4o-HM-e6R"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -23,9 +23,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func labelUpdateButton(_ sender: UIButton) {
-        
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
-
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        labelText.text = labelTextField.text
+    }
+ 
+    @IBAction func setLabelName(_ sender: UIButton) {
+        labelText.text = "Default text"
+    }
+    
 }
 
