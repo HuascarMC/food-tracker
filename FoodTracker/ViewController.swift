@@ -33,10 +33,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     func textFieldDidEndEditing(_ textField: UITextField) {
         labelText.text = labelTextField.text
     }
- 
-    @IBAction func setLabelName(_ sender: UIButton) {
-        labelText.text = "Default text"
-    }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
