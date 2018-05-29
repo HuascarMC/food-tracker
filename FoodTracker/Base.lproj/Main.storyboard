@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,6 +43,9 @@
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-1a-o7S">
                                         <rect key="frame" x="0.0" y="104.5" width="320" height="320"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="uFo-1a-o7S" secondAttribute="height" multiplier="1:1" id="2Ho-4B-naA"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                             </stackView>
