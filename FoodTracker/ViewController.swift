@@ -37,5 +37,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         labelText.text = "Default text"
     }
     
+    @IBAction func selectImageFromPhotoUI(_ sender: Any) {
+    }
 }
 

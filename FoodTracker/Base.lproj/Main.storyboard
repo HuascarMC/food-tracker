@@ -43,9 +43,13 @@
                                     </button>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-1a-o7S">
                                         <rect key="frame" x="0.0" y="104.5" width="320" height="320"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uFo-1a-o7S" secondAttribute="height" multiplier="1:1" id="2Ho-4B-naA"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="sSd-3s-jZy" appends="YES" id="XVM-84-aMw"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -65,6 +69,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="sSd-3s-jZy">
+                    <connections>
+                        <action selector="selectImageFromPhotoUI:" destination="BYZ-38-t0r" id="lks-Lr-Ocf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
