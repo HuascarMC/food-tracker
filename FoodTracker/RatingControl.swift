@@ -1,7 +1,6 @@
 import UIKit
 
-class RatingControl: UIStackView {
-    
+@IBDesignable class RatingControl: UIStackView {
     //MARK: Properties
     private var ratingButtons = [UIButton]()
     
@@ -45,5 +44,4 @@ class RatingControl: UIStackView {
     @objc func ratingButtonTapped(button: UIButton) {
         print("Button pressed 👍")
     }
-    
 }
