@@ -61,6 +61,7 @@
                     <connections>
                         <outlet property="labelText" destination="f7u-bN-eHl" id="3MC-nJ-3Xw"/>
                         <outlet property="labelTextField" destination="F4L-Kl-x7h" id="yPg-B9-0fl"/>
+                        <outlet property="photoImageView" destination="uFo-1a-o7S" id="9SL-HL-5jY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
