@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var labelText: UILabel!
     @IBOutlet weak var labelTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
