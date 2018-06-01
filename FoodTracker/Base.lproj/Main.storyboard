@@ -114,6 +114,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="Q6v-N1-Hg6">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oHh-al-Plh"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yix-kC-STS"/>
                     </navigationItem>
                     <connections>
                         <outlet property="labelTextField" destination="F4L-Kl-x7h" id="yPg-B9-0fl"/>
