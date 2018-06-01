@@ -19,7 +19,11 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
      */
     var meal: Meal?
     
+    @IBAction func cancel(_ sender: Any) {
+         dismiss(animated: true, completion: nil)
+    }
     //MARK: Navigation
+    
     // This method lets you configure a view controller before it's presented.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
