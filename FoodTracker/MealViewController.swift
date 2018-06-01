@@ -29,7 +29,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
             return
         }
-        let name = nameTextField.text ?? ""
+        let name = labelTextField.text ?? ""
         let photo = photoImageView.image
         let rating = ratingControl.rating
         
