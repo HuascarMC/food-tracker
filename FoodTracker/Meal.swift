@@ -6,9 +6,10 @@
 //  Copyright © 2018 Huascar  Montero. All rights reserved.
 //
 
+import os.log
 import UIKit
 
-class Meal, NSObject, NSCoding {
+class Meal: NSObject, NSCoding {
     
     // Properties
     
@@ -49,4 +50,28 @@ class Meal, NSObject, NSCoding {
         aCoder.encode(photo, forKey: PropertyKey.photo)
         aCoder.encode(rating, forKey: PropertyKey.rating)
     }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        
+        // The name is required. If we cannot decode a name string, the initializer should fail.
+        guard let name = aDecoder.decodeObject(forKey: PropertyKey.name) as? String else {
+            os_log("Unable to decode the name for a Meal object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        
+        // Because photo is an optional property of Meal, just use conditional cast.
+        let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
+        
+        let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
+        
+        // Must call designated initializer.
+        self.init(name: name, photo: photo, rating: rating)
+        
+    }
+    
+    //MARK: Archiving Paths
+    
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("meals")
+
 }
