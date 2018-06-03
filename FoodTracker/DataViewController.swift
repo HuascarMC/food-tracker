@@ -11,6 +11,7 @@ import Firebase
 
 class DataViewController: UIViewController {
     @IBOutlet weak var malesCount: UILabel!
+    @IBOutlet weak var femalesCount: UILabel!
     
     var db: Firestore!
     
@@ -24,6 +25,7 @@ class DataViewController: UIViewController {
         db = Firestore.firestore()
         // Do any additional setup after loading the view.
         self.getTotalMales()
+        self.getTotalFemales()
     }
     
     private func getTotalMales() {
@@ -42,6 +44,24 @@ class DataViewController: UIViewController {
                 }
         }
 
+    }
+    
+    private func getTotalFemales() {
+        var count = 0
+        db.collection("visitors").whereField("gender", isEqualTo: "female")
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                        count += 1
+                        // [END get_multiple]
+                        self.femalesCount.text = count.description
+                    }
+                }
+        }
+        
     }
  
     override func didReceiveMemoryWarning() {
