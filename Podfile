@@ -7,6 +7,7 @@ target 'FoodTracker' do
 
   # Pods for FoodTracker
   pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
 
   target 'FoodTrackerTests' do
     inherit! :search_paths
