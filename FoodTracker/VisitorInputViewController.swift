@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class VisitorInputViewController: UIViewController {
     @IBOutlet weak var Male: UIButton!
@@ -22,12 +23,19 @@ class VisitorInputViewController: UIViewController {
     
     var ages: Array<UIButton>?
     var genders: Array<UIButton>?
+    var db: Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.genders = [self.Male, self.Female]
         self.ages = [self.one, self.two, self.three, self.four, self.five, self.six, self.seven]
         // Do any additional setup after loading the view.
+        // [START setup]
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        // [END setup]
+        db = Firestore.firestore()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +54,29 @@ class VisitorInputViewController: UIViewController {
         }
     }
     
+    @IBAction func addVisitor(_ sender: Any) {
+            // [START add_ada_lovelace]
+            // Add a new document with a generated ID
+            var ref: DocumentReference? = nil
+            ref = db.collection("visitors").addDocument(data: [
+                "gender": "male",
+                "age": 10
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+                    print("Document added with ID: \(ref!.documentID)")
+                }
+            }
+            // [END add_ada_lovelace]
+        showAlert()
+    }
+    
+    private func showAlert() {
+    let alert = UIAlertController(title: "Alert", message: "Success", preferredStyle: .alert)
+    self.present(alert, animated: true, completion: nil)
+    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
+    }
     /*
     // MARK: - Navigation
 
