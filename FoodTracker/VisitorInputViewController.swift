@@ -123,7 +123,6 @@ class VisitorInputViewController: UIViewController {
                 }
             }
             // [END add_ada_lovelace]
-     
     }
     
     private func showAlert(text: String) {
