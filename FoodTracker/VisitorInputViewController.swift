@@ -9,10 +9,24 @@
 import UIKit
 
 class VisitorInputViewController: UIViewController {
-
+    @IBOutlet weak var Male: UIButton!
+    @IBOutlet weak var Female: UIButton!
+    @IBOutlet weak var Add: UIButton!
+    @IBOutlet weak var one: UIButton!
+    @IBOutlet weak var two: UIButton!
+    @IBOutlet weak var three: UIButton!
+    @IBOutlet weak var four: UIButton!
+    @IBOutlet weak var five: UIButton!
+    @IBOutlet weak var six: UIButton!
+    @IBOutlet weak var seven: UIButton!
+    
+    var ages: Array<UIButton>?
+    var genders: Array<UIButton>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.genders = [self.Male, self.Female]
+        self.ages = [self.one, self.two, self.three, self.four, self.five, self.six, self.seven]
         // Do any additional setup after loading the view.
     }
 
@@ -20,8 +34,18 @@ class VisitorInputViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func ageTapped(_ sender: UIButton) {
+        for button in self.ages! {
+            button.titleLabel?.textColor = UIColor.gray
+        }
+    }
     
-
+    @IBAction func genderTapped(_ sender: Any) {
+        for button in self.genders! {
+           button.titleLabel?.textColor = UIColor.gray
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
