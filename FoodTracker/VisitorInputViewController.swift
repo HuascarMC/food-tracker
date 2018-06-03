@@ -22,6 +22,7 @@ class VisitorInputViewController: UIViewController {
     @IBOutlet weak var seven: UIButton!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var date: UILabel!
     
     var ages: Array<UIButton>?
     var genders: Array<UIButton>?
@@ -31,6 +32,8 @@ class VisitorInputViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.date.text = NSDate().description
         self.genders = [self.Male, self.Female]
         self.ages = [self.one, self.two, self.three, self.four, self.five, self.six, self.seven]
         // Do any additional setup after loading the view.
