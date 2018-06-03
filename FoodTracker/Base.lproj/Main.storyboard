@@ -349,15 +349,29 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGD-fu-dl7">
-                                <rect key="frame" x="145" y="438" width="30" height="67"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnD-XG-pV2">
+                                <rect key="frame" x="184" y="253" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpG-kT-2na">
+                                <rect key="frame" x="184" y="302" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z07-R7-l83">
+                                <rect key="frame" x="148" y="439" width="30" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="+">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="addVisitor:" destination="DdX-Ag-1UC" eventType="touchUpInside" id="Qxo-kF-8Dc"/>
+                                    <action selector="addVisitor:" destination="DdX-Ag-1UC" eventType="touchUpInside" id="ev4-ZR-CfT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -366,11 +380,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="R69-uo-HFA"/>
                     <connections>
-                        <outlet property="Add" destination="mGD-fu-dl7" id="6Ew-L2-TmR"/>
                         <outlet property="Female" destination="Kfk-ED-q1d" id="rb1-t4-Zk8"/>
                         <outlet property="Male" destination="5Qa-VM-Av9" id="hbY-9p-Kqr"/>
+                        <outlet property="ageLabel" destination="hnD-XG-pV2" id="OA9-bf-a1U"/>
                         <outlet property="five" destination="sHF-m3-ctP" id="nCh-8N-bxT"/>
                         <outlet property="four" destination="b1l-iy-Kqh" id="6zO-Ne-4Lb"/>
+                        <outlet property="genderLabel" destination="FpG-kT-2na" id="AdK-fi-Dpr"/>
                         <outlet property="one" destination="1pi-jc-IAb" id="d3t-Wq-1qM"/>
                         <outlet property="seven" destination="TOo-Yv-iAu" id="wKM-nT-9fl"/>
                         <outlet property="six" destination="feg-fH-GCE" id="Zgo-Lh-A2O"/>

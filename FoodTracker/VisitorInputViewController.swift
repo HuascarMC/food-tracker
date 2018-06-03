@@ -20,6 +20,8 @@ class VisitorInputViewController: UIViewController {
     @IBOutlet weak var five: UIButton!
     @IBOutlet weak var six: UIButton!
     @IBOutlet weak var seven: UIButton!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
     
     var ages: Array<UIButton>?
     var genders: Array<UIButton>?
@@ -48,7 +50,7 @@ class VisitorInputViewController: UIViewController {
         for button in self.ages! {
             button.titleLabel?.textColor = UIColor.gray
         }
-        self.setAge(button)
+        self.setAge(sender)
     }
     
     private func setAge(_ button: UIButton) {
@@ -76,47 +78,53 @@ class VisitorInputViewController: UIViewController {
             break;
         default: break;
         }
+        self.ageLabel.text = self.age?.description
     }
     
     private func setGender(_ button: UIButton) {
         switch(button.currentTitle) {
-        case "male":
+        case "Male":
             self.gender = "male";
             break;
-        case "female":
+        case "Female":
             self.gender = "female";
             break;
+        default: break;
         }
+        self.genderLabel.text = self.gender?.description
     }
     
     @IBAction func genderTapped(_ sender: Any) {
         for button in self.genders! {
            button.titleLabel?.textColor = UIColor.gray
         }
-        setGender(sender)
+        let selectedButton = sender as? UIButton
+        setGender(selectedButton!)
     }
     
-    @IBAction func addDate(_ sender: Any) {
+    @IBAction func addVisitor(_ sender: Any) {
             // [START add_ada_lovelace]
             // Add a new document with a generated ID
             var ref: DocumentReference? = nil
             ref = db.collection("visitors").addDocument(data: [
-                "date": self.gender,
-                "age": self.age
+                "gender": self.gender!,
+                "age": self.age!,
+                "date": NSDate()
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
+                    self.showAlert(text: "Error")
                 } else {
                     print("Document added with ID: \(ref!.documentID)")
-                    self.showAlert()
+                    self.showAlert(text: "Saved")
                 }
             }
             // [END add_ada_lovelace]
      
     }
     
-    private func showAlert() {
-    let alert = UIAlertController(title: "Alert", message: "Success", preferredStyle: .alert)
+    private func showAlert(text: String) {
+    let alert = UIAlertController(title: "Alert", message: text, preferredStyle: .alert)
     self.present(alert, animated: true, completion: nil)
     Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
     }
