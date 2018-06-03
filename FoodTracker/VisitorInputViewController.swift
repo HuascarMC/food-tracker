@@ -23,6 +23,8 @@ class VisitorInputViewController: UIViewController {
     
     var ages: Array<UIButton>?
     var genders: Array<UIButton>?
+    var age: Int?
+    var gender: String?
     var db: Firestore!
     
     override func viewDidLoad() {
@@ -46,30 +48,71 @@ class VisitorInputViewController: UIViewController {
         for button in self.ages! {
             button.titleLabel?.textColor = UIColor.gray
         }
+        self.setAge(button)
+    }
+    
+    private func setAge(_ button: UIButton) {
+        switch(button.currentTitle) {
+        case "0 - 10":
+            self.age = 10;
+            break;
+        case "11 - 20":
+            self.age = 20;
+            break;
+        case "21 - 30":
+            self.age = 30;
+            break;
+        case "31 - 40":
+            self.age = 40;
+            break;
+        case "41 - 50":
+            self.age = 50;
+            break;
+        case "51 - 60":
+            self.age = 60;
+            break;
+        case "61 - 70":
+            self.age = 70;
+            break;
+        default: break;
+        }
+    }
+    
+    private func setGender(_ button: UIButton) {
+        switch(button.currentTitle) {
+        case "male":
+            self.gender = "male";
+            break;
+        case "female":
+            self.gender = "female";
+            break;
+        }
     }
     
     @IBAction func genderTapped(_ sender: Any) {
         for button in self.genders! {
            button.titleLabel?.textColor = UIColor.gray
         }
+        setGender(sender)
     }
     
-    @IBAction func addVisitor(_ sender: Any) {
+    @IBAction func addDate(_ sender: Any) {
             // [START add_ada_lovelace]
             // Add a new document with a generated ID
             var ref: DocumentReference? = nil
             ref = db.collection("visitors").addDocument(data: [
-                "gender": "male",
-                "age": 10
+                "date": self.gender,
+                "age": self.age
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")
                 } else {
                     print("Document added with ID: \(ref!.documentID)")
+                    self.showAlert()
                 }
             }
             // [END add_ada_lovelace]
-        showAlert()
+     
     }
     
     private func showAlert() {
