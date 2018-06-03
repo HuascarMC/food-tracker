@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E81D3C0C20C4256B009C09DC /* VisitorInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81D3C0B20C4256B009C09DC /* VisitorInputViewController.swift */; };
 		E85F465920BD8884001382C8 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85F465820BD8884001382C8 /* RatingControl.swift */; };
 		E87AFBC920C1C55E004530C3 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87AFBC820C1C55E004530C3 /* MealTableViewCell.swift */; };
 		E87AFBCD20C1CA6B004530C3 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87AFBCC20C1CA6B004530C3 /* MealTableViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E81D3C0B20C4256B009C09DC /* VisitorInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorInputViewController.swift; sourceTree = "<group>"; };
 		E85F465820BD8884001382C8 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		E87AFBC820C1C55E004530C3 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		E87AFBCC20C1CA6B004530C3 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MealTableViewController.swift; path = ../MealTableViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				E8D043E820BB299A0075154A /* MealViewController.swift */,
 				E85F465820BD8884001382C8 /* RatingControl.swift */,
 				E8D043EA20BB299A0075154A /* Main.storyboard */,
+				E81D3C0B20C4256B009C09DC /* VisitorInputViewController.swift */,
 				E8D043ED20BB299A0075154A /* Assets.xcassets */,
 				E8D043EF20BB299A0075154A /* LaunchScreen.storyboard */,
 				E8D043F220BB299A0075154A /* Info.plist */,
@@ -211,6 +214,7 @@
 			files = (
 				E8B162C220C158AF00C3990D /* Meal.swift in Sources */,
 				E8D043E920BB299A0075154A /* MealViewController.swift in Sources */,
+				E81D3C0C20C4256B009C09DC /* VisitorInputViewController.swift in Sources */,
 				E85F465920BD8884001382C8 /* RatingControl.swift in Sources */,
 				E8D043E720BB299A0075154A /* AppDelegate.swift in Sources */,
 				E87AFBCD20C1CA6B004530C3 /* MealTableViewController.swift in Sources */,
