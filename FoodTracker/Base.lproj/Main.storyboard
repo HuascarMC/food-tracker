@@ -306,36 +306,54 @@
                                         <state key="normal" title="11 - 20">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ageTapped:" destination="DdX-Ag-1UC" eventType="touchUpInside" id="Ldl-KA-E6H"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rff-do-R4Q">
                                         <rect key="frame" x="0.0" y="60" width="50" height="30"/>
                                         <state key="normal" title="21 - 30">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ageTapped:" destination="DdX-Ag-1UC" eventType="touchUpInside" id="YXW-aq-g1S"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1l-iy-Kqh">
                                         <rect key="frame" x="0.0" y="90" width="50" height="30"/>
                                         <state key="normal" title="31 - 40">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ageTapped:" destination="DdX-Ag-1UC" eventType="touchUpInside" id="ByB-lr-PHo"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHF-m3-ctP">
                                         <rect key="frame" x="0.0" y="120" width="50" height="30"/>
                                         <state key="normal" title="41 - 50">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ageTapped:" destination="DdX-Ag-1UC" eventType="touchUpInside" id="0cw-PA-B84"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feg-fH-GCE">
                                         <rect key="frame" x="0.0" y="150" width="50" height="30"/>
                                         <state key="normal" title="51 - 60">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ageTapped:" destination="DdX-Ag-1UC" eventType="touchUpInside" id="xVg-NY-mic"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOo-Yv-iAu">
                                         <rect key="frame" x="0.0" y="180" width="50" height="30"/>
                                         <state key="normal" title="61 - 70">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ageTapped:" destination="DdX-Ag-1UC" eventType="touchUpInside" id="sB3-mi-z6u"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
