@@ -108,6 +108,7 @@ class VisitorInputViewController: UIViewController {
     @IBAction func addVisitor(_ sender: Any) {
             // [START add_ada_lovelace]
             // Add a new document with a generated ID
+        if(self.gender != nil && self.age != nil) {
             var ref: DocumentReference? = nil
             ref = db.collection("visitors").addDocument(data: [
                 "gender": self.gender!,
@@ -123,6 +124,9 @@ class VisitorInputViewController: UIViewController {
                 }
             }
             // [END add_ada_lovelace]
+        } else {
+            self.showAlert(text: "Select age and gender")
+        }
     }
     
     private func showAlert(text: String) {
