@@ -449,12 +449,20 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BLd-pF-ARE">
+                                <rect key="frame" x="37" y="208" width="247" height="95"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="549803686.44590795">
+                                    <!--2018-06-04 11:14:46 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="o67-kx-vpg"/>
                     </view>
                     <navigationItem key="navigationItem" id="2mk-jR-QHn"/>
                     <connections>
+                        <outlet property="datePicker" destination="BLd-pF-ARE" id="jOu-gl-H9n"/>
                         <outlet property="femalesCount" destination="2az-yI-BXn" id="h78-uI-G1t"/>
                         <outlet property="malesCount" destination="lun-JE-zdi" id="Gi0-AF-8rJ"/>
                     </connections>

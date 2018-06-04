@@ -12,6 +12,7 @@ import Firebase
 class DataViewController: UIViewController {
     @IBOutlet weak var malesCount: UILabel!
     @IBOutlet weak var femalesCount: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var db: Firestore!
     
