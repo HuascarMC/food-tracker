@@ -166,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="239.19999999999999" y="31.934032983508249"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="RIZ-43-kZp">
             <objects>
-                <viewController id="hg6-tt-0as" sceneMemberID="viewController">
+                <viewController id="hg6-tt-0as" customClass="MainViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TsS-QR-SEv">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,15 +198,23 @@
                                     <segue destination="DdX-Ag-1UC" kind="show" id="S2X-nw-7aA"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-FB-yU3" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="324" y="147" width="370" height="249"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Xbc-gQ-X4u"/>
                     </view>
                     <navigationItem key="navigationItem" id="xqw-9z-jj8"/>
+                    <connections>
+                        <outlet property="lineChart" destination="pR4-FB-yU3" id="Xxn-qL-7pr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uj6-eS-daW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-516" y="34.632683658170919"/>
+            <point key="canvasLocation" x="-516.40625" y="34.5703125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wc2-jF-hhj">
@@ -450,7 +458,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USN-8K-YTZ">
-                                <rect key="frame" x="127" y="365" width="48" height="30"/>
+                                <rect key="frame" x="360" y="358" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
@@ -464,6 +472,11 @@
                                     <!--2018-06-04 11:14:46 +0000-->
                                 </date>
                             </datePicker>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uln-6w-JnI" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="67" y="494" width="665" height="323"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="o67-kx-vpg"/>
@@ -473,11 +486,12 @@
                         <outlet property="datePicker" destination="BLd-pF-ARE" id="jOu-gl-H9n"/>
                         <outlet property="femalesCount" destination="2az-yI-BXn" id="h78-uI-G1t"/>
                         <outlet property="malesCount" destination="lun-JE-zdi" id="Gi0-AF-8rJ"/>
+                        <outlet property="pieChart" destination="Uln-6w-JnI" id="U8r-we-XYi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kb6-zi-8r2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-669.375" y="830.28169014084506"/>
+            <point key="canvasLocation" x="-669.53125" y="830.2734375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fjM-wF-8hR">
@@ -521,8 +535,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GZ6-LX-C5t"/>
-        <segue reference="gY0-L4-J12"/>
+        <segue reference="S2X-nw-7aA"/>
         <segue reference="dau-N9-NAP"/>
-        <segue reference="5gI-YR-j5h"/>
+        <segue reference="lxC-BN-pWr"/>
     </inferredMetricsTieBreakers>
 </document>

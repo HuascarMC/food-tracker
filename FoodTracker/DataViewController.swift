@@ -8,12 +8,14 @@
 
 import UIKit
 import Firebase
+import Charts
 
 class DataViewController: UIViewController {
     @IBOutlet weak var malesCount: UILabel!
     @IBOutlet weak var femalesCount: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var pieChart: PieChartView!
     
     var db: Firestore!
     var currentDate: Date?
@@ -37,6 +39,7 @@ class DataViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.getTotalMales()
         self.getTotalFemales()
+        updatePieChart()
     }
     
     private func getTotalMales() {
@@ -89,9 +92,29 @@ class DataViewController: UIViewController {
         self.currentDate = dateFormatter.date(from: dateString)
         self.getTotalMales()
         self.getTotalFemales()
+        self.updatePieChart()
        
     }
     
+    private func updatePieChart() {
+            let entry1 = PieChartDataEntry(value: Double(malesCount.text!)!, label: "Males")
+        let entry2 = PieChartDataEntry(value: Double(femalesCount.text!)!, label: "Females")
+        let dataSet = PieChartDataSet(values: [entry1, entry2], label: "Gender")
+        let data = PieChartData(dataSet: dataSet)
+        pieChart.data = data
+        pieChart.chartDescription?.text = "By Gender"
+        dataSet.colors = ChartColorTemplates.joyful()
+        pieChart.legend.font = UIFont(name: "Futura", size: 10)!
+        pieChart.chartDescription?.font = UIFont(name: "Futura", size: 12)!
+        pieChart.chartDescription?.xOffset = pieChart.frame.width + 30
+        pieChart.chartDescription?.yOffset = pieChart.frame.height * (2/3)
+        pieChart.chartDescription?.textAlign = NSTextAlignment.left
+        //All other additions to this function will go here
+        
+        //This must stay at end of function
+        pieChart.notifyDataSetChanged()
+    }
+ 
     private func showAlert(text: String) {
         let alert = UIAlertController(title: "Alert", message: text, preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
