@@ -110,7 +110,7 @@ class DataViewController: UIViewController {
         pieChart.chartDescription?.yOffset = pieChart.frame.height * (2/3)
         pieChart.chartDescription?.textAlign = NSTextAlignment.left
         //All other additions to this function will go here
-        
+        pieChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         //This must stay at end of function
         pieChart.notifyDataSetChanged()
     }
