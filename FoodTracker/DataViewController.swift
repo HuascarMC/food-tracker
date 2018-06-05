@@ -17,12 +17,12 @@ class DataViewController: UIViewController {
     
     var db: Firestore!
     var currentDate: Date?
+    let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // [START setup]
         let settings = FirestoreSettings()
-        let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         let date = datePicker.date
@@ -45,7 +45,9 @@ class DataViewController: UIViewController {
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
+                    
                 } else {
+                        self.showAlert(text: (self.currentDate?.description)!)
                     for document in querySnapshot!.documents {
                         print("\(document.documentID) => \(document.data())")
                         count += 1
@@ -59,7 +61,7 @@ class DataViewController: UIViewController {
     
     private func getTotalFemales() {
         var count = 0
-        db.collection("visitors").whereField("gender", isEqualTo: "female")
+        db.collection("visitors").whereField("gender", isEqualTo: "female").whereField("date", isEqualTo: self.currentDate!)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -81,9 +83,18 @@ class DataViewController: UIViewController {
     }
     
     @IBAction func search(_ sender: Any) {
-        self.loadView()
+        let dateString = dateFormatter.string(from: datePicker.date as Date)
+        self.currentDate = dateFormatter.date(from: dateString)
+        self.getTotalMales()
+        self.getTotalFemales()
+       
     }
     
+    private func showAlert(text: String) {
+        let alert = UIAlertController(title: "Alert", message: text, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
+    }
     /*
     // MARK: - Navigation
 
