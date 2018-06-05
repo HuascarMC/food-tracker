@@ -11,8 +11,8 @@ import Firebase
 import Charts
 
 class DataViewController: UIViewController {
-    @IBOutlet weak var malesCount: UILabel!
-    @IBOutlet weak var femalesCount: UILabel!
+    @IBOutlet weak var malesCountLabel: UILabel!
+    @IBOutlet weak var femalesCountLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var pieChart: PieChartView!
@@ -20,9 +20,19 @@ class DataViewController: UIViewController {
     var db: Firestore!
     var currentDate: Date?
     let dateFormatter = DateFormatter()
+    var malesCount = Double(0) {
+        didSet {
+            self.updatePieChart()
+        }
+    }
+    var femalesCount = Double(0) {
+        didSet {
+            self.updatePieChart()
+        }
+    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // [START setup]
         let settings = FirestoreSettings()
         dateFormatter.dateStyle = .medium
@@ -31,53 +41,61 @@ class DataViewController: UIViewController {
         dateFormatter.locale = Locale(identifier: "ja_JP")
         let dateString = dateFormatter.string(from: date as Date)
         self.currentDate = dateFormatter.date(from: dateString)
-
+        
         
         Firestore.firestore().settings = settings
         // [END setup]
         db = Firestore.firestore()
         // Do any additional setup after loading the view.
+        self.getTotals()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+     
+    }
+    
+    private func getTotals() {
         self.getTotalMales()
         self.getTotalFemales()
-        updatePieChart()
     }
     
     private func getTotalMales() {
-        var count = 0
         db.collection("visitors").whereField("gender", isEqualTo: "male").whereField("date", isEqualTo: self.currentDate!)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                     
                 } else {
+                    self.malesCount = 0
                     if(!(querySnapshot?.isEmpty)!) {
                     for document in querySnapshot!.documents {
                         print("\(document.documentID) => \(document.data())")
-                        count += 1
+                        self.malesCount += 1
                         // [END get_multiple]
                     }
                 }
-            self.malesCount.text = count.description
+                    self.malesCountLabel.text = String(self.malesCount)
           }
         }
  
     }
     
     private func getTotalFemales() {
-        var count = 0
         db.collection("visitors").whereField("gender", isEqualTo: "female").whereField("date", isEqualTo: self.currentDate!)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
+                    self.femalesCount = 0
                     if(!(querySnapshot?.isEmpty)!) {
                     for document in querySnapshot!.documents {
                         print("\(document.documentID) => \(document.data())")
-                        count += 1
+                        self.femalesCount += 1
                         // [END get_multiple]
                         }
                  }
-                    self.femalesCount.text = count.description
+                    self.femalesCountLabel.text = String(self.femalesCount)
                 }
         }
     }
@@ -90,15 +108,13 @@ class DataViewController: UIViewController {
     @IBAction func search(_ sender: Any) {
         let dateString = dateFormatter.string(from: datePicker.date as Date)
         self.currentDate = dateFormatter.date(from: dateString)
-        self.getTotalMales()
-        self.getTotalFemales()
+        self.getTotals()
         self.updatePieChart()
-       
     }
     
     private func updatePieChart() {
-            let entry1 = PieChartDataEntry(value: Double(malesCount.text!)!, label: "Males")
-        let entry2 = PieChartDataEntry(value: Double(femalesCount.text!)!, label: "Females")
+        let entry1 = PieChartDataEntry(value: Double(self.malesCount), label: "Males")
+        let entry2 = PieChartDataEntry(value: Double(self.femalesCount), label: "Females")
         let dataSet = PieChartDataSet(values: [entry1, entry2], label: "Gender")
         let data = PieChartData(dataSet: dataSet)
         pieChart.data = data
