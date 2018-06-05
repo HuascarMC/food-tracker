@@ -29,11 +29,19 @@ class VisitorInputViewController: UIViewController {
     var age: Int?
     var gender: String?
     var db: Firestore!
+    var currentDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        let date = NSDate()
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        let dateString = dateFormatter.string(from: date as Date)
+        self.currentDate = dateFormatter.date(from: dateString)
 
-        self.date.text = NSDate().description
+        self.date.text = dateString
         self.genders = [self.Male, self.Female]
         self.ages = [self.one, self.two, self.three, self.four, self.five, self.six, self.seven]
         // Do any additional setup after loading the view.
@@ -113,7 +121,7 @@ class VisitorInputViewController: UIViewController {
             ref = db.collection("visitors").addDocument(data: [
                 "gender": self.gender!,
                 "age": self.age!,
-                "date": NSDate()
+                "date": self.currentDate!
             ]) { err in
                 if let err = err {
                     print("Error adding document: \(err)")

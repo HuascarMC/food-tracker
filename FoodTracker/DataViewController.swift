@@ -13,13 +13,23 @@ class DataViewController: UIViewController {
     @IBOutlet weak var malesCount: UILabel!
     @IBOutlet weak var femalesCount: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var db: Firestore!
+    var currentDate: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // [START setup]
         let settings = FirestoreSettings()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        let date = datePicker.date
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        let dateString = dateFormatter.string(from: date as Date)
+        self.currentDate = dateFormatter.date(from: dateString)
+
         
         Firestore.firestore().settings = settings
         // [END setup]
@@ -31,7 +41,7 @@ class DataViewController: UIViewController {
     
     private func getTotalMales() {
         var count = 0
-        db.collection("visitors").whereField("gender", isEqualTo: "male")
+        db.collection("visitors").whereField("gender", isEqualTo: "male").whereField("date", isEqualTo: self.currentDate!)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -70,7 +80,10 @@ class DataViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func search(_ sender: Any) {
+        self.loadView()
+    }
+    
     /*
     // MARK: - Navigation
 
