@@ -47,16 +47,17 @@ class DataViewController: UIViewController {
                     print("Error getting documents: \(err)")
                     
                 } else {
-                        self.showAlert(text: (self.currentDate?.description)!)
+                    if(!(querySnapshot?.isEmpty)!) {
                     for document in querySnapshot!.documents {
                         print("\(document.documentID) => \(document.data())")
                         count += 1
                         // [END get_multiple]
-                        self.malesCount.text = count.description
                     }
                 }
+            self.malesCount.text = count.description
+          }
         }
-
+ 
     }
     
     private func getTotalFemales() {
@@ -66,15 +67,16 @@ class DataViewController: UIViewController {
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
+                    if(!(querySnapshot?.isEmpty)!) {
                     for document in querySnapshot!.documents {
                         print("\(document.documentID) => \(document.data())")
                         count += 1
                         // [END get_multiple]
-                        self.femalesCount.text = count.description
-                    }
+                        }
+                 }
+                    self.femalesCount.text = count.description
                 }
         }
-        
     }
  
     override func didReceiveMemoryWarning() {
