@@ -34,8 +34,6 @@ class DataViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // [START setup]
-        let settings = FirestoreSettings()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         let date = datePicker.date
@@ -43,7 +41,8 @@ class DataViewController: UIViewController {
         let dateString = dateFormatter.string(from: date as Date)
         self.currentDate = dateFormatter.date(from: dateString)
         
-        
+        // [START setup]
+        let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         // [END setup]
         db = Firestore.firestore()
