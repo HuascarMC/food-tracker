@@ -174,9 +174,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-FB-yU3" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="67" y="219" width="187" height="113"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kj7-Gu-fVe">
+                                <rect key="frame" x="35" y="158" width="213" height="131"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-FB-yU3" customClass="LineChartView" customModule="Charts">
+                                        <rect key="frame" x="13" y="9" width="187" height="113"/>
+                                        <color key="backgroundColor" red="1" green="0.90886584989999997" blue="0.91455617499999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.9416623116656897" blue="0.88903085384415026" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="pR4-FB-yU3" secondAttribute="bottom" constant="9" id="jtj-YK-pMJ"/>
+                                    <constraint firstItem="pR4-FB-yU3" firstAttribute="top" secondItem="kj7-Gu-fVe" secondAttribute="top" constant="9" id="kNG-mS-Mw6"/>
+                                    <constraint firstAttribute="trailing" secondItem="pR4-FB-yU3" secondAttribute="trailing" constant="13" id="qmQ-St-tSD"/>
+                                    <constraint firstItem="pR4-FB-yU3" firstAttribute="leading" secondItem="kj7-Gu-fVe" secondAttribute="leading" constant="13" id="x84-Hq-SkO"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2b-CR-hJL">
                                 <rect key="frame" x="16" y="87" width="288" height="51"/>
@@ -220,12 +232,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pR4-FB-yU3" firstAttribute="top" secondItem="U2b-CR-hJL" secondAttribute="bottom" constant="81" id="De0-2q-Hme"/>
+                            <constraint firstItem="kj7-Gu-fVe" firstAttribute="leading" secondItem="Xbc-gQ-X4u" secondAttribute="leading" constant="35" id="OZj-Ym-ofs"/>
                             <constraint firstItem="U2b-CR-hJL" firstAttribute="leading" secondItem="Xbc-gQ-X4u" secondAttribute="leading" constant="16" id="RmF-Ck-0Zi"/>
-                            <constraint firstItem="pR4-FB-yU3" firstAttribute="leading" secondItem="Xbc-gQ-X4u" secondAttribute="leading" constant="67" id="bJf-zU-z0i"/>
-                            <constraint firstItem="Xbc-gQ-X4u" firstAttribute="bottom" secondItem="pR4-FB-yU3" secondAttribute="bottom" constant="148" id="ckb-gP-PIp"/>
-                            <constraint firstItem="Xbc-gQ-X4u" firstAttribute="trailing" secondItem="pR4-FB-yU3" secondAttribute="trailing" constant="66" id="kld-4B-XyA"/>
+                            <constraint firstItem="Xbc-gQ-X4u" firstAttribute="bottom" secondItem="kj7-Gu-fVe" secondAttribute="bottom" constant="191" id="Va0-Vc-iMu"/>
                             <constraint firstItem="U2b-CR-hJL" firstAttribute="top" secondItem="Xbc-gQ-X4u" secondAttribute="top" constant="23" id="snD-Wk-dbn"/>
+                            <constraint firstItem="Xbc-gQ-X4u" firstAttribute="trailing" secondItem="kj7-Gu-fVe" secondAttribute="trailing" constant="72" id="xYf-VJ-uUT"/>
+                            <constraint firstItem="kj7-Gu-fVe" firstAttribute="top" secondItem="U2b-CR-hJL" secondAttribute="bottom" constant="20" id="xw6-nH-aKP"/>
                             <constraint firstItem="Xbc-gQ-X4u" firstAttribute="trailing" secondItem="U2b-CR-hJL" secondAttribute="trailing" constant="16" id="xwj-7n-40u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xbc-gQ-X4u"/>

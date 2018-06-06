@@ -41,12 +41,13 @@ class MainViewController: UIViewController {
         
         let line = LineChartDataSet(values: lineChartEntry, label: "Visitors")
         
-        line.colors = [NSUIColor.orange]
+        line.colors = ChartColorTemplates.colorful()
         
         let data = LineChartData()
         data.addDataSet(line)
               lineChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         lineChart.data = data
+   
         lineChart.chartDescription?.text = "Visitors in past 5 days"
     }
     /*
