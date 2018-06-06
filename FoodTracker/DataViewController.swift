@@ -11,6 +11,7 @@ import Firebase
 import Charts
 
 class DataViewController: UIViewController {
+  
     @IBOutlet weak var malesCountLabel: UILabel!
     @IBOutlet weak var femalesCountLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
