@@ -120,13 +120,13 @@ class DataViewController: UIViewController {
         let dataSet = PieChartDataSet(values: [entry1, entry2], label: "Gender")
         let data = PieChartData(dataSet: dataSet)
         pieChart.data = data
-        pieChart.chartDescription?.text = "By Gender"
+        pieChart.chartDescription?.text = ""
         dataSet.colors = ChartColorTemplates.joyful()
         pieChart.legend.font = UIFont(name: "Futura", size: 10)!
-        pieChart.chartDescription?.font = UIFont(name: "Futura", size: 12)!
-        pieChart.chartDescription?.xOffset = pieChart.frame.width + 30
-        pieChart.chartDescription?.yOffset = pieChart.frame.height * (2/3)
-        pieChart.chartDescription?.textAlign = NSTextAlignment.left
+//        pieChart.chartDescription?.font = UIFont(name: "Futura", size: 12)!
+//        pieChart.chartDescription?.xOffset = pieChart.frame.width + 30
+//        pieChart.chartDescription?.yOffset = pieChart.frame.height * (2/3)
+//        pieChart.chartDescription?.textAlign = NSTextAlignment.left
         //All other additions to this function will go here
         pieChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         //This must stay at end of function
