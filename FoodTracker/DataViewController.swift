@@ -21,6 +21,7 @@ class DataViewController: UIViewController {
     var db: Firestore!
     var currentDate: Date?
     let dateFormatter = DateFormatter()
+    var totalVisitors: Double?
     var malesCount = Double(0) {
         didSet {
             self.updatePieChart()

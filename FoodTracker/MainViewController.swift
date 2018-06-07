@@ -73,7 +73,7 @@ class MainViewController: UIViewController {
         
         let data = LineChartData()
         data.addDataSet(line)
-              lineChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        lineChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         lineChart.data = data
    
         lineChart.chartDescription?.text = "Visitors in past 5 days"
