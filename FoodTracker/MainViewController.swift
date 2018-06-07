@@ -25,6 +25,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         // [START setup]
         let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = true
         Firestore.firestore().settings = settings
         // [END setup]
         db = Firestore.firestore()

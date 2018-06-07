@@ -43,6 +43,7 @@ class DataViewController: UIViewController {
         
         // [START setup]
         let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = true
         Firestore.firestore().settings = settings
         // [END setup]
         db = Firestore.firestore()
