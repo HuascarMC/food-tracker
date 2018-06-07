@@ -15,6 +15,12 @@ class MainViewController: UIViewController {
     
     var db: Firestore!
     var currentDate: Date?
+    var yesterday: Date?
+    var beforeYesterday: Date? {
+        didSet {
+            getVisitorsPastThreeDays()
+        }
+    }
     let dateFormatter = DateFormatter()
     var visitorsByDay = [Double]() {
         didSet {
@@ -30,14 +36,15 @@ class MainViewController: UIViewController {
         // [END setup]
         db = Firestore.firestore()
         // Do any additional setup after loading the view.
-        
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
+        visitorsByDay.removeAll()
+        self.setDates()
+    }
+    
+    private func setDates() {
         let date = NSDate()
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        let dateString = dateFormatter.string(from: date as Date)
-        self.currentDate = dateFormatter.date(from: dateString)
-        getVisitorsPastThreeDays()
+        self.currentDate = formatDate(date: date as Date)
+        self.yesterday = getYesterdayDate(date: self.currentDate!)
+        self.beforeYesterday = getYesterdayDate(date: self.yesterday!)
     }
     
     override func viewDidLoad() {
@@ -74,8 +81,8 @@ class MainViewController: UIViewController {
     
     private func getVisitorsPastThreeDays() {
         getVisitorsByDate(date: self.currentDate!)
-        getVisitorsByDate(date: dateFormatter.date(from: "2018-06-05")!)
-        getVisitorsByDate(date: dateFormatter.date(from: "2018-06-04")!)
+        getVisitorsByDate(date: self.yesterday!)
+        getVisitorsByDate(date: self.beforeYesterday!)
     }
     
     private func getVisitorsByDate(date: Date) {
@@ -96,6 +103,28 @@ class MainViewController: UIViewController {
                     self.visitorsByDay.append(visitorsCount)
                 }
         }
+    }
+    
+    private func getYesterdayDate(date: Date) -> Date {
+        let daysToAdd = -1
+        let currentDate = date
+        
+        var dateComponent = DateComponents()
+        
+        dateComponent.day = daysToAdd
+        
+        let yesterdayDate = Calendar.current.date(byAdding: dateComponent, to: currentDate)
+        return yesterdayDate!
+    }
+    
+    private func formatDate(date: Date) -> Date{
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        let date = date
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateFormatter.date(from: dateString)
+        return formattedDate!
     }
     /*
     // MARK: - Navigation
