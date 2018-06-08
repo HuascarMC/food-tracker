@@ -11,9 +11,9 @@ import Charts
 
 class ChartStringFormatter: NSObject, IAxisValueFormatter {
     
-    var nameValues: [String]! =  ["A", "B", "C", "D"]
+    var nameValues: [String]!
     
     public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return String(describing: nameValues[Int(value)])
+        return String(describing: nameValues[Int(value) + 1])
     }
 }

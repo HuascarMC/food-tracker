@@ -60,6 +60,15 @@ class MainViewController: UIViewController {
     
     private func updateLineChart() {
         var lineChartEntry = [ChartDataEntry]()
+        let xAxis = lineChart.xAxis
+        xAxis.labelPosition = .bottom
+        xAxis.labelFont = .systemFont(ofSize: 10)
+        
+        let formatter = ChartStringFormatter()
+        formatter.nameValues = ["", "Previous Day", "Yesterday", "Today"] //anything you want
+        xAxis.valueFormatter = formatter
+        xAxis.granularity = 1
+
         
         for i in 0..<self.visitorsByDay.count {
             let entry = ChartDataEntry(x: Double(i), y: self.visitorsByDay.reversed()[i])
@@ -79,11 +88,6 @@ class MainViewController: UIViewController {
         lineChart.legend.enabled = false
         lineChart.borderLineWidth = 1.0
         
-        let xAxis = lineChart.xAxis
-        xAxis.labelPosition = .bottom
-        xAxis.labelFont = .systemFont(ofSize: 10)
-        xAxis.granularity = 1
-        xAxis.labelCount = 7
    
         lineChart.chartDescription?.text = "Visitors in past 3 days"
     }
