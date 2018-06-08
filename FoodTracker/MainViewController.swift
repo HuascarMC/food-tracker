@@ -73,11 +73,19 @@ class MainViewController: UIViewController {
         
         let data = LineChartData()
         data.addDataSet(line)
-        lineChart.xAxis.labelPosition = .bottom
         lineChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         lineChart.data = data
+        lineChart.rightAxis.enabled = false
+        lineChart.legend.enabled = false
+        lineChart.borderLineWidth = 1.0
+        
+        let xAxis = lineChart.xAxis
+        xAxis.labelPosition = .bottom
+        xAxis.labelFont = .systemFont(ofSize: 10)
+        xAxis.granularity = 1
+        xAxis.labelCount = 7
    
-        lineChart.chartDescription?.text = "Visitors in past 5 days"
+        lineChart.chartDescription?.text = "Visitors in past 3 days"
     }
     
     private func getVisitorsPastThreeDays() {
