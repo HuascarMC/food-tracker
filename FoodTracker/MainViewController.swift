@@ -62,7 +62,7 @@ class MainViewController: UIViewController {
         var lineChartEntry = [ChartDataEntry]()
         
         for i in 0..<self.visitorsByDay.count {
-            let entry = ChartDataEntry(x: Double(i), y: self.visitorsByDay[i])
+            let entry = ChartDataEntry(x: Double(i), y: self.visitorsByDay.reversed()[i])
             
             lineChartEntry.append(entry)
         }

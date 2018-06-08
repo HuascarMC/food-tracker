@@ -215,19 +215,24 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kj7-Gu-fVe">
                                 <rect key="frame" x="54" y="194" width="213" height="131"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-FB-yU3" customClass="LineChartView" customModule="Charts">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pR4-FB-yU3" customClass="LineChartView" customModule="Charts">
                                         <rect key="frame" x="13" y="9" width="187" height="113"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.90886584989999997" blue="0.91455617499999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="pR4-FB-yU3" secondAttribute="height" multiplier="187:113" id="Cqa-mV-0xb"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.9416623116656897" blue="0.88903085384415026" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kj7-Gu-fVe" secondAttribute="height" multiplier="213:131" id="BR1-rJ-mHX"/>
+                                    <constraint firstItem="pR4-FB-yU3" firstAttribute="leading" secondItem="kj7-Gu-fVe" secondAttribute="leading" constant="13" id="K1R-XG-Ell"/>
+                                    <constraint firstAttribute="trailing" secondItem="pR4-FB-yU3" secondAttribute="trailing" constant="13" id="UmM-Tz-VHm"/>
+                                    <constraint firstItem="pR4-FB-yU3" firstAttribute="top" secondItem="kj7-Gu-fVe" secondAttribute="top" constant="9" id="Vq1-Mf-rS8"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.18392423793749157" green="0.18392423793749157" blue="0.18392423793749157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Xbc-gQ-X4u" firstAttribute="trailing" secondItem="U2b-CR-hJL" secondAttribute="trailing" constant="16" id="2CJ-x7-KCh"/>
                             <constraint firstItem="kj7-Gu-fVe" firstAttribute="leading" secondItem="Xbc-gQ-X4u" secondAttribute="leading" constant="54" id="Obu-y5-bJu"/>

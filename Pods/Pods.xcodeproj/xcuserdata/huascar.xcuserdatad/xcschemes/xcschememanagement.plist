@@ -60,6 +60,13 @@
 			<key>orderHint</key>
 			<integer>14</integer>
 		</dict>
+		<key>TTGSnackbar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
 		<key>gRPC-Core.xcscheme</key>
 		<dict>
 			<key>isShown</key>
