@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import TTGSnackbar
 
 class VisitorInputViewController: UIViewController {
     @IBOutlet weak var Male: UIButton!
@@ -138,9 +139,11 @@ class VisitorInputViewController: UIViewController {
     }
     
     private func showAlert(text: String) {
-    let alert = UIAlertController(title: "Alert", message: text, preferredStyle: .alert)
-    self.present(alert, animated: true, completion: nil)
-    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
+        let snackbar = TTGSnackbar(message: text, duration: .short)
+        snackbar.show()
+//    let alert = UIAlertController(title: "Alert", message: text, preferredStyle: .alert)
+//    self.present(alert, animated: true, completion: nil)
+//    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
     }
     /*
     // MARK: - Navigation
