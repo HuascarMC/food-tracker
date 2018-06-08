@@ -73,6 +73,7 @@ class MainViewController: UIViewController {
         
         let data = LineChartData()
         data.addDataSet(line)
+        lineChart.xAxis.labelPosition = .bottom
         lineChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         lineChart.data = data
    
