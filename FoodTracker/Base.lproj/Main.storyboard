@@ -171,7 +171,7 @@
         <!--Main View Controller-->
         <scene sceneID="RIZ-43-kZp">
             <objects>
-                <viewController id="hg6-tt-0as" customClass="MainViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myVC" id="hg6-tt-0as" customClass="MainViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TsS-QR-SEv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

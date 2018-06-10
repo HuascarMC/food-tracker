@@ -13,13 +13,17 @@ class SignViewController: UIViewController {
     fileprivate(set) var auth:Auth?
     fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
     fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
-    @IBAction func signOutClicked(_ sender: Any) {
-        do {
-            try Auth.auth().signOut() }
-        catch {
-            
+    var handle: AuthStateDidChangeListenerHandle?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "myVC") as UIViewController
+            self.present(initViewController, animated: true, completion: nil)
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
