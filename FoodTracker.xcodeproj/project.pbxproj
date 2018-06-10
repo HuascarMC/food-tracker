@@ -16,6 +16,7 @@
 		E87AFBC920C1C55E004530C3 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87AFBC820C1C55E004530C3 /* MealTableViewCell.swift */; };
 		E87AFBCD20C1CA6B004530C3 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87AFBCC20C1CA6B004530C3 /* MealTableViewController.swift */; };
 		E8AB787120CAB653001E3A28 /* ChartStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB787020CAB653001E3A28 /* ChartStringFormatter.swift */; };
+		E8AB787320CD5534001E3A28 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB787220CD5534001E3A28 /* SignViewController.swift */; };
 		E8B162C220C158AF00C3990D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B162C020C158AC00C3990D /* Meal.swift */; };
 		E8D043E720BB299A0075154A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D043E620BB299A0075154A /* AppDelegate.swift */; };
 		E8D043E920BB299A0075154A /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D043E820BB299A0075154A /* MealViewController.swift */; };
@@ -51,6 +52,7 @@
 		E87AFBCC20C1CA6B004530C3 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MealTableViewController.swift; path = ../MealTableViewController.swift; sourceTree = "<group>"; };
 		E888EE24C1E54695C6FBA245 /* Pods_FoodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8AB787020CAB653001E3A28 /* ChartStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStringFormatter.swift; sourceTree = "<group>"; };
+		E8AB787220CD5534001E3A28 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
 		E8B162C020C158AC00C3990D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Meal.swift; path = FoodTracker/Meal.swift; sourceTree = SOURCE_ROOT; };
 		E8D043E320BB299A0075154A /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8D043E620BB299A0075154A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				E8D043E820BB299A0075154A /* MealViewController.swift */,
 				E85F465820BD8884001382C8 /* RatingControl.swift */,
 				E8D043EA20BB299A0075154A /* Main.storyboard */,
+				E8AB787220CD5534001E3A28 /* SignViewController.swift */,
 				E82821DB20C6FF060051075E /* MainViewController.swift */,
 				E8AB787020CAB653001E3A28 /* ChartStringFormatter.swift */,
 				E8519E3120C46D1F00C7EDD8 /* DataViewController.swift */,
@@ -363,6 +366,7 @@
 				E8B162C220C158AF00C3990D /* Meal.swift in Sources */,
 				E8D043E920BB299A0075154A /* MealViewController.swift in Sources */,
 				E81D3C0C20C4256B009C09DC /* VisitorInputViewController.swift in Sources */,
+				E8AB787320CD5534001E3A28 /* SignViewController.swift in Sources */,
 				E85F465920BD8884001382C8 /* RatingControl.swift in Sources */,
 				E8AB787120CAB653001E3A28 /* ChartStringFormatter.swift in Sources */,
 				E8519E3220C46D1F00C7EDD8 /* DataViewController.swift in Sources */,
