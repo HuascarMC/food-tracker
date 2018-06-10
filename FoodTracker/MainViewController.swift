@@ -24,7 +24,10 @@ class MainViewController: UIViewController {
     let dateFormatter = DateFormatter()
     var visitorsByDay = [Double]() {
         didSet {
-            updateLineChart()
+            if(visitorsByDay.count == 3) {
+                visitorsByDay.swapAt(0, 1)
+                updateLineChart()
+            }
         }
     }
     
