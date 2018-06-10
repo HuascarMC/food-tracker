@@ -12,6 +12,7 @@ target 'FoodTracker' do
   pod 'TTGSnackbar'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'FirebaseUI'
 
   target 'FoodTrackerTests' do
     inherit! :search_paths
