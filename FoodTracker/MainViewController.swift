@@ -63,25 +63,70 @@ class MainViewController: UIViewController {
     
     private func updateLineChart() {
         var lineChartEntry = [ChartDataEntry]()
+        lineChart.chartDescription?.enabled = false
+        lineChart.dragEnabled = true
+        lineChart.setScaleEnabled(true)
+        lineChart.pinchZoomEnabled = true
+        lineChart.gridBackgroundColor = UIColor(white: 1, alpha: 1)
+        
         let xAxis = lineChart.xAxis
         xAxis.labelPosition = .bottom
         xAxis.labelFont = .systemFont(ofSize: 10)
+        xAxis.labelTextColor = UIColor(white:1, alpha: 1)
+        xAxis.axisLineWidth = 3.0
+        xAxis.axisLineColor = UIColor(white: 1, alpha: 1)
         
+        // x-axis limit line
+        let llXAxis = ChartLimitLine(limit: 10, label: "Index 10")
+        llXAxis.lineWidth = 4
+        llXAxis.lineDashLengths = [10, 10, 0]
+        llXAxis.labelPosition = .rightBottom
+        llXAxis.valueFont = .systemFont(ofSize: 10)
+        
+        lineChart.xAxis.gridLineDashLengths = [10, 10]
+        lineChart.xAxis.gridLineDashPhase = 0
         let formatter = ChartStringFormatter()
-        formatter.nameValues = ["", "Previous Day", "Yesterday", "Today"] //anything you want
+        formatter.nameValues = ["", "Previous", "Yesterday", "Today"] //anything you want
         xAxis.valueFormatter = formatter
         xAxis.granularity = 1
+//
+//        let ll1 = ChartLimitLine(limit: 150, label: "Upper Limit")
+//        ll1.lineWidth = 4
+//        ll1.lineDashLengths = [5, 5]
+//        ll1.labelPosition = .rightTop
+//        ll1.valueFont = .systemFont(ofSize: 10)
+//
+//        let ll2 = ChartLimitLine(limit: -30, label: "Lower Limit")
+//        ll2.lineWidth = 4
+//        ll2.lineDashLengths = [5,5]
+//        ll2.labelPosition = .rightBottom
+//        ll2.valueFont = .systemFont(ofSize: 10)
+        
+        let leftAxis = lineChart.leftAxis
+        leftAxis.removeAllLimitLines()
+//        leftAxis.addLimitLine(ll1)
+//        leftAxis.addLimitLine(ll2)
+        leftAxis.axisMaximum = 10
+        leftAxis.axisMinimum = 0
+        leftAxis.gridLineDashLengths = [5, 5]
+        leftAxis.minWidth = 3.0
+        leftAxis.labelTextColor = UIColor(white: 1, alpha: 1)
+        leftAxis.axisLineWidth = 3.0
+        leftAxis.axisLineColor = UIColor(white: 1, alpha: 1)
+        leftAxis.drawLimitLinesBehindDataEnabled = true
+        
+        lineChart.rightAxis.enabled = false
 
         
         for i in 0..<self.visitorsByDay.count {
             let entry = ChartDataEntry(x: Double(i), y: self.visitorsByDay.reversed()[i])
-            
             lineChartEntry.append(entry)
         }
         
         let line = LineChartDataSet(values: lineChartEntry, label: "Visitors")
         
         line.colors = ChartColorTemplates.colorful()
+        line.setCircleColors(UIColor(red: 0, green: 1, blue: 0, alpha: 1))
         
         let data = LineChartData()
         data.addDataSet(line)
@@ -90,6 +135,7 @@ class MainViewController: UIViewController {
         lineChart.rightAxis.enabled = false
         lineChart.legend.enabled = false
         lineChart.borderLineWidth = 1.0
+    
         
    
         lineChart.chartDescription?.text = "Visitors in past 3 days"
