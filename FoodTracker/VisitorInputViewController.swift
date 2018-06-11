@@ -94,11 +94,11 @@ class VisitorInputViewController: UIViewController {
     }
     
     private func setGender(_ button: UIButton) {
-        switch(button.currentTitle) {
-        case "Male":
+        switch(button.restorationIdentifier) {
+        case "male":
             self.gender = "male";
             break;
-        case "Female":
+        case "female":
             self.gender = "female";
             break;
         default: break;
@@ -108,7 +108,7 @@ class VisitorInputViewController: UIViewController {
     
     @IBAction func genderTapped(_ sender: Any) {
         for button in self.genders! {
-           button.titleLabel?.textColor = UIColor.gray
+           button.titleLabel?.backgroundColor = UIColor.gray
         }
         let selectedButton = sender as? UIButton
         setGender(selectedButton!)
