@@ -201,7 +201,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.94166231170000003" blue="0.88903085380000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="U2b-CR-hJL" secondAttribute="height" multiplier="96:17" id="6MG-Mo-BHB"/>
                                     <constraint firstItem="dFc-hi-HI2" firstAttribute="centerX" secondItem="U2b-CR-hJL" secondAttribute="centerX" id="Dpm-lN-Zkn"/>
@@ -564,7 +564,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="zCQ-yo-m6V" firstAttribute="baseline" secondItem="XA8-Fy-S33" secondAttribute="baseline" id="3mN-7U-CF1"/>
                                     <constraint firstItem="zCQ-yo-m6V" firstAttribute="top" secondItem="BVE-Jl-bfT" secondAttribute="bottom" constant="20" id="6FC-0T-wTb"/>
