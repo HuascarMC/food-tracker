@@ -13,6 +13,8 @@ import Charts
 class MainViewController: UIViewController {
     @IBOutlet weak var lineChart: LineChartView!
     
+    
+    
     var db: Firestore!
     var currentDate: Date?
     var yesterday: Date?
@@ -24,8 +26,8 @@ class MainViewController: UIViewController {
     let dateFormatter = DateFormatter()
     var visitorsByDay = [Double]() {
         didSet {
-            if(visitorsByDay.count == 3) {
-                visitorsByDay.swapAt(0, 1)
+            if(visitorsByDay.count == 5) {
+                visitorsByDay.swapAt(0, 2)
                 updateLineChart()
             }
         }
@@ -53,6 +55,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLineChart()
+
         // Do any additional setup after loading the view.
     }
 
@@ -62,6 +65,7 @@ class MainViewController: UIViewController {
     }
     
     private func updateLineChart() {
+    
         var lineChartEntry = [ChartDataEntry]()
         lineChart.chartDescription?.enabled = false
         lineChart.dragEnabled = true
@@ -86,7 +90,7 @@ class MainViewController: UIViewController {
         lineChart.xAxis.gridLineDashLengths = [10, 10]
         lineChart.xAxis.gridLineDashPhase = 0
         let formatter = ChartStringFormatter()
-        formatter.nameValues = ["", "Previous", "Yesterday", "Today"] //anything you want
+        formatter.nameValues = ["", "", "Previous", "Previous", "Yesterday", "Today"] //anything you want
         xAxis.valueFormatter = formatter
         xAxis.granularity = 1
 //
@@ -127,7 +131,17 @@ class MainViewController: UIViewController {
         
         line.colors = ChartColorTemplates.colorful()
         line.setCircleColors(UIColor(red: 0, green: 1, blue: 0, alpha: 1))
-        
+        line.lineDashLengths = [5, 2.5]
+        line.highlightLineDashLengths = [5, 2.5]
+//        line.setColor(.black)
+        line.setCircleColor(.orange)
+        line.lineWidth = 10
+        line.circleRadius = 10
+        line.drawCircleHoleEnabled = false
+        line.valueFont = .systemFont(ofSize: 0)
+        line.formLineDashLengths = [5, 2.5]
+        line.formLineWidth = 1
+        line.formSize = 15
         let data = LineChartData()
         data.addDataSet(line)
         lineChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
@@ -145,6 +159,10 @@ class MainViewController: UIViewController {
         getVisitorsByDate(date: self.currentDate!)
         getVisitorsByDate(date: self.yesterday!)
         getVisitorsByDate(date: self.beforeYesterday!)
+        let bby = self.getYesterdayDate(date: self.beforeYesterday!)
+        getVisitorsByDate(date: bby)
+        let bbby = self.getYesterdayDate(date: bby)
+        getVisitorsByDate(date: bbby)
     }
     
     private func getVisitorsByDate(date: Date) {
