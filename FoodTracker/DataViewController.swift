@@ -54,6 +54,7 @@ class DataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.updatePieChart()
      
     }
     
@@ -111,13 +112,14 @@ class DataViewController: UIViewController {
         let dateString = dateFormatter.string(from: datePicker.date as Date)
         self.currentDate = dateFormatter.date(from: dateString)
         self.getTotals()
-        self.updatePieChart()
     }
     
     private func updatePieChart() {
         let entry1 = PieChartDataEntry(value: Double(self.malesCount), label: "Males")
         let entry2 = PieChartDataEntry(value: Double(self.femalesCount), label: "Females")
         let dataSet = PieChartDataSet(values: [entry1, entry2], label: "Gender")
+        pieChart.setExtraOffsets(left: 20, top: 0, right: 20, bottom: 0)
+        pieChart.animate(xAxisDuration: 1.4, easingOption: .easeOutBack)
         let data = PieChartData(dataSet: dataSet)
         pieChart.data = data
         pieChart.chartDescription?.text = ""
@@ -128,7 +130,26 @@ class DataViewController: UIViewController {
 //        pieChart.chartDescription?.yOffset = pieChart.frame.height * (2/3)
 //        pieChart.chartDescription?.textAlign = NSTextAlignment.left
         //All other additions to this function will go here
-        pieChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+//        pieChart.animate(xAxisDuration: 1.4)
+//        pieChart.animate(yAxisDuration: 1.4)
+        dataSet.valueLinePart1OffsetPercentage = 1
+        dataSet.valueLinePart1Length = 0.5
+        dataSet.valueLinePart2Length = 0.5
+        //set.xValuePosition = .outsideSlice
+        dataSet.yValuePosition = .outsideSlice
+        dataSet.sliceSpace = 2
+        let pFormatter = NumberFormatter()
+//        pFormatter.numberStyle = .percent
+        pFormatter.maximumFractionDigits = 1
+        pFormatter.multiplier = 1
+//        pFormatter.percentSymbol = " %"
+        data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+        data.setValueFont(.systemFont(ofSize: 11, weight: .light))
+        data.setValueTextColor(.black)
+        pieChart.spin(duration: 2,
+                       fromAngle: pieChart.rotationAngle,
+                       toAngle: pieChart.rotationAngle + 360,
+                       easingOption: .easeInCubic)
         //This must stay at end of function
         pieChart.notifyDataSetChanged()
     }
