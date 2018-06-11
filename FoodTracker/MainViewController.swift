@@ -96,6 +96,16 @@ class MainViewController: UIViewController {
         formatter.nameValues = ["", "", "Previous", "Previous", "Yesterday", "Today"] //anything you want
         xAxis.valueFormatter = formatter
         xAxis.granularity = 1
+        
+        let marker = BalloonMarker(color: UIColor(white: 180/255, alpha: 1),
+                                   font: .systemFont(ofSize: 12),
+                                   textColor: .white,
+                                   insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8))
+        marker.chartView = lineChart
+        marker.minimumSize = CGSize(width: 80, height: 40)
+        lineChart.marker = marker
+        
+        lineChart.legend.form = .line
 //
 //        let ll1 = ChartLimitLine(limit: 150, label: "Upper Limit")
 //        ll1.lineWidth = 4

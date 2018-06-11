@@ -10,6 +10,7 @@
 		D5857A33B33C272F32203E14 /* Pods_FoodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E888EE24C1E54695C6FBA245 /* Pods_FoodTracker.framework */; };
 		E81D3C0C20C4256B009C09DC /* VisitorInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81D3C0B20C4256B009C09DC /* VisitorInputViewController.swift */; };
 		E82821DC20C6FF060051075E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82821DB20C6FF060051075E /* MainViewController.swift */; };
+		E8511AB420CED44600C2247D /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8511AB320CED44600C2247D /* BalloonMarker.swift */; };
 		E8519E3220C46D1F00C7EDD8 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8519E3120C46D1F00C7EDD8 /* DataViewController.swift */; };
 		E85F465920BD8884001382C8 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85F465820BD8884001382C8 /* RatingControl.swift */; };
 		E863DD4520C44310007A9E96 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E863DD4420C44310007A9E96 /* GoogleService-Info.plist */; };
@@ -45,6 +46,7 @@
 		AD6B477FC66B9494A587D8CB /* Pods_FoodTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E81D3C0B20C4256B009C09DC /* VisitorInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorInputViewController.swift; sourceTree = "<group>"; };
 		E82821DB20C6FF060051075E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E8511AB320CED44600C2247D /* BalloonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		E8519E3120C46D1F00C7EDD8 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		E85F465820BD8884001382C8 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		E863DD4420C44310007A9E96 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				E8D043EA20BB299A0075154A /* Main.storyboard */,
 				E8AB787220CD5534001E3A28 /* SignViewController.swift */,
 				E82821DB20C6FF060051075E /* MainViewController.swift */,
+				E8511AB320CED44600C2247D /* BalloonMarker.swift */,
 				E8AB787020CAB653001E3A28 /* ChartStringFormatter.swift */,
 				E8519E3120C46D1F00C7EDD8 /* DataViewController.swift */,
 				E81D3C0B20C4256B009C09DC /* VisitorInputViewController.swift */,
@@ -392,6 +395,7 @@
 				E8B162C220C158AF00C3990D /* Meal.swift in Sources */,
 				E8D043E920BB299A0075154A /* MealViewController.swift in Sources */,
 				E81D3C0C20C4256B009C09DC /* VisitorInputViewController.swift in Sources */,
+				E8511AB420CED44600C2247D /* BalloonMarker.swift in Sources */,
 				E8AB787320CD5534001E3A28 /* SignViewController.swift in Sources */,
 				E85F465920BD8884001382C8 /* RatingControl.swift in Sources */,
 				E8AB787120CAB653001E3A28 /* ChartStringFormatter.swift in Sources */,
