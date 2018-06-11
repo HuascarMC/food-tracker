@@ -35,12 +35,8 @@ class DataViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
         let date = datePicker.date
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        let dateString = dateFormatter.string(from: date as Date)
-        self.currentDate = dateFormatter.date(from: dateString)
+        self.currentDate = formatDate(date: date)
         
         // [START setup]
         let settings = FirestoreSettings()
@@ -78,7 +74,7 @@ class DataViewController: UIViewController {
                         // [END get_multiple]
                     }
                 }
-                    self.malesCountLabel.text = String(self.malesCount)
+                self.malesCountLabel.text = String(self.malesCount)
           }
         }
  
@@ -152,6 +148,16 @@ class DataViewController: UIViewController {
                        easingOption: .easeInCubic)
         //This must stay at end of function
         pieChart.notifyDataSetChanged()
+    }
+    
+    private func formatDate(date: Date) -> Date{
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        let date = date
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateFormatter.date(from: dateString)
+        return formattedDate!
     }
  
     private func showAlert(text: String) {
