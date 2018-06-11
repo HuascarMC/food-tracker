@@ -27,7 +27,10 @@ class MainViewController: UIViewController {
     var visitorsByDay = [Double]() {
         didSet {
             if(visitorsByDay.count == 5) {
-                visitorsByDay.swapAt(0, 2)
+                visitorsByDay.swapAt(0, 1)
+                visitorsByDay.swapAt(1, 2)
+                visitorsByDay.swapAt(4, 3)
+                visitorsByDay.swapAt(3, 2)
                 updateLineChart()
             }
         }
