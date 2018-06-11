@@ -105,6 +105,11 @@ class MainViewController: UIViewController {
 //        ll2.lineDashLengths = [5,5]
 //        ll2.labelPosition = .rightBottom
 //        ll2.valueFont = .systemFont(ofSize: 10)
+        let gradientColors = [ChartColorTemplates.colorFromString("#00ff0000").cgColor,
+                             ChartColorTemplates.colorFromString("#ffff0000").cgColor]
+        let gradient = CGGradient(colorsSpace: nil, colors: gradientColors as CFArray, locations: nil)!
+        
+    
         
         let leftAxis = lineChart.leftAxis
         leftAxis.removeAllLimitLines()
@@ -142,6 +147,9 @@ class MainViewController: UIViewController {
         line.formLineDashLengths = [5, 2.5]
         line.formLineWidth = 1
         line.formSize = 15
+        line.fillAlpha = 1
+        line.fill = Fill(linearGradient: gradient, angle: 90) //.linearGradient(gradient, angle: 90)
+        line.drawFilledEnabled = true
         let data = LineChartData()
         data.addDataSet(line)
         lineChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
