@@ -54,7 +54,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateLineChart()
+//        updateLineChart()
 
         // Do any additional setup after loading the view.
     }
@@ -164,6 +164,7 @@ class MainViewController: UIViewController {
     }
     
     private func getVisitorsPastThreeDays() {
+        self.visitorsByDay.removeAll()
         getVisitorsByDate(date: self.currentDate!)
         getVisitorsByDate(date: self.yesterday!)
         getVisitorsByDate(date: self.beforeYesterday!)
