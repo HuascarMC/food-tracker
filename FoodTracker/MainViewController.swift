@@ -27,10 +27,7 @@ class MainViewController: UIViewController {
     var visitorsByDay = [Double]() {
         didSet {
             if(visitorsByDay.count == 5) {
-                visitorsByDay.swapAt(0, 1)
-                visitorsByDay.swapAt(1, 2)
-                visitorsByDay.swapAt(4, 3)
-                visitorsByDay.swapAt(3, 2)
+                visitorsByDay.swapAt(2, 3)
                 updateLineChart()
             }
         }
@@ -141,7 +138,7 @@ class MainViewController: UIViewController {
 
         
         for i in 0..<self.visitorsByDay.count {
-            let entry = ChartDataEntry(x: Double(i), y: self.visitorsByDay.reversed()[i])
+            let entry = ChartDataEntry(x: Double(i), y: self.visitorsByDay[i])
             lineChartEntry.append(entry)
         }
         
@@ -203,6 +200,26 @@ class MainViewController: UIViewController {
                         }
                     }
                     self.visitorsByDay.append(visitorsCount)
+                }
+        }
+    }
+    
+    private func getVisitorsByGender(gender: String) {
+        var visitorsCount = Double(0)
+        db.collection("visitors").document("counter").whereField("gender", isEqualTo: gender)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                    
+                } else {
+                    if(!(querySnapshot?.isEmpty)!) {
+                        for document in querySnapshot!.documents {
+                            print("\(document.documentID) => \(document.data())")
+                            visitorsCount += 1
+                            // [END get_multiple]
+                        }
+                    }
+                    return visitorsCount
                 }
         }
     }
