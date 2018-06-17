@@ -102,6 +102,36 @@ func setChart() {
     var dataEntries: [BarChartDataEntry] = []
     var dataEntries1: [BarChartDataEntry] = []
     
+    let marker = BalloonMarker(color: UIColor(white: 180/255, alpha: 1),
+                               font: .systemFont(ofSize: 15),
+                               textColor: .white,
+                               insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8))
+    marker.chartView = BarChart
+    marker.minimumSize = CGSize(width: 80, height: 40)
+    BarChart.marker = marker
+    
+    
+    let xAxis = BarChart.xAxis
+    xAxis.labelPosition = .bottom
+    xAxis.labelFont = .systemFont(ofSize: 10)
+    xAxis.labelTextColor = UIColor(white:1, alpha: 1)
+    xAxis.axisLineWidth = 3.0
+    xAxis.axisLineColor = UIColor(white: 1, alpha: 1)
+    
+    let leftAxis = BarChart.leftAxis
+    leftAxis.removeAllLimitLines()
+    //        leftAxis.addLimitLine(ll1)
+    //        leftAxis.addLimitLine(ll2)
+//    leftAxis.axisMaximum = 10
+//    leftAxis.axisMinimum = 0
+    leftAxis.gridLineDashLengths = [5, 5]
+    leftAxis.minWidth = 3.0
+    leftAxis.labelTextColor = UIColor(white: 1, alpha: 1)
+    leftAxis.axisLineWidth = 3.0
+    leftAxis.axisLineColor = UIColor(white: 1, alpha: 1)
+    leftAxis.drawLimitLinesBehindDataEnabled = true
+
+    
     for i in 0..<self.months.count {
         
         let dataEntry = BarChartDataEntry(x: Double(i) , y: self.unitsSold[i])
@@ -155,7 +185,7 @@ func setChart() {
     
     
     //background color
-    BarChart.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
+//    BarChart.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
     
     //chart animation
     BarChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .linear)
