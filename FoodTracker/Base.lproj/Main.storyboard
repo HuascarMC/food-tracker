@@ -212,20 +212,21 @@
                                     <constraint firstItem="dFc-hi-HI2" firstAttribute="centerY" secondItem="U2b-CR-hJL" secondAttribute="centerY" id="mfC-o9-w99"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5s-Hb-3gF">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5s-Hb-3gF" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="54" y="333" width="213" height="128"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpV-rB-JRW" customClass="BarChartView" customModule="Charts">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpV-rB-JRW" customClass="BarChartView" customModule="Charts">
                                         <rect key="frame" x="14" y="11" width="185" height="107"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="1" green="0.90886584989999997" blue="0.91455617499999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dpV-rB-JRW" secondAttribute="height" multiplier="185:107" id="ule-jC-OVr"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="a5s-Hb-3gF" secondAttribute="height" multiplier="213:128" id="J8h-JD-ki6"/>
+                                    <constraint firstItem="dpV-rB-JRW" firstAttribute="leading" secondItem="a5s-Hb-3gF" secondAttribute="leading" constant="14" id="ev9-06-nyZ"/>
                                     <constraint firstAttribute="trailing" secondItem="dpV-rB-JRW" secondAttribute="trailing" constant="14" id="exn-LB-lIE"/>
                                     <constraint firstItem="dpV-rB-JRW" firstAttribute="top" secondItem="a5s-Hb-3gF" secondAttribute="top" constant="11" id="ksl-fh-BIk"/>
                                 </constraints>
@@ -267,6 +268,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xqw-9z-jj8"/>
                     <connections>
+                        <outlet property="BarChart" destination="dpV-rB-JRW" id="sZF-Sg-UIS"/>
                         <outlet property="lineChart" destination="pR4-FB-yU3" id="Xxn-qL-7pr"/>
                     </connections>
                 </viewController>
