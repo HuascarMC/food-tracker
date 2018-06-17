@@ -204,26 +204,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    private func getVisitorsByGender(gender: String) {
-        var visitorsCount = Double(0)
-        db.collection("visitors").document("counter").whereField("gender", isEqualTo: gender)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                    
-                } else {
-                    if(!(querySnapshot?.isEmpty)!) {
-                        for document in querySnapshot!.documents {
-                            print("\(document.documentID) => \(document.data())")
-                            visitorsCount += 1
-                            // [END get_multiple]
-                        }
-                    }
-                    return visitorsCount
-                }
-        }
-    }
-    
     private func getYesterdayDate(date: Date) -> Date {
         let daysToAdd = -1
         let currentDate = date

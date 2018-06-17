@@ -25,6 +25,7 @@
 		E8D043EE20BB299A0075154A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8D043ED20BB299A0075154A /* Assets.xcassets */; };
 		E8D043F120BB299A0075154A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D043EF20BB299A0075154A /* LaunchScreen.storyboard */; };
 		E8D043FC20BB299B0075154A /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D043FB20BB299B0075154A /* FoodTrackerTests.swift */; };
+		E8D2561F20D6886100BEF2F5 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D2561E20D6886100BEF2F5 /* CounterViewController.swift */; };
 		EF4EAD3077B4609B737E3DFA /* Pods_FoodTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6B477FC66B9494A587D8CB /* Pods_FoodTrackerTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		E8D043F720BB299A0075154A /* FoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8D043FB20BB299B0075154A /* FoodTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerTests.swift; sourceTree = "<group>"; };
 		E8D043FD20BB299B0075154A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8D2561E20D6886100BEF2F5 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				E8D043EA20BB299A0075154A /* Main.storyboard */,
 				E8AB787220CD5534001E3A28 /* SignViewController.swift */,
 				E82821DB20C6FF060051075E /* MainViewController.swift */,
+				E8D2561E20D6886100BEF2F5 /* CounterViewController.swift */,
 				E8511AB320CED44600C2247D /* BalloonMarker.swift */,
 				E8AB787020CAB653001E3A28 /* ChartStringFormatter.swift */,
 				E8519E3120C46D1F00C7EDD8 /* DataViewController.swift */,
@@ -399,6 +402,7 @@
 				E8AB787320CD5534001E3A28 /* SignViewController.swift in Sources */,
 				E85F465920BD8884001382C8 /* RatingControl.swift in Sources */,
 				E8AB787120CAB653001E3A28 /* ChartStringFormatter.swift in Sources */,
+				E8D2561F20D6886100BEF2F5 /* CounterViewController.swift in Sources */,
 				E8519E3220C46D1F00C7EDD8 /* DataViewController.swift in Sources */,
 				E8D043E720BB299A0075154A /* AppDelegate.swift in Sources */,
 				E82821DC20C6FF060051075E /* MainViewController.swift in Sources */,
