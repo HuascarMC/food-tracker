@@ -180,10 +180,10 @@
                                 <rect key="frame" x="16" y="87" width="288" height="51"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MI-o7-wvX">
-                                        <rect key="frame" x="8" y="6" width="82" height="38"/>
+                                        <rect key="frame" x="8" y="6" width="62" height="38"/>
                                         <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="All meals">
+                                        <state key="normal" title="Events">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -611,9 +611,29 @@
                                             <constraint firstAttribute="width" secondItem="Uln-6w-JnI" secondAttribute="height" multiplier="123:118" id="AS0-Jx-3tm"/>
                                         </constraints>
                                     </view>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RnE-si-QTz">
+                                        <rect key="frame" x="147" y="238" width="133" height="118"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXD-vh-E2w" customClass="BarChartView" customModule="Charts">
+                                                <rect key="frame" x="8" y="8" width="117" height="102"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="117" id="U6T-WT-AcO"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="leading" secondItem="RnE-si-QTz" secondAttribute="leading" constant="8" id="9mZ-cL-alA"/>
+                                            <constraint firstAttribute="trailing" secondItem="fXD-vh-E2w" secondAttribute="trailing" constant="8" id="Als-5c-cvi"/>
+                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="bottom" secondItem="RnE-si-QTz" secondAttribute="bottomMargin" id="FSx-L8-q5h"/>
+                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="top" secondItem="RnE-si-QTz" secondAttribute="topMargin" id="vG4-J6-KIm"/>
+                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="centerY" secondItem="RnE-si-QTz" secondAttribute="centerY" id="xSB-QB-rjv"/>
+                                        </constraints>
+                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstItem="RnE-si-QTz" firstAttribute="leading" secondItem="Uln-6w-JnI" secondAttribute="trailing" constant="8" id="2bT-w1-e5K"/>
                                     <constraint firstItem="zCQ-yo-m6V" firstAttribute="baseline" secondItem="XA8-Fy-S33" secondAttribute="baseline" id="3mN-7U-CF1"/>
                                     <constraint firstItem="zCQ-yo-m6V" firstAttribute="top" secondItem="BVE-Jl-bfT" secondAttribute="bottom" constant="20" id="6FC-0T-wTb"/>
                                     <constraint firstItem="BLd-pF-ARE" firstAttribute="leading" secondItem="o7S-QX-QGb" secondAttribute="leading" id="76f-LA-RtM"/>
@@ -625,12 +645,15 @@
                                     <constraint firstItem="BVE-Jl-bfT" firstAttribute="baseline" secondItem="2az-yI-BXn" secondAttribute="baseline" id="Or7-qS-T87"/>
                                     <constraint firstItem="zCQ-yo-m6V" firstAttribute="firstBaseline" secondItem="XA8-Fy-S33" secondAttribute="firstBaseline" id="Sgg-Tm-C2t"/>
                                     <constraint firstItem="BVE-Jl-bfT" firstAttribute="leading" secondItem="o7S-QX-QGb" secondAttribute="leadingMargin" id="Sw6-4s-rN0"/>
+                                    <constraint firstAttribute="trailing" secondItem="RnE-si-QTz" secondAttribute="trailing" constant="13" id="THc-pk-4ie"/>
                                     <constraint firstItem="USN-8K-YTZ" firstAttribute="centerX" secondItem="o7S-QX-QGb" secondAttribute="centerX" id="WJJ-Qj-eAH"/>
                                     <constraint firstAttribute="trailing" secondItem="2az-yI-BXn" secondAttribute="trailing" constant="13" id="X93-Ua-nVf"/>
+                                    <constraint firstItem="RnE-si-QTz" firstAttribute="top" secondItem="BLd-pF-ARE" secondAttribute="bottom" constant="21" id="Z4H-s6-9Ww"/>
                                     <constraint firstItem="USN-8K-YTZ" firstAttribute="top" secondItem="o7S-QX-QGb" secondAttribute="top" constant="98" id="aVA-Pi-4mV"/>
                                     <constraint firstItem="BVE-Jl-bfT" firstAttribute="firstBaseline" secondItem="2az-yI-BXn" secondAttribute="firstBaseline" id="bT6-Ta-S3O"/>
                                     <constraint firstAttribute="trailing" secondItem="BLd-pF-ARE" secondAttribute="trailing" id="lBB-Gq-xuk"/>
                                     <constraint firstItem="Uln-6w-JnI" firstAttribute="leading" secondItem="o7S-QX-QGb" secondAttribute="leading" constant="16" id="qBz-fN-GEh"/>
+                                    <constraint firstAttribute="bottom" secondItem="RnE-si-QTz" secondAttribute="bottom" constant="23" id="r28-CF-NgQ"/>
                                     <constraint firstItem="BVE-Jl-bfT" firstAttribute="top" secondItem="o7S-QX-QGb" secondAttribute="top" constant="23" id="wt8-4m-rI1"/>
                                 </constraints>
                             </view>
@@ -646,6 +669,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2mk-jR-QHn"/>
                     <connections>
+                        <outlet property="BarChart" destination="fXD-vh-E2w" id="v0g-hy-eAR"/>
                         <outlet property="datePicker" destination="BLd-pF-ARE" id="jOu-gl-H9n"/>
                         <outlet property="femalesCountLabel" destination="2az-yI-BXn" id="FPu-AG-qEJ"/>
                         <outlet property="malesCountLabel" destination="XA8-Fy-S33" id="lWS-TU-1XR"/>

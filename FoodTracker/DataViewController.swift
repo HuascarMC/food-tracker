@@ -17,7 +17,11 @@ class DataViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var pieChart: PieChartView!
+    @IBOutlet weak var BarChart: BarChartView!
     
+    let months = ["Jan", "Feb", "Mar", "Apr", "May"]
+    let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0]
+    let unitsBought = [10.0, 14.0, 60.0, 13.0, 2.0]
     var db: Firestore!
     var currentDate: Date?
     let dateFormatter = DateFormatter()
@@ -52,7 +56,137 @@ class DataViewController: UIViewController {
         super.viewDidLoad()
         self.updatePieChart()
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        
+        //legend
+        let legend = BarChart.legend
+        legend.enabled = true
+        legend.horizontalAlignment = .right
+        legend.verticalAlignment = .top
+        legend.orientation = .vertical
+        legend.drawInside = true
+        legend.yOffset = 10.0;
+        legend.xOffset = 10.0;
+        legend.yEntrySpace = 0.0;
+        
+        
+        let xaxis = BarChart.xAxis
+        xaxis.drawGridLinesEnabled = true
+        xaxis.labelPosition = .bottom
+        xaxis.centerAxisLabelsEnabled = true
+        xaxis.valueFormatter = IndexAxisValueFormatter(values:self.months)
+        xaxis.granularity = 1
+        
+        
+        let leftAxisFormatter = NumberFormatter()
+        leftAxisFormatter.maximumFractionDigits = 1
+        
+        let yaxis = BarChart.leftAxis
+        yaxis.spaceTop = 0.35
+        yaxis.axisMinimum = 0
+        yaxis.drawGridLinesEnabled = false
+        
+        BarChart.rightAxis.enabled = false
+        //axisFormatDelegate = self
+        
+        setChart()
     }
+    
+    func setChart() {
+        BarChart.noDataText = "You need to provide data for the chart."
+        var dataEntries: [BarChartDataEntry] = []
+        var dataEntries1: [BarChartDataEntry] = []
+        
+        let marker = BalloonMarker(color: UIColor(white: 180/255, alpha: 1),
+                                   font: .systemFont(ofSize: 15),
+                                   textColor: .white,
+                                   insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8))
+        marker.chartView = BarChart
+        marker.minimumSize = CGSize(width: 80, height: 40)
+        BarChart.marker = marker
+        
+        
+        let xAxis = BarChart.xAxis
+        xAxis.labelPosition = .bottom
+        xAxis.labelFont = .systemFont(ofSize: 10)
+        xAxis.labelTextColor = UIColor(white:1, alpha: 1)
+        xAxis.axisLineWidth = 3.0
+        xAxis.axisLineColor = UIColor(white: 1, alpha: 1)
+        
+        let leftAxis = BarChart.leftAxis
+        leftAxis.removeAllLimitLines()
+        //        leftAxis.addLimitLine(ll1)
+        //        leftAxis.addLimitLine(ll2)
+        //    leftAxis.axisMaximum = 10
+        //    leftAxis.axisMinimum = 0
+        leftAxis.gridLineDashLengths = [5, 5]
+        leftAxis.minWidth = 3.0
+        leftAxis.labelTextColor = UIColor(white: 1, alpha: 1)
+        leftAxis.axisLineWidth = 3.0
+        leftAxis.axisLineColor = UIColor(white: 1, alpha: 1)
+        leftAxis.drawLimitLinesBehindDataEnabled = true
+        
+        
+        for i in 0..<self.months.count {
+            
+            let dataEntry = BarChartDataEntry(x: Double(i) , y: self.unitsSold[i])
+            dataEntries.append(dataEntry)
+            
+            let dataEntry1 = BarChartDataEntry(x: Double(i) , y: self.self.unitsBought[i])
+            dataEntries1.append(dataEntry1)
+            
+            //stack barchart
+            //let dataEntry = BarChartDataEntry(x: Double(i), yValues:  [self.unitsSold[i],self.unitsBought[i]], label: "groupChart")
+            
+            
+            
+        }
+        
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Male")
+        let chartDataSet1 = BarChartDataSet(values: dataEntries1, label: "Female")
+        
+        let dataSets: [BarChartDataSet] = [chartDataSet,chartDataSet1]
+        chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
+        //chartDataSet.colors = ChartColorTemplates.colorful()
+        //let chartData = BarChartData(dataSet: chartDataSet)
+        
+        let chartData = BarChartData(dataSets: dataSets)
+        
+        
+        let groupSpace = 0.3
+        let barSpace = 0.05
+        let barWidth = 0.3
+        // (0.3 + 0.05) * 2 + 0.3 = 1.00 -> interval per "group"
+        
+        let groupCount = self.months.count
+        let startYear = 0
+        
+        
+        chartData.barWidth = barWidth;
+        BarChart.xAxis.axisMinimum = Double(startYear)
+        let gg = chartData.groupWidth(groupSpace: groupSpace, barSpace: barSpace)
+        print("Groupspace: \(gg)")
+        BarChart.xAxis.axisMaximum = Double(startYear) + gg * Double(groupCount)
+        
+        chartData.groupBars(fromX: Double(startYear), groupSpace: groupSpace, barSpace: barSpace)
+        //chartData.groupWidth(groupSpace: groupSpace, barSpace: barSpace)
+        BarChart.notifyDataSetChanged()
+        
+        BarChart.data = chartData
+        
+        
+        
+        
+        
+        
+        //background color
+        //    BarChart.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
+        
+        //chart animation
+        BarChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .linear)
+        
+        
+    }
+
     
     private func getTotals() {
         self.getTotalMales()
