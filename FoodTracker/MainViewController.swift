@@ -20,20 +20,14 @@ class MainViewController: UIViewController {
     let unitsBought = [10.0, 14.0, 60.0, 13.0, 2.0]
     var currentDate: Date?
     var yesterday: Date?
-    var beforeYesterday: Date? {
-        didSet {
-            getVisitorsPastThreeDays()
-        }
-    }
+    var days = [
+        "previousx2" : 0,
+        "previousx1" : 0,
+        "beforeYesterday" : 0,
+        "yesterday" : 0,
+        "today" : 0
+        ]
     let dateFormatter = DateFormatter()
-    var visitorsByDay = [Double]() {
-        didSet {
-            if(visitorsByDay.count == 5) {
-                visitorsByDay.swapAt(2, 3)
-                updateLineChart()
-            }
-        }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         // [START setup]
@@ -43,17 +37,14 @@ class MainViewController: UIViewController {
         // [END setup]
         db = Firestore.firestore()
         // Do any additional setup after loading the view.
-        visitorsByDay.removeAll()
         self.setDates()
-
+        getVisitors5Days(completion: updateLineChart)
     }
     
     
     private func setDates() {
         let date = NSDate()
         self.currentDate = formatDate(date: date as Date)
-        self.yesterday = getYesterdayDate(date: self.currentDate!)
-        self.beforeYesterday = getYesterdayDate(date: self.yesterday!)
     }
     
     override func viewDidLoad() {
@@ -200,7 +191,7 @@ func setChart() {
     }
     
     private func updateLineChart() {
-    
+        print("asdfasidjfnaskdfjnalsdkjfnaldkfjnalkdjfnalkdjfnalksdjfnaskldjfnalskdfjna")
         var lineChartEntry = [ChartDataEntry]()
         lineChart.chartDescription?.enabled = false
         lineChart.dragEnabled = true
@@ -225,7 +216,7 @@ func setChart() {
         lineChart.xAxis.gridLineDashLengths = [10, 10]
         lineChart.xAxis.gridLineDashPhase = 0
         let formatter = ChartStringFormatter()
-        formatter.nameValues = ["", "", "Previous", "Previous", "Yesterday", "Today"] //anything you want
+        formatter.nameValues = ["", "Previous", "Previous", "PrevYday", "Yesterday", "Today"] //anything you want
         xAxis.valueFormatter = formatter
         xAxis.granularity = 1
         
@@ -271,11 +262,13 @@ func setChart() {
         
         lineChart.rightAxis.enabled = false
 
-        
-        for i in 0..<self.visitorsByDay.count {
-            let entry = ChartDataEntry(x: Double(i), y: self.visitorsByDay[i])
+        var index = 0
+        for (e, value) in days.reversed()  {
+            let entry = ChartDataEntry(x: Double(index), y: Double(value))
             lineChartEntry.append(entry)
+            index += 1
         }
+
         
         let line = LineChartDataSet(values: lineChartEntry, label: "Visitors")
         
@@ -308,24 +301,52 @@ func setChart() {
         lineChart.chartDescription?.text = "Visitors in past 3 days"
     }
     
-    private func getVisitorsPastThreeDays() {
-        self.visitorsByDay.removeAll()
-        getVisitorsByDate(date: self.currentDate!)
-        getVisitorsByDate(date: self.yesterday!)
-        getVisitorsByDate(date: self.beforeYesterday!)
-        let bby = self.getYesterdayDate(date: self.beforeYesterday!)
-        getVisitorsByDate(date: bby)
+    private func getVisitors5Days(completion: () -> ()) {
+        getVisitorsByDate(date: currentDate!) { (result) in
+            print(result)
+            self.days["today"] = result
+            self.updateLineChart()
+        }
+
+
+        let yesterday = self.getYesterdayDate(date: self.currentDate!)
+        getVisitorsByDate(date: yesterday) { (result) in
+            print(result)
+            self.days["yesterday"] = result
+            self.updateLineChart()
+        }
+
+        let beforeYesterday = self.getYesterdayDate(date: yesterday)
+        getVisitorsByDate(date: beforeYesterday) { (result) in
+            print(result)
+            self.days["beforeYesterday"] = result
+            self.updateLineChart()
+        }
+
+        let bby = self.getYesterdayDate(date: beforeYesterday)
+        getVisitorsByDate(date: bby) { (result) in
+            print(result)
+            self.days["previousx1"] = result
+            self.updateLineChart()
+        }
+
         let bbby = self.getYesterdayDate(date: bby)
-        getVisitorsByDate(date: bbby)
+        getVisitorsByDate(date: bbby) { (result) in
+            self.days["previousx2"] = result
+            self.updateLineChart()
+        }
+        print("a0000000000245245245235234523452345234523452352345234524")
+        
+        completion()
+
     }
     
-    private func getVisitorsByDate(date: Date) {
-        var visitorsCount = Double(0)
+    private func getVisitorsByDate(date: Date, finished: @escaping (_ result: Int) -> Void) {
+        var visitorsCount = 0
         db.collection("visitors").whereField("date", isEqualTo: date)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
-                    
                 } else {
                     if(!(querySnapshot?.isEmpty)!) {
                         for document in querySnapshot!.documents {
@@ -333,11 +354,15 @@ func setChart() {
                             visitorsCount += 1
                             // [END get_multiple]
                         }
+                          finished(visitorsCount)
                     }
-                    self.visitorsByDay.append(visitorsCount)
+                 
                 }
         }
+      
     }
+    
+
     
 //    private func getVisitorsByDateAndGender(date: Date, gender: String) {
 //        var visitorsCount = Double(0)

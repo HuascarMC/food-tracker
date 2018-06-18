@@ -88,7 +88,7 @@ class DataViewController: UIViewController {
         BarChart.rightAxis.enabled = false
         //axisFormatDelegate = self
         
-        setChart()
+
     }
     
     func setChart() {
@@ -242,6 +242,7 @@ class DataViewController: UIViewController {
         let dateString = dateFormatter.string(from: datePicker.date as Date)
         self.currentDate = dateFormatter.date(from: dateString)
         self.getTotals()
+                setChart()
     }
     
     private func updatePieChart() {
@@ -297,7 +298,11 @@ class DataViewController: UIViewController {
     private func showAlert(text: String) {
         let alert = UIAlertController(title: "Alert", message: text, preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
+        if #available(iOS 10.0, *) {
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
+        } else {
+            // Fallback on earlier versions
+        }
     }
     /*
     // MARK: - Navigation
