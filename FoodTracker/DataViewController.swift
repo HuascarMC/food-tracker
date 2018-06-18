@@ -51,7 +51,7 @@ class DataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updatePieChart()
-     
+        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
     }
     
     private func getTotals() {
