@@ -89,13 +89,13 @@
                                 <rect key="frame" x="0.0" y="84" width="320" height="388.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Label Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F4L-Kl-x7h">
-                                        <rect key="frame" x="92.5" y="0.0" width="135.5" height="8.5"/>
+                                        <rect key="frame" x="92.5" y="0.0" width="135.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-1a-o7S">
-                                        <rect key="frame" x="0.0" y="16.5" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="38" width="320" height="320"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uFo-1a-o7S" secondAttribute="height" multiplier="1:1" id="2Ho-4B-naA"/>
@@ -105,7 +105,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yTe-pB-gU8" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="344.5" width="252" height="44"/>
+                                        <rect key="frame" x="34" y="366" width="252" height="22.5"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -375,7 +375,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z07-R7-l83">
-                                <rect key="frame" x="145" y="422" width="30" height="38"/>
+                                <rect key="frame" x="16" y="422" width="288" height="38"/>
+                                <color key="backgroundColor" red="0.67008710371272384" green="0.8243112937375634" blue="0.64036073157113405" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="+">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -470,8 +471,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="7af-za-WGd" secondAttribute="height" multiplier="3:8" id="7zJ-5v-pLg"/>
                                     <constraint firstAttribute="height" constant="208" id="ewE-Zr-WOC"/>
                                     <constraint firstAttribute="width" constant="78" id="fCg-C7-qGx"/>
                                 </constraints>
@@ -494,6 +496,7 @@
                         <constraints>
                             <constraint firstItem="7af-za-WGd" firstAttribute="top" secondItem="Ddx-9F-Dhv" secondAttribute="top" constant="131" id="0z6-Pl-jHW"/>
                             <constraint firstItem="7af-za-WGd" firstAttribute="leading" secondItem="5Qa-VM-Av9" secondAttribute="trailing" constant="6" id="8MB-ca-LHy"/>
+                            <constraint firstItem="Ddx-9F-Dhv" firstAttribute="trailing" secondItem="Z07-R7-l83" secondAttribute="trailing" constant="16" id="DHZ-4m-joH"/>
                             <constraint firstItem="WER-Mw-Mju" firstAttribute="top" secondItem="Ddx-9F-Dhv" secondAttribute="top" constant="20" id="DSw-ah-gnB"/>
                             <constraint firstItem="hnD-XG-pV2" firstAttribute="leading" secondItem="Ddx-9F-Dhv" secondAttribute="leading" constant="35" id="F2y-ff-HGZ"/>
                             <constraint firstItem="5Qa-VM-Av9" firstAttribute="top" secondItem="Ddx-9F-Dhv" secondAttribute="top" constant="131" id="HAR-eS-Jbc"/>
@@ -502,17 +505,16 @@
                             <constraint firstItem="7af-za-WGd" firstAttribute="centerX" secondItem="Ddx-9F-Dhv" secondAttribute="centerX" id="QCu-OV-kge"/>
                             <constraint firstItem="5Qa-VM-Av9" firstAttribute="leading" secondItem="Ddx-9F-Dhv" secondAttribute="leading" constant="16" id="RFK-Ff-Dzs"/>
                             <constraint firstItem="Kfk-ED-q1d" firstAttribute="top" secondItem="Ddx-9F-Dhv" secondAttribute="top" constant="131" id="YJe-ID-G79"/>
-                            <constraint firstItem="Ddx-9F-Dhv" firstAttribute="trailing" secondItem="Z07-R7-l83" secondAttribute="trailing" constant="145" id="Ycu-wV-rgb"/>
                             <constraint firstItem="Kfk-ED-q1d" firstAttribute="leading" secondItem="7af-za-WGd" secondAttribute="trailing" constant="-3" id="aj6-RV-54d"/>
                             <constraint firstItem="Kfk-ED-q1d" firstAttribute="leading" secondItem="7af-za-WGd" secondAttribute="trailing" constant="-3" id="dBD-3B-ZZ6"/>
-                            <constraint firstItem="Ddx-9F-Dhv" firstAttribute="bottom" secondItem="Z07-R7-l83" secondAttribute="bottom" constant="20" id="fB7-ZS-qxh"/>
                             <constraint firstItem="hnD-XG-pV2" firstAttribute="top" secondItem="Ddx-9F-Dhv" secondAttribute="top" constant="64.5" id="fnI-KH-dPV"/>
-                            <constraint firstItem="Z07-R7-l83" firstAttribute="leading" secondItem="Ddx-9F-Dhv" secondAttribute="leading" constant="145" id="hI3-WU-MG0"/>
+                            <constraint firstItem="Ddx-9F-Dhv" firstAttribute="bottom" secondItem="Z07-R7-l83" secondAttribute="bottom" constant="20" id="fp3-BK-WWB"/>
                             <constraint firstItem="MmC-q3-Pwx" firstAttribute="top" secondItem="Ddx-9F-Dhv" secondAttribute="top" constant="63" id="hZA-XL-Kwc"/>
                             <constraint firstItem="7af-za-WGd" firstAttribute="centerX" secondItem="Ddx-9F-Dhv" secondAttribute="centerX" id="iqi-9S-NyA"/>
                             <constraint firstItem="MmC-q3-Pwx" firstAttribute="centerX" secondItem="Ddx-9F-Dhv" secondAttribute="centerX" id="low-AU-8ki"/>
                             <constraint firstItem="WER-Mw-Mju" firstAttribute="leading" secondItem="Ddx-9F-Dhv" secondAttribute="leading" constant="35" id="ojz-0T-hbK"/>
                             <constraint firstItem="Ddx-9F-Dhv" firstAttribute="trailing" secondItem="Kfk-ED-q1d" secondAttribute="trailing" constant="16" id="wGB-RK-TIs"/>
+                            <constraint firstItem="Z07-R7-l83" firstAttribute="leading" secondItem="Ddx-9F-Dhv" secondAttribute="leading" constant="16" id="wXY-dX-Jhi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ddx-9F-Dhv"/>
                     </view>
