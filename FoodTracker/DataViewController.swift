@@ -120,7 +120,7 @@ class DataViewController: UIViewController {
         pieChart.data = data
         pieChart.chartDescription?.text = ""
         dataSet.colors = ChartColorTemplates.joyful()
-        pieChart.legend.font = UIFont(name: "Futura", size: 10)!
+        pieChart.legend.font = UIFont(name: "Futura", size: 15)!
 //        pieChart.chartDescription?.font = UIFont(name: "Futura", size: 12)!
 //        pieChart.chartDescription?.xOffset = pieChart.frame.width + 30
 //        pieChart.chartDescription?.yOffset = pieChart.frame.height * (2/3)
@@ -140,8 +140,8 @@ class DataViewController: UIViewController {
         pFormatter.multiplier = 1
 //        pFormatter.percentSymbol = " %"
         data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
-        data.setValueFont(.systemFont(ofSize: 11, weight: .light))
-        data.setValueTextColor(.black)
+        data.setValueFont(.systemFont(ofSize: 11, weight: .bold))
+        data.setValueTextColor(.white)
         pieChart.spin(duration: 2,
                        fromAngle: pieChart.rotationAngle,
                        toAngle: pieChart.rotationAngle + 360,

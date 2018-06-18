@@ -339,6 +339,28 @@ func setChart() {
         }
     }
     
+//    private func getVisitorsByDateAndGender(date: Date, gender: String) {
+//        var visitorsCount = Double(0)
+//        db.collection("visitors").whereField("date", isEqualTo: date)
+//            .getDocuments() { (querySnapshot, err) in
+//                if let err = err {
+//                    print("Error getting documents: \(err)")
+//
+//                } else {
+//                    if(!(querySnapshot?.isEmpty)!) {
+//                        for document in querySnapshot!.documents {
+//                            if(document.data.gender == gender) {
+//                                print("\(document.documentID) => \(document.data())")
+//                                visitorsCount += 1
+//                                // [END get_multiple]
+//                            }
+//                        }
+//                    }
+//                    return visitorsCount
+//                }
+//        }
+//    }
+    
     private func getYesterdayDate(date: Date) -> Date {
         let daysToAdd = -1
         let currentDate = date
