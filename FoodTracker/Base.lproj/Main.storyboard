@@ -89,13 +89,13 @@
                                 <rect key="frame" x="0.0" y="84" width="320" height="388.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Label Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F4L-Kl-x7h">
-                                        <rect key="frame" x="92.5" y="0.0" width="135.5" height="30"/>
+                                        <rect key="frame" x="92.5" y="0.0" width="135.5" height="8.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-1a-o7S">
-                                        <rect key="frame" x="0.0" y="38" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="16.5" width="320" height="320"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uFo-1a-o7S" secondAttribute="height" multiplier="1:1" id="2Ho-4B-naA"/>
@@ -105,7 +105,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yTe-pB-gU8" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="366" width="252" height="22.5"/>
+                                        <rect key="frame" x="34" y="344.5" width="252" height="44"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -597,9 +597,12 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USN-8K-YTZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USN-8K-YTZ">
                                         <rect key="frame" x="127" y="98" width="48" height="30"/>
-                                        <state key="normal" title="Search"/>
+                                        <color key="backgroundColor" red="0.67008710370000002" green="0.8243112937" blue="0.64036073159999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
                                         <connections>
                                             <action selector="search:" destination="w2E-za-wZ6" eventType="touchUpInside" id="zZQ-3H-bMJ"/>
                                         </connections>
@@ -617,17 +620,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXD-vh-E2w" customClass="BarChartView" customModule="Charts">
                                                 <rect key="frame" x="8" y="8" width="117" height="102"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="117" id="U6T-WT-AcO"/>
-                                                </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="leading" secondItem="RnE-si-QTz" secondAttribute="leading" constant="8" id="9mZ-cL-alA"/>
-                                            <constraint firstAttribute="trailing" secondItem="fXD-vh-E2w" secondAttribute="trailing" constant="8" id="Als-5c-cvi"/>
-                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="bottom" secondItem="RnE-si-QTz" secondAttribute="bottomMargin" id="FSx-L8-q5h"/>
-                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="top" secondItem="RnE-si-QTz" secondAttribute="topMargin" id="vG4-J6-KIm"/>
-                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="centerY" secondItem="RnE-si-QTz" secondAttribute="centerY" id="xSB-QB-rjv"/>
+                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="trailing" secondItem="RnE-si-QTz" secondAttribute="trailingMargin" id="6PV-Ur-g0t"/>
+                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="top" secondItem="RnE-si-QTz" secondAttribute="topMargin" id="8GJ-Y0-rzW"/>
+                                            <constraint firstAttribute="width" secondItem="RnE-si-QTz" secondAttribute="height" multiplier="133:118" id="OKw-FW-hUH"/>
+                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="centerX" secondItem="RnE-si-QTz" secondAttribute="centerX" id="hdO-cQ-AOa"/>
+                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="leading" secondItem="RnE-si-QTz" secondAttribute="leadingMargin" id="rEa-tV-n92"/>
+                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="centerY" secondItem="RnE-si-QTz" secondAttribute="centerY" id="uZb-bS-KWX"/>
+                                            <constraint firstItem="fXD-vh-E2w" firstAttribute="bottom" secondItem="RnE-si-QTz" secondAttribute="bottomMargin" id="ygo-7t-DEP"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
@@ -646,7 +648,7 @@
                                     <constraint firstItem="zCQ-yo-m6V" firstAttribute="firstBaseline" secondItem="XA8-Fy-S33" secondAttribute="firstBaseline" id="Sgg-Tm-C2t"/>
                                     <constraint firstItem="BVE-Jl-bfT" firstAttribute="leading" secondItem="o7S-QX-QGb" secondAttribute="leadingMargin" id="Sw6-4s-rN0"/>
                                     <constraint firstAttribute="trailing" secondItem="RnE-si-QTz" secondAttribute="trailing" constant="13" id="THc-pk-4ie"/>
-                                    <constraint firstItem="USN-8K-YTZ" firstAttribute="centerX" secondItem="o7S-QX-QGb" secondAttribute="centerX" id="WJJ-Qj-eAH"/>
+                                    <constraint firstItem="USN-8K-YTZ" firstAttribute="centerX" secondItem="o7S-QX-QGb" secondAttribute="centerX" constant="4.5" id="WJJ-Qj-eAH"/>
                                     <constraint firstAttribute="trailing" secondItem="2az-yI-BXn" secondAttribute="trailing" constant="13" id="X93-Ua-nVf"/>
                                     <constraint firstItem="RnE-si-QTz" firstAttribute="top" secondItem="BLd-pF-ARE" secondAttribute="bottom" constant="21" id="Z4H-s6-9Ww"/>
                                     <constraint firstItem="USN-8K-YTZ" firstAttribute="top" secondItem="o7S-QX-QGb" secondAttribute="top" constant="98" id="aVA-Pi-4mV"/>

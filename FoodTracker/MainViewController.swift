@@ -21,11 +21,12 @@ class MainViewController: UIViewController {
     var currentDate: Date?
     var yesterday: Date?
     var days = [
-        "previousx2" : 0,
         "previousx1" : 0,
         "beforeYesterday" : 0,
-        "yesterday" : 0,
-        "today" : 0
+        "today" : 0,
+         "previousx2" : 0,
+        "yesterday" : 0
+        
         ]
     let dateFormatter = DateFormatter()
     
@@ -312,14 +313,14 @@ func setChart() {
         let yesterday = self.getYesterdayDate(date: self.currentDate!)
         getVisitorsByDate(date: yesterday) { (result) in
             print(result)
-            self.days["yesterday"] = result
+            self.days["beforeYesterday"] = result
             self.updateLineChart()
         }
 
         let beforeYesterday = self.getYesterdayDate(date: yesterday)
         getVisitorsByDate(date: beforeYesterday) { (result) in
             print(result)
-            self.days["beforeYesterday"] = result
+            self.days["yesterday"] = result
             self.updateLineChart()
         }
 
