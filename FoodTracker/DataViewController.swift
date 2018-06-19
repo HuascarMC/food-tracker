@@ -246,9 +246,19 @@ class DataViewController: UIViewController {
     }
     
     private func updatePieChart() {
+        let legend = pieChart.legend
+        legend.enabled = true
+        legend.horizontalAlignment = .right
+        legend.verticalAlignment = .top
+        legend.orientation = .vertical
+        legend.drawInside = true
+        legend.yOffset = 10.0;
+        legend.xOffset = 10.0;
+        legend.yEntrySpace = 0.0;
+        legend.textColor = UIColor.white;
         let entry1 = PieChartDataEntry(value: Double(self.malesCount), label: "Males")
         let entry2 = PieChartDataEntry(value: Double(self.femalesCount), label: "Females")
-        let dataSet = PieChartDataSet(values: [entry1, entry2], label: "Gender")
+        let dataSet = PieChartDataSet(values: [entry1, entry2], label: "")
         pieChart.setExtraOffsets(left: 20, top: 0, right: 20, bottom: 0)
         pieChart.animate(xAxisDuration: 1.4, easingOption: .easeOutBack)
         let data = PieChartData(dataSet: dataSet)

@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var BarChart: BarChartView!
     
     var db: Firestore!
-    let months = ["Jan", "Feb", "Mar", "Apr", "May"]
+    let months = ["Previous", "Previous", "PrevDay", "Yesterday", "Today"]
     let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0]
     let unitsBought = [10.0, 14.0, 60.0, 13.0, 2.0]
     var currentDate: Date?
@@ -28,6 +28,17 @@ class MainViewController: UIViewController {
         "yesterday" : 0
         
         ]
+    
+    var genders = [
+        "male1" : 0,
+        "female1": 0,
+        "male2" : 0,
+        "female2" : 3,
+        "male3" : 0,
+        "female3" : 0,
+        "male4" : 5,
+        "female4" : 0
+    ]
     let dateFormatter = DateFormatter()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +66,11 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
     
     
+
+    setChart()
+}
+
+func setChart() {
     //legend
     let legend = BarChart.legend
     legend.enabled = true
@@ -65,6 +81,7 @@ class MainViewController: UIViewController {
     legend.yOffset = 10.0;
     legend.xOffset = 10.0;
     legend.yEntrySpace = 0.0;
+    legend.textColor = UIColor.white;
     
     
     let xaxis = BarChart.xAxis
@@ -86,11 +103,6 @@ class MainViewController: UIViewController {
     BarChart.rightAxis.enabled = false
     //axisFormatDelegate = self
     
-    setChart()
-}
-
-func setChart() {
-    BarChart.noDataText = "You need to provide data for the chart."
     var dataEntries: [BarChartDataEntry] = []
     var dataEntries1: [BarChartDataEntry] = []
     
@@ -123,20 +135,17 @@ func setChart() {
     leftAxis.axisLineColor = UIColor(white: 1, alpha: 1)
     leftAxis.drawLimitLinesBehindDataEnabled = true
 
-    
-    for i in 0..<self.months.count {
+    var ind = 0
+    for (_, value) in self.genders {
         
-        let dataEntry = BarChartDataEntry(x: Double(i) , y: self.unitsSold[i])
+        let dataEntry = BarChartDataEntry(x: Double(ind) , y: Double(value))
         dataEntries.append(dataEntry)
-        
-        let dataEntry1 = BarChartDataEntry(x: Double(i) , y: self.self.unitsBought[i])
+        ind += 1
+        let dataEntry1 = BarChartDataEntry(x: Double(ind) , y: Double(value))
         dataEntries1.append(dataEntry1)
         
         //stack barchart
         //let dataEntry = BarChartDataEntry(x: Double(i), yValues:  [self.unitsSold[i],self.unitsBought[i]], label: "groupChart")
-        
-        
-        
     }
     
     let chartDataSet = BarChartDataSet(values: dataEntries, label: "Male")
