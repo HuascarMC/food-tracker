@@ -19,13 +19,22 @@ class DataViewController: UIViewController {
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var BarChart: BarChartView!
     
-    let months = ["Jan", "Feb", "Mar", "Apr", "May"]
+    let ages = ["0-10", "11-20", "21-30", "31-40", "41-50", "51-60", "61-70"]
     let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0]
     let unitsBought = [10.0, 14.0, 60.0, 13.0, 2.0]
     var db: Firestore!
     var currentDate: Date?
     let dateFormatter = DateFormatter()
     var totalVisitors: Double?
+    var agesCount = [
+        "10" : 0,
+        "20": 0,
+        "30" : 0,
+        "40" : 0,
+        "50" : 0,
+        "60" : 0,
+        "70" : 0,
+    ]
     var malesCount = Double(0) {
         didSet {
             self.updatePieChart()
@@ -50,6 +59,9 @@ class DataViewController: UIViewController {
         db = Firestore.firestore()
         // Do any additional setup after loading the view.
         self.getTotals()
+        getVisitorsByAges {
+            setChart()
+        }
     }
     
     override func viewDidLoad() {
@@ -73,7 +85,7 @@ class DataViewController: UIViewController {
         xaxis.drawGridLinesEnabled = true
         xaxis.labelPosition = .bottom
         xaxis.centerAxisLabelsEnabled = true
-        xaxis.valueFormatter = IndexAxisValueFormatter(values:self.months)
+        xaxis.valueFormatter = IndexAxisValueFormatter(values:self.ages)
         xaxis.granularity = 1
         
         
@@ -83,6 +95,7 @@ class DataViewController: UIViewController {
         let yaxis = BarChart.leftAxis
         yaxis.spaceTop = 0.35
         yaxis.axisMinimum = 0
+        yaxis.axisMaximum = 15
         yaxis.drawGridLinesEnabled = false
         
         BarChart.rightAxis.enabled = false
@@ -111,6 +124,7 @@ class DataViewController: UIViewController {
         xAxis.labelTextColor = UIColor(white:1, alpha: 1)
         xAxis.axisLineWidth = 3.0
         xAxis.axisLineColor = UIColor(white: 1, alpha: 1)
+        xAxis.xOffset = 0
         
         let leftAxis = BarChart.leftAxis
         leftAxis.removeAllLimitLines()
@@ -125,15 +139,16 @@ class DataViewController: UIViewController {
         leftAxis.axisLineColor = UIColor(white: 1, alpha: 1)
         leftAxis.drawLimitLinesBehindDataEnabled = true
         
-        
-        for i in 0..<self.months.count {
+        var ind = 0
+        for (e, value) in self.agesCount {
             
-            let dataEntry = BarChartDataEntry(x: Double(i) , y: self.unitsSold[i])
+            let dataEntry = BarChartDataEntry(x: Double(ind) , y: Double(value))
             dataEntries.append(dataEntry)
             
-            let dataEntry1 = BarChartDataEntry(x: Double(i) , y: self.self.unitsBought[i])
-            dataEntries1.append(dataEntry1)
+//            let dataEntry1 = BarChartDataEntry(x: Double(ind) , y: Double(value))
+//            dataEntries1.append(dataEntry1)
             
+            ind += 1
             //stack barchart
             //let dataEntry = BarChartDataEntry(x: Double(i), yValues:  [self.unitsSold[i],self.unitsBought[i]], label: "groupChart")
             
@@ -141,34 +156,35 @@ class DataViewController: UIViewController {
             
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Male")
-        let chartDataSet1 = BarChartDataSet(values: dataEntries1, label: "Female")
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "")
+//        let chartDataSet1 = BarChartDataSet(values: dataEntries1, label: "Female")
         
-        let dataSets: [BarChartDataSet] = [chartDataSet,chartDataSet1]
-        chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
-        //chartDataSet.colors = ChartColorTemplates.colorful()
+        let dataSets: [BarChartDataSet] = [chartDataSet]
+//        chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
+        chartDataSet.colors = ChartColorTemplates.colorful()
         //let chartData = BarChartData(dataSet: chartDataSet)
         
         let chartData = BarChartData(dataSets: dataSets)
         
         
-        let groupSpace = 0.3
-        let barSpace = 0.05
-        let barWidth = 0.3
+//        let groupSpace = 0.3
+//        let barSpace = 0.05
+//        let barWidth = 1
         // (0.3 + 0.05) * 2 + 0.3 = 1.00 -> interval per "group"
         
-        let groupCount = self.months.count
-        let startYear = 0
+//        let groupCount = self.ages.count
+//        let startYear = 0
         
         
-        chartData.barWidth = barWidth;
-        BarChart.xAxis.axisMinimum = Double(startYear)
-        let gg = chartData.groupWidth(groupSpace: groupSpace, barSpace: barSpace)
-        print("Groupspace: \(gg)")
-        BarChart.xAxis.axisMaximum = Double(startYear) + gg * Double(groupCount)
+//        chartData.barWidth = 0.5
+//        chartData.groupWidth(groupSpace: 1.0, barSpace: 2.0)
+//        BarChart.xAxis.axisMinimum = Double(startYear)
+//        let gg = chartData.groupWidth(groupSpace: groupSpace, barSpace: barSpace)
+//        print("Groupspace: \(gg)")
+//        BarChart.xAxis.axisMaximum = Double(startYear) + gg * Double(groupCount)
         
-        chartData.groupBars(fromX: Double(startYear), groupSpace: groupSpace, barSpace: barSpace)
-        //chartData.groupWidth(groupSpace: groupSpace, barSpace: barSpace)
+//        chartData.groupBars(fromX: Double(startYear), groupSpace: groupSpace, barSpace: barSpace)
+        chartData.groupWidth(groupSpace: 20, barSpace: 20)
         BarChart.notifyDataSetChanged()
         
         BarChart.data = chartData
@@ -242,7 +258,90 @@ class DataViewController: UIViewController {
         let dateString = dateFormatter.string(from: datePicker.date as Date)
         self.currentDate = dateFormatter.date(from: dateString)
         self.getTotals()
-                setChart()
+        getVisitorsByAges {
+            setChart()
+        }
+    }
+    
+    
+    private func getVisitorsByAges(completion: () -> ()) {
+        getVisitorsByDateAndAge(date: currentDate!, age: 10) { (result) in
+            print(result)
+            self.agesCount["10"] = result
+            self.setChart()
+        }
+        
+        getVisitorsByDateAndAge(date: currentDate!, age: 20) { (result) in
+            print(result)
+            self.agesCount["20"] = result
+            self.setChart()
+        }
+        
+        getVisitorsByDateAndAge(date: currentDate!, age: 30) { (result) in
+            print(result)
+            self.agesCount["30"] = result
+            self.setChart()
+        }
+        
+        getVisitorsByDateAndAge(date: currentDate!, age: 40) { (result) in
+            print(result)
+            self.agesCount["40"] = result
+            self.setChart()
+        }
+        
+        getVisitorsByDateAndAge(date: currentDate!, age: 50) { (result) in
+            print(result)
+            self.agesCount["50"] = result
+            self.setChart()
+        }
+        
+        getVisitorsByDateAndAge(date: currentDate!, age: 60) { (result) in
+            print(result)
+            self.agesCount["60"] = result
+            self.setChart()
+        }
+        
+        getVisitorsByDateAndAge(date: currentDate!, age: 70) { (result) in
+            print(result)
+            self.agesCount["70"] = result
+            self.setChart()
+        }
+        
+        completion()
+        
+    }
+    
+    
+    private func getVisitorsByDateAndAge(date: Date, age: Int, finished: @escaping (_ result: Int) -> Void) {
+        var visitorsCount = 0
+        db.collection("visitors").whereField("date", isEqualTo: date)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    if(!(querySnapshot?.isEmpty)!) {
+                        for document in querySnapshot!.documents {
+                            print("\(document.documentID) => \(document.data())")
+                            print(document.data())
+                            print(document.data())
+                            print(document.data())
+                            print(document.data())
+                            print(document.data()["age"]!)
+                            print(document.data()["age"]!)
+                            print(document.data()["age"]!)
+                            print(document.data()["age"]!)
+                            print(document.data()["age"]!)
+                            if(document.data()["age"]! as? Int == age) {
+                                  visitorsCount += 1
+                            }
+                            // [END get_multiple]
+                        }
+                        finished(visitorsCount)
+                    }
+                    
+                }
+        }
+        
     }
     
     private func updatePieChart() {

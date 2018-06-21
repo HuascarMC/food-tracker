@@ -23,21 +23,22 @@ class MainViewController: UIViewController {
     var days = [
         "previousx1" : 0,
         "beforeYesterday" : 0,
-        "today" : 0,
+        
          "previousx2" : 0,
-        "yesterday" : 0
+         "today" : 0,
+         "yesterday" : 0
         
         ]
     
     var genders = [
-        "male1" : 0,
-        "female1": 0,
-        "male2" : 0,
+        "male1" : 7,
+        "female1": 4,
+        "male2" : 6,
         "female2" : 3,
-        "male3" : 0,
-        "female3" : 0,
+        "male3" : 9,
+        "female3" : 5,
         "male4" : 5,
-        "female4" : 0
+        "female4" : 2
     ]
     let dateFormatter = DateFormatter()
     
