@@ -315,7 +315,7 @@ func setChart() {
     private func getVisitors5Days(completion: () -> ()) {
         getVisitorsByDate(date: currentDate!) { (result) in
             print(result)
-            self.days["today"] = result
+            self.days["yesterday"] = result
             self.updateLineChart()
         }
 
@@ -330,7 +330,7 @@ func setChart() {
         let beforeYesterday = self.getYesterdayDate(date: yesterday)
         getVisitorsByDate(date: beforeYesterday) { (result) in
             print(result)
-            self.days["yesterday"] = result
+            self.days["today"] = result
             self.updateLineChart()
         }
 
