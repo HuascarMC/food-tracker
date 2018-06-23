@@ -89,13 +89,13 @@
                                 <rect key="frame" x="0.0" y="84" width="320" height="388.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Label Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F4L-Kl-x7h">
-                                        <rect key="frame" x="92.5" y="0.0" width="135.5" height="8.5"/>
+                                        <rect key="frame" x="92.5" y="0.0" width="135.5" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-1a-o7S">
-                                        <rect key="frame" x="0.0" y="16.5" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="38" width="320" height="320"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="uFo-1a-o7S" secondAttribute="height" multiplier="1:1" id="2Ho-4B-naA"/>
@@ -105,7 +105,7 @@
                                         </connections>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yTe-pB-gU8" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="344.5" width="252" height="44"/>
+                                        <rect key="frame" x="34" y="366" width="252" height="22.5"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -180,9 +180,10 @@
                                 <rect key="frame" x="16" y="87" width="288" height="51"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MI-o7-wvX">
-                                        <rect key="frame" x="8" y="6" width="62" height="38"/>
-                                        <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="8" y="2" width="82" height="46"/>
+                                        <color key="backgroundColor" red="1" green="0.44994262270000002" blue="0.29112666850000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="Events">
                                             <color key="titleColor" red="1" green="0.94166231170000003" blue="0.88903085380000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -192,9 +193,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFc-hi-HI2">
-                                        <rect key="frame" x="112" y="6" width="64" height="38"/>
-                                        <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="102" y="2" width="84" height="46"/>
+                                        <color key="backgroundColor" red="1" green="0.44994262270000002" blue="0.29112666850000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="Search">
                                             <color key="titleColor" red="1" green="0.90886584989999997" blue="0.91455617499999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
@@ -203,9 +205,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3Q-8w-ZeU">
-                                        <rect key="frame" x="213" y="8" width="67" height="30"/>
-                                        <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="213" y="2" width="67" height="46"/>
+                                        <color key="backgroundColor" red="1" green="0.44994262270000002" blue="0.29112666850000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="Today">
                                             <color key="titleColor" red="1" green="0.96287778540000002" blue="0.97542018399999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
