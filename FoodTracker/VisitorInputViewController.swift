@@ -42,7 +42,7 @@ class VisitorInputViewController: UIViewController {
         dateFormatter.locale = Locale(identifier: "ja_JP")
         let dateString = dateFormatter.string(from: date as Date)
         self.currentDate = dateFormatter.date(from: dateString)
-
+        
         dateFormatter.locale = Locale(identifier: "en_US")
         let dateStringUS = dateFormatter.string(from: date as Date)
         self.date.text = dateStringUS
