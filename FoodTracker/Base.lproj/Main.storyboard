@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="auR-vH-uUc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aZC-8D-8Ip">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -271,11 +271,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Untitled linegraph" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hCV-kn-6s7">
-                                <rect key="frame" x="20" y="295" width="216" height="30"/>
+                                <rect key="frame" x="20" y="299" width="137" height="30"/>
                                 <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="216" id="XK9-kL-Llq"/>
-                                    <constraint firstAttribute="height" constant="30" id="Z1U-dg-Nt3"/>
+                                    <constraint firstAttribute="height" constant="30" id="hOE-IJ-xba"/>
+                                    <constraint firstAttribute="width" constant="137" id="lva-WZ-iiX"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -287,18 +287,18 @@
                             <constraint firstItem="Xbc-gQ-X4u" firstAttribute="trailing" secondItem="U2b-CR-hJL" secondAttribute="trailing" constant="16" id="2CJ-x7-KCh"/>
                             <constraint firstItem="Xbc-gQ-X4u" firstAttribute="trailing" secondItem="7Kp-Wu-IAD" secondAttribute="trailing" constant="84" id="3UV-SJ-sWd"/>
                             <constraint firstItem="kj7-Gu-fVe" firstAttribute="leading" secondItem="Xbc-gQ-X4u" secondAttribute="leading" constant="54" id="53E-Y9-TDP"/>
+                            <constraint firstItem="hCV-kn-6s7" firstAttribute="leading" secondItem="Xbc-gQ-X4u" secondAttribute="leading" constant="20" id="I4e-NU-muS"/>
                             <constraint firstItem="a5s-Hb-3gF" firstAttribute="centerX" secondItem="Xbc-gQ-X4u" secondAttribute="centerX" id="K6g-nM-Q7r"/>
                             <constraint firstItem="7Kp-Wu-IAD" firstAttribute="top" secondItem="Xbc-gQ-X4u" secondAttribute="top" constant="75" id="Ntg-iX-8AV"/>
                             <constraint firstItem="kj7-Gu-fVe" firstAttribute="top" secondItem="Xbc-gQ-X4u" secondAttribute="top" constant="101" id="W2o-7U-NWd"/>
-                            <constraint firstItem="hCV-kn-6s7" firstAttribute="leading" secondItem="Xbc-gQ-X4u" secondAttribute="leading" constant="20" id="Zuh-Py-gA0"/>
                             <constraint firstItem="U2b-CR-hJL" firstAttribute="leading" secondItem="Xbc-gQ-X4u" secondAttribute="leading" constant="16" id="aE9-A7-0Gs"/>
                             <constraint firstItem="a5s-Hb-3gF" firstAttribute="top" secondItem="kj7-Gu-fVe" secondAttribute="bottom" constant="37" id="bXS-2k-nVw"/>
                             <constraint firstItem="7Kp-Wu-IAD" firstAttribute="leading" secondItem="Xbc-gQ-X4u" secondAttribute="leading" constant="20" id="c3G-e9-CZu"/>
-                            <constraint firstItem="hCV-kn-6s7" firstAttribute="top" secondItem="Xbc-gQ-X4u" secondAttribute="top" constant="231" id="gxy-BG-qi5"/>
                             <constraint firstItem="kj7-Gu-fVe" firstAttribute="top" secondItem="U2b-CR-hJL" secondAttribute="bottom" constant="27" id="kKq-RT-wTs"/>
                             <constraint firstItem="U2b-CR-hJL" firstAttribute="top" secondItem="Xbc-gQ-X4u" secondAttribute="top" constant="23" id="l17-Zh-zPL"/>
                             <constraint firstItem="a5s-Hb-3gF" firstAttribute="leading" secondItem="Xbc-gQ-X4u" secondAttribute="leading" constant="54" id="ohy-Ap-fHy"/>
                             <constraint firstItem="kj7-Gu-fVe" firstAttribute="centerX" secondItem="Xbc-gQ-X4u" secondAttribute="centerX" id="tqc-LT-q9a"/>
+                            <constraint firstItem="hCV-kn-6s7" firstAttribute="top" secondItem="kj7-Gu-fVe" secondAttribute="bottom" constant="3" id="ziQ-NN-Yhr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xbc-gQ-X4u"/>
                     </view>
