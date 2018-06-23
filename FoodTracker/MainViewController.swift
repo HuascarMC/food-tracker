@@ -256,13 +256,13 @@ func setChart() {
                              ChartColorTemplates.colorFromString("#ffff0000").cgColor]
         let gradient = CGGradient(colorsSpace: nil, colors: gradientColors as CFArray, locations: nil)!
         
-    
+        let greatestHue = days.max { a, b in a.value < b.value }
         
         let leftAxis = lineChart.leftAxis
         leftAxis.removeAllLimitLines()
 //        leftAxis.addLimitLine(ll1)
 //        leftAxis.addLimitLine(ll2)
-        leftAxis.axisMaximum = 10
+        leftAxis.axisMaximum = Double((greatestHue?.value)!)
         leftAxis.axisMinimum = 0
         leftAxis.gridLineDashLengths = [5, 5]
         leftAxis.minWidth = 3.0
