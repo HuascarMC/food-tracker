@@ -78,7 +78,15 @@ class DataViewController: UIViewController {
         super.viewDidLoad()
         self.updatePieChart()
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        BarChart.rightAxis.enabled = false
+        //axisFormatDelegate = self
         
+
+    }
+    
+    func setChart() {
+        let leftAxisFormatter = NumberFormatter()
+        leftAxisFormatter.maximumFractionDigits = 1
         //legend
         let legend = BarChart.legend
         legend.enabled = true
@@ -90,34 +98,9 @@ class DataViewController: UIViewController {
         legend.xOffset = 10.0;
         legend.yEntrySpace = 0.0;
         
-        
-        let xaxis = BarChart.xAxis
-        xaxis.drawGridLinesEnabled = true
-        xaxis.labelPosition = .bottom
-        xaxis.centerAxisLabelsEnabled = true
-        xaxis.valueFormatter = IndexAxisValueFormatter(values:self.ages)
-        xaxis.granularity = 1
-        
-        
-        let leftAxisFormatter = NumberFormatter()
-        leftAxisFormatter.maximumFractionDigits = 1
-        
-        let yaxis = BarChart.leftAxis
-        yaxis.spaceTop = 0.35
-        yaxis.axisMinimum = 0
-        yaxis.axisMaximum = 15
-        yaxis.drawGridLinesEnabled = false
-        
-        BarChart.rightAxis.enabled = false
-        //axisFormatDelegate = self
-        
-
-    }
-    
-    func setChart() {
         BarChart.noDataText = "You need to provide data for the chart."
         var dataEntries: [BarChartDataEntry] = []
-        var dataEntries1: [BarChartDataEntry] = []
+//        var dataEntries1: [BarChartDataEntry] = []
         
         let marker = BalloonMarker(color: UIColor(white: 180/255, alpha: 1),
                                    font: .systemFont(ofSize: 15),
@@ -134,20 +117,32 @@ class DataViewController: UIViewController {
         xAxis.labelTextColor = UIColor(white:1, alpha: 1)
         xAxis.axisLineWidth = 3.0
         xAxis.axisLineColor = UIColor(white: 1, alpha: 1)
-        xAxis.xOffset = 0
-        
-        let leftAxis = BarChart.leftAxis
-        leftAxis.removeAllLimitLines()
+//        xAxis.granularityEnabled = true
+//        xAxis.granularity = 1
+//        xAxis.xOffset = 0
+//        xAxis.drawGridLinesEnabled = true
+//        xAxis.labelPosition = .bottom
+//        xAxis.centerAxisLabelsEnabled = true
+        xAxis.valueFormatter = IndexAxisValueFormatter(values:self.ages)
+//        xAxis.granularity = 1
+//        xAxis.granularityEnabled = true
+//
+        let yAxis = BarChart.leftAxis
+        yAxis.removeAllLimitLines()
         //        leftAxis.addLimitLine(ll1)
         //        leftAxis.addLimitLine(ll2)
         //    leftAxis.axisMaximum = 10
         //    leftAxis.axisMinimum = 0
-        leftAxis.gridLineDashLengths = [5, 5]
-        leftAxis.minWidth = 3.0
-        leftAxis.labelTextColor = UIColor(white: 1, alpha: 1)
-        leftAxis.axisLineWidth = 3.0
-        leftAxis.axisLineColor = UIColor(white: 1, alpha: 1)
-        leftAxis.drawLimitLinesBehindDataEnabled = true
+        yAxis.gridLineDashLengths = [5, 5]
+        yAxis.minWidth = 3.0
+        yAxis.labelTextColor = UIColor(white: 1, alpha: 1)
+        yAxis.axisLineWidth = 3.0
+        yAxis.axisLineColor = UIColor(white: 1, alpha: 1)
+        yAxis.drawLimitLinesBehindDataEnabled = true
+        yAxis.spaceTop = 0.35
+        yAxis.axisMinimum = 0
+        yAxis.axisMaximum = 10
+        yAxis.drawGridLinesEnabled = false
         
         var ind = 0
         for (e, value) in self.agesCount {
@@ -194,7 +189,7 @@ class DataViewController: UIViewController {
 //        BarChart.xAxis.axisMaximum = Double(startYear) + gg * Double(groupCount)
         
 //        chartData.groupBars(fromX: Double(startYear), groupSpace: groupSpace, barSpace: barSpace)
-        chartData.groupWidth(groupSpace: 20, barSpace: 20)
+//        chartData.groupWidth(groupSpace: 20, barSpace: 20)
         BarChart.notifyDataSetChanged()
         
         BarChart.data = chartData
