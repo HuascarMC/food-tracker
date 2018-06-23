@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D5857A33B33C272F32203E14 /* Pods_FoodTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E888EE24C1E54695C6FBA245 /* Pods_FoodTracker.framework */; };
+		E816835C20DEA492005B00CF /* BizzyAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E816835B20DEA492005B00CF /* BizzyAuthViewController.swift */; };
 		E81D3C0C20C4256B009C09DC /* VisitorInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81D3C0B20C4256B009C09DC /* VisitorInputViewController.swift */; };
 		E82821DC20C6FF060051075E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82821DB20C6FF060051075E /* MainViewController.swift */; };
 		E8511AB420CED44600C2247D /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8511AB320CED44600C2247D /* BalloonMarker.swift */; };
@@ -45,6 +46,7 @@
 		95A2C73B7015531849720D8D /* Pods-FoodTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodTracker/Pods-FoodTracker.release.xcconfig"; sourceTree = "<group>"; };
 		9D3FE9D31EF8CCE97EAE426B /* Pods-FoodTrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodTrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodTrackerTests/Pods-FoodTrackerTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD6B477FC66B9494A587D8CB /* Pods_FoodTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E816835B20DEA492005B00CF /* BizzyAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BizzyAuthViewController.swift; sourceTree = "<group>"; };
 		E81D3C0B20C4256B009C09DC /* VisitorInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitorInputViewController.swift; sourceTree = "<group>"; };
 		E82821DB20C6FF060051075E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E8511AB320CED44600C2247D /* BalloonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				E85F465820BD8884001382C8 /* RatingControl.swift */,
 				E8D043EA20BB299A0075154A /* Main.storyboard */,
 				E8AB787220CD5534001E3A28 /* SignViewController.swift */,
+				E816835B20DEA492005B00CF /* BizzyAuthViewController.swift */,
 				E82821DB20C6FF060051075E /* MainViewController.swift */,
 				E8D2561E20D6886100BEF2F5 /* CounterViewController.swift */,
 				E8511AB320CED44600C2247D /* BalloonMarker.swift */,
@@ -396,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8B162C220C158AF00C3990D /* Meal.swift in Sources */,
+				E816835C20DEA492005B00CF /* BizzyAuthViewController.swift in Sources */,
 				E8D043E920BB299A0075154A /* MealViewController.swift in Sources */,
 				E81D3C0C20C4256B009C09DC /* VisitorInputViewController.swift in Sources */,
 				E8511AB420CED44600C2247D /* BalloonMarker.swift in Sources */,

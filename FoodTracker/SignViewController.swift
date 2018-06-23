@@ -55,9 +55,23 @@ class SignViewController: UIViewController {
     
 
     @IBAction func loginAction(sender: AnyObject) {
-        // Present the default login view controller provided by authUI
-        let authViewController = authUI?.authViewController();
-        self.present(authViewController!, animated: true, completion: nil)
+//        // Present the default login view controller provided by authUI
+//        let authViewController = authUI?.authViewController();
+//        let width = 300
+//        let height = 300
+//        let imageViewBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+//        imageViewBackground.image = UIImage(named: "male-symbol")
+//        // you can change the content mode:
+//        imageViewBackground.center.y = 400
+//        imageViewBackground.center.x = 450
+//        imageViewBackground.contentMode = UIViewContentMode.scaleAspectFit
+//        authViewController?.view.insertSubview(imageViewBackground, at: 1)
+//        self.present(authViewController!, animated: true, completion: nil)
+            
+            let authViewController = BizzyAuthViewController(authUI: authUI!)
+            let navc = UINavigationController(rootViewController: authViewController)
+            self.present(navc, animated: true, completion: nil)
+            
 
     }
     
