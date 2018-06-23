@@ -64,6 +64,16 @@ class DataViewController: UIViewController {
         }
     }
     
+    private func resetAgesCount() {
+        self.agesCount["10"] = 0
+        self.agesCount["20"] = 0
+        self.agesCount["30"] = 0
+        self.agesCount["40"] = 0
+        self.agesCount["50"] = 0
+        self.agesCount["60"] = 0
+        self.agesCount["70"] = 0
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updatePieChart()
@@ -255,6 +265,7 @@ class DataViewController: UIViewController {
     }
     
     @IBAction func search(_ sender: Any) {
+        resetAgesCount()
         let dateString = dateFormatter.string(from: datePicker.date as Date)
         self.currentDate = dateFormatter.date(from: dateString)
         self.getTotals()
@@ -323,13 +334,6 @@ class DataViewController: UIViewController {
                         for document in querySnapshot!.documents {
                             print("\(document.documentID) => \(document.data())")
                             print(document.data())
-                            print(document.data())
-                            print(document.data())
-                            print(document.data())
-                            print(document.data()["age"]!)
-                            print(document.data()["age"]!)
-                            print(document.data()["age"]!)
-                            print(document.data()["age"]!)
                             print(document.data()["age"]!)
                             if(document.data()["age"]! as? Int == age) {
                                   visitorsCount += 1

@@ -55,7 +55,7 @@ class SignViewController: UIViewController {
             FUIGoogleAuth(),
             ]
         self.authUI?.providers = providers
-        if currentUserStats == false {
+        if currentUserStats == true {
             self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
                 guard user != nil else {
                     self.loginAction(sender: self)
