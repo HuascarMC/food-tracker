@@ -127,6 +127,9 @@ class DataViewController: UIViewController {
 //        xAxis.granularity = 1
 //        xAxis.granularityEnabled = true
 //
+        
+        let greatestHue = self.agesCount.max { a, b in a.value < b.value }
+        
         let yAxis = BarChart.leftAxis
         yAxis.removeAllLimitLines()
         //        leftAxis.addLimitLine(ll1)
@@ -141,7 +144,7 @@ class DataViewController: UIViewController {
         yAxis.drawLimitLinesBehindDataEnabled = true
         yAxis.spaceTop = 0.35
         yAxis.axisMinimum = 0
-        yAxis.axisMaximum = 10
+        yAxis.axisMaximum = Double((greatestHue?.value)!)
         yAxis.drawGridLinesEnabled = false
         
         var ind = 0
