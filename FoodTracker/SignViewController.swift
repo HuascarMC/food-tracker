@@ -8,12 +8,17 @@
 
 import UIKit
 import FirebaseUI
+import Firebase
 
 class SignViewController: UIViewController {
     fileprivate(set) var auth:Auth?
     fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
     fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
     var handle: AuthStateDidChangeListenerHandle?
+    var db: Firestore!
+    var userStats: DocumentReference? = nil
+    var currentUserStats = false
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -22,6 +27,15 @@ class SignViewController: UIViewController {
             let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "myVC") as UIViewController
             self.present(initViewController, animated: true, completion: nil)
         }
+        // Do any additional setup after loading the view.
+        let settings = FirestoreSettings()
+        
+        Firestore.firestore().settings = settings
+        // [END setup]
+        db = Firestore.firestore()
+        userStats = db.collection("users").document("user")
+ 
+
     }
 
     
@@ -41,15 +55,37 @@ class SignViewController: UIViewController {
             FUIGoogleAuth(),
             ]
         self.authUI?.providers = providers
-        
-        self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
-            guard user != nil else {
-                self.loginAction(sender: self)
-      
-                return
+        if currentUserStats == false {
+            self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
+                guard user != nil else {
+                    self.loginAction(sender: self)
+                    return
+                }
             }
         }
-        // Do any additional setup after loading the view.
+//        getCurrentUserStatus { () in
+//            self.triggerAuth()
+//
+//        }
+//
+    }
+    
+    private func triggerAuth() {
+        print(currentUserStats)
+         print(currentUserStats)
+         print(currentUserStats)
+         print(currentUserStats)
+         print(currentUserStats)
+         print(currentUserStats)
+         print(currentUserStats)
+        if currentUserStats == false {
+            self.authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
+                guard user != nil else {
+                    self.loginAction(sender: self)
+                    return
+                }
+            }
+        }
     }
     
     
@@ -67,33 +103,62 @@ class SignViewController: UIViewController {
 //        imageViewBackground.contentMode = UIViewContentMode.scaleAspectFit
 //        authViewController?.view.insertSubview(imageViewBackground, at: 1)
 //        self.present(authViewController!, animated: true, completion: nil)
-            
+
             let authViewController = BizzyAuthViewController(authUI: authUI!)
             let navc = UINavigationController(rootViewController: authViewController)
             self.present(navc, animated: true, completion: nil)
-            
+
 
     }
     
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        guard let authError = error else { return }
-        
-        let errorCode = UInt((authError as NSError).code)
-        
-        switch errorCode {
-        case FUIAuthErrorCode.userCancelledSignIn.rawValue:
-            print("User cancelled sign-in");
-            break
-            
-        default:
-            let detailedError = (authError as NSError).userInfo[NSUnderlyingErrorKey] ?? authError
-            print("Login error: \((detailedError as! NSError).localizedDescription)");
+    private func getCurrentUserStatus(finished: @escaping () -> Void) {
+        userStats?.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                self.currentUserStats = (document.data()!["status"]! as? Bool)!
+                   finished()
+                print("Document data: \(dataDescription)")
+            } else {
+                print("Document does not exist")
+            }
         }
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "myVC") as! MainViewController
-        self.present(initViewController, animated: true, completion: nil)
     }
-
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+            guard let authError = error else { return }
+            
+            let errorCode = UInt((authError as NSError).code)
+            
+            switch errorCode {
+            case FUIAuthErrorCode.userCancelledSignIn.rawValue:
+                print("User cancelled sign-in");
+                break
+                
+            default:
+                let detailedError = (authError as NSError).userInfo[NSUnderlyingErrorKey] ?? authError
+                print("Login error: \((detailedError as! NSError).localizedDescription)");
+            }
+            changeUserStatus(changeStatus: true)
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "myVC") as! MainViewController
+            self.present(initViewController, animated: true, completion: nil)
+    }
+    
+    private func changeUserStatus(changeStatus: Bool) {
+        userStats?.setData([
+            "status": changeStatus
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+//                self.showAlert(text: "Error")
+            } else {
+//                print("Document added with ID: \(ref!.documentID)")
+//                self.showAlert(text: "Success")
+            }
+        }
+        // [END add_ada_lovelace]
+    }
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
