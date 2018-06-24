@@ -16,8 +16,8 @@ class Meal: NSObject, NSCoding {
     var name: String
     var photo: UIImage?
     var rating: Int
-    var startDate: Date
-    var endDate: Date
+    var startDate: Date?
+    var endDate: Date?
     
     //MARK: Types
     
@@ -29,7 +29,7 @@ class Meal: NSObject, NSCoding {
         static let endDate = "endDate"
     }
 
-    init?(name: String, photo: UIImage?, rating: Int, startDate: Date, endDate: Date) {
+    init?(name: String, photo: UIImage?, rating: Int, startDate: Date?, endDate: Date?) {
         
         // Initialization should fail if there is no name or if the rating is negative.
         // The name must not be empty
@@ -81,7 +81,7 @@ class Meal: NSObject, NSCoding {
         let endDate = aDecoder.decodeObject(forKey: PropertyKey.endDate) as? Date
         
         // Must call designated initializer.
-        self.init(name: name, photo: photo, rating: rating, startDate: startDate!, endDate: endDate!)
+        self.init(name: name, photo: photo, rating: rating, startDate: startDate, endDate: endDate)
         
     }
     
