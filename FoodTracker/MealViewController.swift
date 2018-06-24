@@ -11,8 +11,8 @@ import D2PDatePicker
 
 class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var endDatePicker: D2PDatePicker!
-    @IBOutlet weak var startDatePicker: D2PDatePicker!
+    @IBOutlet weak var endDatePicker: UIDatePicker!
+    @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var labelTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
@@ -22,6 +22,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
      or constructed as part of adding a new meal.
      */
     var meal: Meal?
+    var startDate: Date?
+    var endDate: Date?
     
     @IBAction func cancel(_ sender: Any) {
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
@@ -55,8 +57,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         let name = labelTextField.text ?? ""
         let photo = photoImageView.image
         let rating = ratingControl.rating
-        let startDate = Date()
-        let endDate = Date()
+        let startDate = dateConverter(date: startDatePicker.date)
+        let endDate = dateConverter(date: endDatePicker.date)
         
         // Set the meal to be passed to MealTableViewController after the unwind segue.
         meal = Meal(name: name, photo: photo, rating: rating, startDate: startDate , endDate: endDate)
@@ -84,8 +86,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             ratingControl.rating = meal.rating
         }
         
-        startDatePicker.delegate = self
-        endDatePicker.delegate = self
+     
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()
     }
@@ -154,11 +155,4 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
 }
 
-extension MealViewController: D2PDatePickerDelegate {
-    
-    func didChange(toDate date: Date) {
-        print(date)
-    }
-    
-}
 
