@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DF51DE4F6BD26FB682E901C8B5412146"
-               BlueprintName = "TTGSnackbar"
+               BlueprintIdentifier = "A4C728A29A2B03D78256F0923484FA5D"
+               BlueprintName = "D2PDatePicker"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "TTGSnackbar.framework">
+               BuildableName = "D2PDatePicker.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

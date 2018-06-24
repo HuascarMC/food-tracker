@@ -47,7 +47,7 @@
                                             <rect key="frame" x="101" y="11" width="258" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UvL-vu-HWM" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
@@ -55,6 +55,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </stackView>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -84,39 +85,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gm3-Yb-TQu">
-                                <rect key="frame" x="0.0" y="84" width="320" height="388.5"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Label Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F4L-Kl-x7h">
-                                        <rect key="frame" x="92.5" y="0.0" width="135.5" height="8.5"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                    </textField>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-1a-o7S">
-                                        <rect key="frame" x="0.0" y="16.5" width="320" height="320"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="uFo-1a-o7S" secondAttribute="height" multiplier="1:1" id="2Ho-4B-naA"/>
-                                        </constraints>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="sSd-3s-jZy" appends="YES" id="XVM-84-aMw"/>
-                                        </connections>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yTe-pB-gU8" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                        <rect key="frame" x="34" y="344.5" width="252" height="44"/>
-                                    </stackView>
-                                </subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yTe-pB-gU8" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
+                                <rect key="frame" x="18" y="76" width="252" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="gm3-Yb-TQu" secondAttribute="height" multiplier="75:91" id="cfd-sf-R4w"/>
+                                    <constraint firstAttribute="width" secondItem="yTe-pB-gU8" secondAttribute="height" multiplier="63:11" id="O6Y-pP-2l3"/>
                                 </constraints>
                             </stackView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-1a-o7S">
+                                <rect key="frame" x="16" y="135" width="100" height="100"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="uBI-Lz-vlm"/>
+                                    <constraint firstAttribute="width" constant="100" id="uiq-qi-rza"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="sSd-3s-jZy" appends="YES" id="XVM-84-aMw"/>
+                                </connections>
+                            </imageView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gVD-1l-ffa">
+                                <rect key="frame" x="0.0" y="272" width="320" height="93"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="551537171.06871104">
+                                    <!--2018-06-24 12:46:11 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gm3-Yb-TQu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="068-zr-2uA"/>
-                            <constraint firstItem="gm3-Yb-TQu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Y59-se-g0x"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gm3-Yb-TQu" secondAttribute="trailing" id="cz0-we-DtP"/>
+                            <constraint firstItem="yTe-pB-gU8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="Hwo-GW-S0E"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uFo-1a-o7S" secondAttribute="trailing" constant="204" id="cNQ-bL-lUW"/>
+                            <constraint firstItem="uFo-1a-o7S" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="cXm-P1-62H"/>
+                            <constraint firstItem="uFo-1a-o7S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="71" id="o8a-Vs-y8z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yTe-pB-gU8" secondAttribute="trailing" constant="50" id="y4Y-Is-5uY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -133,7 +133,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="labelTextField" destination="F4L-Kl-x7h" id="yPg-B9-0fl"/>
                         <outlet property="photoImageView" destination="uFo-1a-o7S" id="9SL-HL-5jY"/>
                         <outlet property="ratingControl" destination="yTe-pB-gU8" id="dYE-1a-0Bz"/>
                         <outlet property="saveButton" destination="yix-kC-STS" id="9VC-yl-QE3"/>
@@ -783,7 +782,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="GZ6-LX-C5t"/>
         <segue reference="S2X-nw-7aA"/>
-        <segue reference="dau-N9-NAP"/>
+        <segue reference="6QM-XB-LFv"/>
         <segue reference="lxC-BN-pWr"/>
     </inferredMetricsTieBreakers>
 </document>

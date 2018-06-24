@@ -14,6 +14,7 @@ PODS:
   - Charts (3.1.1):
     - Charts/Core (= 3.1.1)
   - Charts/Core (3.1.1)
+  - D2PDatePicker (0.1.4)
   - FBSDKCoreKit (4.33.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.33.0):
@@ -151,6 +152,7 @@ PODS:
 
 DEPENDENCIES:
   - Charts
+  - D2PDatePicker
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
@@ -163,6 +165,7 @@ SPEC REPOS:
     - Bolts
     - BoringSSL
     - Charts
+    - D2PDatePicker
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -194,6 +197,7 @@ SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   BoringSSL: c46efb47593135382bc0934196f16d2f726f5f36
   Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
+  D2PDatePicker: e35a6b3dd5fac16de8a17606dc0bb285e8b1a875
   FBSDKCoreKit: 572b047a7e029bc44542bcf8a59414e7ff2b543e
   FBSDKLoginKit: 88cb456349cfb3b554427ce4f8b43729d85dfb40
   Firebase: e08fb0795f35707aeb1d8a715c731c45bdf6fd56
@@ -221,6 +225,6 @@ SPEC CHECKSUMS:
   TwitterCore: 644d59e75abccb26cf0a9050d2c4dea0e5412241
   TwitterKit: a2e60ddcedbf54091eac6f27685ca7a87681e1d7
 
-PODFILE CHECKSUM: 669fdc83835836baa3a79fc4a3ff8f4d61e1231d
+PODFILE CHECKSUM: 598d3249020e971e339656cb05c5a0d9c2706656
 
 COCOAPODS: 1.5.3
