@@ -262,7 +262,7 @@ func setChart() {
         leftAxis.removeAllLimitLines()
 //        leftAxis.addLimitLine(ll1)
 //        leftAxis.addLimitLine(ll2)
-        leftAxis.axisMaximum = Double((greatestHue?.value)!)
+        leftAxis.axisMaximum = Double(((greatestHue?.value)! + 5))
         leftAxis.axisMinimum = 0
         leftAxis.gridLineDashLengths = [5, 5]
         leftAxis.minWidth = 3.0

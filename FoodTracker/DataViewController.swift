@@ -144,10 +144,10 @@ class DataViewController: UIViewController {
         yAxis.drawLimitLinesBehindDataEnabled = true
         yAxis.spaceTop = 0.35
         yAxis.axisMinimum = 0
-        yAxis.axisMaximum = Double((greatestHue?.value)!)
+        yAxis.axisMaximum = Double(((greatestHue?.value)! + 5))
         yAxis.drawGridLinesEnabled = false
         
-        var ind = 0
+        var ind = 0 
         for (e, value) in self.agesCount {
             
             let dataEntry = BarChartDataEntry(x: Double(ind) , y: Double(value))
