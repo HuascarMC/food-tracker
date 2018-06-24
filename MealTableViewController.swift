@@ -91,12 +91,15 @@ class MealTableViewController: UITableViewController {
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "en_US")
-        let startDateString = dateFormatter.string(from: meal.startDate!)
-        let endDateString = dateFormatter.string(from: meal.endDate!)
+        if meal.startDate != nil && meal.endDate != nil {
+            let startDateString = dateFormatter.string(from: meal.startDate!)
+            let endDateString = dateFormatter.string(from: meal.endDate!)
+            
+                    cell.startDate.text = startDateString
+                    cell.endDate.text = endDateString
 
-        cell.startDate.text = startDateString
-        cell.endDate.text = endDateString
-
+        }
+  
         return cell
     }
 

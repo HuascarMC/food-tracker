@@ -7,7 +7,8 @@
 //
 import os.log
 import UIKit
-import D2PDatePicker
+import Charts
+import Firebase
 
 class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -17,6 +18,11 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var pieChart: PieChartView!
+    
+
+
+    
     /*
      This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
      or constructed as part of adding a new meal.
@@ -24,6 +30,9 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     var meal: Meal?
     var startDate: Date?
     var endDate: Date?
+    var malesCount = 10
+    var femalesCount = 15
+    var db: Firestore!
     
     @IBAction func cancel(_ sender: Any) {
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
@@ -85,7 +94,14 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             photoImageView.image = meal.photo
             ratingControl.rating = meal.rating
         }
-        
+        // [START setup]
+        let settings = FirestoreSettings()
+        settings.isPersistenceEnabled = true
+        Firestore.firestore().settings = settings
+        // [END setup]
+        db = Firestore.firestore()
+        // Do any additional setup after loading the view.
+        self.updatePieChart()
      
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()
@@ -96,6 +112,55 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Dispose of any resources that can be recreated.
     }
     
+    private func updatePieChart() {
+        let legend = pieChart.legend
+        legend.enabled = true
+        legend.horizontalAlignment = .right
+        legend.verticalAlignment = .top
+        legend.orientation = .vertical
+        legend.drawInside = true
+        legend.yOffset = 10.0;
+        legend.xOffset = 10.0;
+        legend.yEntrySpace = 0.0;
+        legend.textColor = UIColor.white;
+        let entry1 = PieChartDataEntry(value: Double(self.malesCount), label: "Males")
+        let entry2 = PieChartDataEntry(value: Double(self.femalesCount), label: "Females")
+        let dataSet = PieChartDataSet(values: [entry1, entry2], label: "")
+        pieChart.setExtraOffsets(left: 20, top: 0, right: 20, bottom: 0)
+        pieChart.animate(xAxisDuration: 1.4, easingOption: .easeOutBack)
+        let data = PieChartData(dataSet: dataSet)
+        pieChart.data = data
+        pieChart.chartDescription?.text = ""
+        dataSet.colors = ChartColorTemplates.joyful()
+        pieChart.legend.font = UIFont(name: "Futura", size: 15)!
+        //        pieChart.chartDescription?.font = UIFont(name: "Futura", size: 12)!
+        //        pieChart.chartDescription?.xOffset = pieChart.frame.width + 30
+        //        pieChart.chartDescription?.yOffset = pieChart.frame.height * (2/3)
+        //        pieChart.chartDescription?.textAlign = NSTextAlignment.left
+        //All other additions to this function will go here
+        //        pieChart.animate(xAxisDuration: 1.4)
+        //        pieChart.animate(yAxisDuration: 1.4)
+        dataSet.valueLinePart1OffsetPercentage = 1
+        dataSet.valueLinePart1Length = 0.5
+        dataSet.valueLinePart2Length = 0.5
+        //set.xValuePosition = .outsideSlice
+        dataSet.yValuePosition = .outsideSlice
+        dataSet.sliceSpace = 2
+        let pFormatter = NumberFormatter()
+        //        pFormatter.numberStyle = .percent
+        pFormatter.maximumFractionDigits = 1
+        pFormatter.multiplier = 1
+        //        pFormatter.percentSymbol = " %"
+        data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
+        data.setValueFont(.systemFont(ofSize: 11, weight: .bold))
+        data.setValueTextColor(.white)
+        pieChart.spin(duration: 2,
+                      fromAngle: pieChart.rotationAngle,
+                      toAngle: pieChart.rotationAngle + 360,
+                      easingOption: .easeInCubic)
+        //This must stay at end of function
+        pieChart.notifyDataSetChanged()
+    }
     
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -153,6 +218,33 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         saveButton.isEnabled = !text.isEmpty
     }
     
+
+    
+//    private func getVisitorsByDateRangeAndGender(startDate: Date, endDate: Date, finished: @escaping (_ result: Int) -> Void) {
+//        var visitorsCount = 0
+//        db.collection("visitors").whereField("date", isLessThan: startDate).getDocuments() { (querySnapshot, err) in
+//                if let err = err {
+//                    print("Error getting documents: \(err)")
+//                } else {
+//                    if(!(querySnapshot?.isEmpty)!) {
+//                        for document in querySnapshot!.documents {
+//                            print("\(document.documentID) => \(document.data())")
+//                            print(document.data())
+//                            print(document.data()["age"]!)
+////                            if(document.data()["gender"]! as? String == "male") {
+////                                self.malesCount += 1
+////                            } else {
+////                                self.femalesCount += 1
+////                            }
+//                            visitorsCount += 1// [END get_multiple]
+//                        }
+//                        finished(visitorsCount)
+//                    }
+//
+//                }
+//        }
+//        print(visitorsCount)
+//    }
 }
 
 

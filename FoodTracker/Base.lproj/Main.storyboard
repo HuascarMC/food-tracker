@@ -120,13 +120,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yTe-pB-gU8" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                <rect key="frame" x="466" y="76" width="252" height="44"/>
+                                <rect key="frame" x="191" y="76" width="252" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yTe-pB-gU8" secondAttribute="height" multiplier="63:11" id="O6Y-pP-2l3"/>
                                 </constraints>
                             </stackView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-1a-o7S">
-                                <rect key="frame" x="16" y="137" width="595" height="133"/>
+                                <rect key="frame" x="16" y="137" width="320" height="133"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="133" id="vaC-la-TLL"/>
@@ -137,7 +137,7 @@
                                 </connections>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6dn-BA-hH0">
-                                <rect key="frame" x="626" y="164" width="86" height="30"/>
+                                <rect key="frame" x="351" y="164" width="86" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4a3-74-IsT"/>
                                     <constraint firstAttribute="width" secondItem="6dn-BA-hH0" secondAttribute="height" multiplier="43:15" id="J3Y-al-W0G"/>
@@ -178,7 +178,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Finish date:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CYR-F2-j3E">
-                                <rect key="frame" x="626" y="280" width="102" height="33"/>
+                                <rect key="frame" x="351" y="280" width="102" height="33"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="YlW-7v-DNT"/>
@@ -207,6 +207,16 @@
                                     <constraint firstItem="MeJ-98-5C9" firstAttribute="leading" secondItem="yPy-Ux-2tE" secondAttribute="leading" constant="8" id="peW-hQ-Xby"/>
                                     <constraint firstItem="MeJ-98-5C9" firstAttribute="top" secondItem="yPy-Ux-2tE" secondAttribute="top" constant="8" id="qgp-6Z-bdP"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="umj-YL-OMh">
+                                <rect key="frame" x="178" y="453" width="126" height="119"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYN-Ig-ENH" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="453" width="147" height="119"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -245,6 +255,7 @@
                         <outlet property="endDatePicker" destination="MeJ-98-5C9" id="Tfk-Bn-5EI"/>
                         <outlet property="labelTextField" destination="6dn-BA-hH0" id="9WM-ue-Kly"/>
                         <outlet property="photoImageView" destination="uFo-1a-o7S" id="9SL-HL-5jY"/>
+                        <outlet property="pieChart" destination="CYN-Ig-ENH" id="q69-2g-SYn"/>
                         <outlet property="ratingControl" destination="yTe-pB-gU8" id="dYE-1a-0Bz"/>
                         <outlet property="saveButton" destination="yix-kC-STS" id="9VC-yl-QE3"/>
                         <outlet property="startDatePicker" destination="37H-NW-5G3" id="uTj-tE-gdj"/>
@@ -258,7 +269,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4876.875" y="-210"/>
+            <point key="canvasLocation" x="4875" y="-211.25"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Oxc-Tx-eO0">
