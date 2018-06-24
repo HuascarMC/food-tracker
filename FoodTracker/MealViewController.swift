@@ -7,8 +7,12 @@
 //
 import os.log
 import UIKit
+import D2PDatePicker
 
 class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    @IBOutlet weak var endDatePicker: D2PDatePicker!
+    @IBOutlet weak var startDatePicker: D2PDatePicker!
     @IBOutlet weak var labelTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
@@ -131,5 +135,14 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         let text = labelTextField.text ?? ""
         saveButton.isEnabled = !text.isEmpty
     }
+    
+}
+
+extension MealViewController: D2PDatePickerDelegate {
+    
+    func didChange(toDate date: Date) {
+        print(date)
+    }
+    
 }
 
