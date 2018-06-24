@@ -12,7 +12,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Your Meals-->
+        <!--Exhibitions-->
         <scene sceneID="BWK-tW-wRy">
             <objects>
                 <tableViewController id="fwu-Za-iGQ" customClass="MealTableViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,7 +70,7 @@
                             <outlet property="delegate" destination="fwu-Za-iGQ" id="KRo-Ov-d8L"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Meals" id="MrB-sP-aep"/>
+                    <navigationItem key="navigationItem" title="Exhibitions" id="MrB-sP-aep"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTt-FF-ShJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
