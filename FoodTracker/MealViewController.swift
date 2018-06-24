@@ -49,12 +49,26 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             }
             return
         }
+        
+        
+        
         let name = labelTextField.text ?? ""
         let photo = photoImageView.image
         let rating = ratingControl.rating
+        let startDate = Date()
+        let endDate = Date()
         
         // Set the meal to be passed to MealTableViewController after the unwind segue.
-        meal = Meal(name: name, photo: photo, rating: rating)
+        meal = Meal(name: name, photo: photo, rating: rating, startDate: startDate , endDate: endDate)
+    }
+    
+    private func dateConverter(date: Date) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        let dateString = dateFormatter.string(from: date as Date)
+        return dateFormatter.date(from: dateString)!
     }
     
     override func viewDidLoad() {
@@ -70,6 +84,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             ratingControl.rating = meal.rating
         }
         
+        startDatePicker.delegate = self
+        endDatePicker.delegate = self
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()
     }

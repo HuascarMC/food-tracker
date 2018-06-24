@@ -46,6 +46,7 @@ class VisitorInputViewController: UIViewController {
         dateFormatter.locale = Locale(identifier: "en_US")
         let dateStringUS = dateFormatter.string(from: date as Date)
         self.date.text = dateStringUS
+        
         self.genders = [self.Male, self.Female]
         self.ages = [self.one, self.two, self.three, self.four, self.five, self.six, self.seven]
         // Do any additional setup after loading the view.
