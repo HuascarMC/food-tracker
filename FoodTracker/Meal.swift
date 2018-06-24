@@ -16,6 +16,8 @@ class Meal: NSObject, NSCoding {
     var name: String
     var photo: UIImage?
     var rating: Int
+    var startDate: Date
+    var endDate: Date
     
     //MARK: Types
     
@@ -23,9 +25,11 @@ class Meal: NSObject, NSCoding {
         static let name = "name"
         static let photo = "photo"
         static let rating = "rating"
+        static let startDate = "startDate"
+        static let endDate = "endDate"
     }
 
-    init?(name: String, photo: UIImage?, rating: Int) {
+    init?(name: String, photo: UIImage?, rating: Int, startDate: Date, endDate: Date) {
         
         // Initialization should fail if there is no name or if the rating is negative.
         // The name must not be empty
@@ -42,6 +46,8 @@ class Meal: NSObject, NSCoding {
         self.name = name
         self.photo = photo
         self.rating = rating
+        self.startDate = startDate
+        self.endDate = endDate
     }
     
     //MARK: NSCoding
@@ -49,6 +55,8 @@ class Meal: NSObject, NSCoding {
         aCoder.encode(name, forKey: PropertyKey.name)
         aCoder.encode(photo, forKey: PropertyKey.photo)
         aCoder.encode(rating, forKey: PropertyKey.rating)
+        aCoder.encode(startDate, forKey: PropertyKey.startDate)
+        aCoder.encode(endDate, forKey: PropertyKey.endDate)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -68,8 +76,12 @@ class Meal: NSObject, NSCoding {
         
         let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
         
+        let startDate = aDecoder.decodeObject(forKey: PropertyKey.startDate) as? Date
+        
+        let endDate = aDecoder.decodeObject(forKey: PropertyKey.endDate) as? Date
+        
         // Must call designated initializer.
-        self.init(name: name, photo: photo, rating: rating)
+        self.init(name: name, photo: photo, rating: rating, startDate: startDate!, endDate: endDate!)
         
     }
     
