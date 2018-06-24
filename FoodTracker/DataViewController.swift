@@ -12,6 +12,7 @@ import Charts
 
 class DataViewController: UIViewController {
   
+    @IBOutlet weak var visitorsCountLabel: UITextView!
     @IBOutlet weak var malesCountLabel: UILabel!
     @IBOutlet weak var femalesCountLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -38,11 +39,13 @@ class DataViewController: UIViewController {
     var malesCount = Double(0) {
         didSet {
             self.updatePieChart()
+            self.visitorsCountLabel.text = String(self.malesCount + self.femalesCount)
         }
     }
     var femalesCount = Double(0) {
         didSet {
             self.updatePieChart()
+            self.visitorsCountLabel.text = String(self.malesCount + self.femalesCount)
         }
     }
     
@@ -232,7 +235,7 @@ class DataViewController: UIViewController {
                         // [END get_multiple]
                     }
                 }
-                self.malesCountLabel.text = String(self.malesCount)
+//                self.malesCountLabel.text = String(self.malesCount)
           }
         }
  
@@ -252,7 +255,7 @@ class DataViewController: UIViewController {
                         // [END get_multiple]
                         }
                  }
-                    self.femalesCountLabel.text = String(self.femalesCount)
+//                    self.femalesCountLabel.text = String(self.femalesCount)
                 }
         }
     }
