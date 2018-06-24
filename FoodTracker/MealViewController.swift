@@ -19,6 +19,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var pieChart: PieChartView!
+    @IBOutlet weak var lineChart: LineChartView!
     
 
 
@@ -33,6 +34,15 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     var malesCount = 10
     var femalesCount = 15
     var db: Firestore!
+    var days = [
+        "previousx1" : 7,
+        "beforeYesterday" : 3,
+        
+        "previousx2" : 5,
+        "today" : 12,
+        "yesterday" : 1
+        
+    ]
     
     @IBAction func cancel(_ sender: Any) {
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
@@ -102,7 +112,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         db = Firestore.firestore()
         // Do any additional setup after loading the view.
         self.updatePieChart()
-     
+        self.updateLineChart()
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()
     }
@@ -160,6 +170,116 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
                       easingOption: .easeInCubic)
         //This must stay at end of function
         pieChart.notifyDataSetChanged()
+    }
+    
+    private func updateLineChart() {
+        var lineChartEntry = [ChartDataEntry]()
+        lineChart.chartDescription?.enabled = false
+        lineChart.dragEnabled = true
+        lineChart.setScaleEnabled(true)
+        lineChart.pinchZoomEnabled = true
+        lineChart.gridBackgroundColor = UIColor(white: 1, alpha: 1)
+        
+        let xAxis = lineChart.xAxis
+        xAxis.labelPosition = .bottom
+        xAxis.labelFont = .systemFont(ofSize: 10)
+        xAxis.labelTextColor = UIColor(white:1, alpha: 1)
+        xAxis.axisLineWidth = 3.0
+        xAxis.axisLineColor = UIColor(white: 1, alpha: 1)
+        
+        // x-axis limit line
+        let llXAxis = ChartLimitLine(limit: 10, label: "Index 10")
+        llXAxis.lineWidth = 4
+        llXAxis.lineDashLengths = [10, 10, 0]
+        llXAxis.labelPosition = .rightBottom
+        llXAxis.valueFont = .systemFont(ofSize: 10)
+        
+        lineChart.xAxis.gridLineDashLengths = [10, 10]
+        lineChart.xAxis.gridLineDashPhase = 0
+        let formatter = ChartStringFormatter()
+        formatter.nameValues = ["", "Previous", "Previous", "PrevYday", "Yesterday", "Today"] //anything you want
+        xAxis.valueFormatter = formatter
+        xAxis.granularity = 1
+        
+        let marker = BalloonMarker(color: UIColor(white: 180/255, alpha: 1),
+                                   font: .systemFont(ofSize: 15),
+                                   textColor: .white,
+                                   insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8))
+        marker.chartView = lineChart
+        marker.minimumSize = CGSize(width: 80, height: 40)
+        lineChart.marker = marker
+        
+        lineChart.legend.form = .line
+        //
+        //        let ll1 = ChartLimitLine(limit: 150, label: "Upper Limit")
+        //        ll1.lineWidth = 4
+        //        ll1.lineDashLengths = [5, 5]
+        //        ll1.labelPosition = .rightTop
+        //        ll1.valueFont = .systemFont(ofSize: 10)
+        //
+        //        let ll2 = ChartLimitLine(limit: -30, label: "Lower Limit")
+        //        ll2.lineWidth = 4
+        //        ll2.lineDashLengths = [5,5]
+        //        ll2.labelPosition = .rightBottom
+        //        ll2.valueFont = .systemFont(ofSize: 10)
+        let gradientColors = [ChartColorTemplates.colorFromString("#00ff0000").cgColor,
+                              ChartColorTemplates.colorFromString("#ffff0000").cgColor]
+        let gradient = CGGradient(colorsSpace: nil, colors: gradientColors as CFArray, locations: nil)!
+        
+        let greatestHue = days.max { a, b in a.value < b.value }
+        
+        let leftAxis = lineChart.leftAxis
+        leftAxis.removeAllLimitLines()
+        //        leftAxis.addLimitLine(ll1)
+        //        leftAxis.addLimitLine(ll2)
+        leftAxis.axisMaximum = Double(((greatestHue?.value)! + 5))
+        leftAxis.axisMinimum = 0
+        leftAxis.gridLineDashLengths = [5, 5]
+        leftAxis.minWidth = 3.0
+        leftAxis.labelTextColor = UIColor(white: 1, alpha: 1)
+        leftAxis.axisLineWidth = 3.0
+        leftAxis.axisLineColor = UIColor(white: 1, alpha: 1)
+        leftAxis.drawLimitLinesBehindDataEnabled = true
+        
+        lineChart.rightAxis.enabled = false
+        
+        var index = 0
+        for (e, value) in days.reversed()  {
+            let entry = ChartDataEntry(x: Double(index), y: Double(value))
+            lineChartEntry.append(entry)
+            index += 1
+        }
+        
+        
+        let line = LineChartDataSet(values: lineChartEntry, label: "Visitors")
+        
+        line.colors = ChartColorTemplates.colorful()
+        line.setCircleColors(UIColor(red: 0, green: 1, blue: 0, alpha: 1))
+        line.lineDashLengths = [5, 2.5]
+        line.highlightLineDashLengths = [5, 2.5]
+        //        line.setColor(.black)
+        line.setCircleColor(.orange)
+        line.lineWidth = 10
+        line.circleRadius = 10
+        line.drawCircleHoleEnabled = false
+        line.valueFont = .systemFont(ofSize: 0)
+        line.formLineDashLengths = [5, 2.5]
+        line.formLineWidth = 1
+        line.formSize = 15
+        line.fillAlpha = 1
+        line.fill = Fill(linearGradient: gradient, angle: 90) //.linearGradient(gradient, angle: 90)
+        line.drawFilledEnabled = true
+        let data = LineChartData()
+        data.addDataSet(line)
+        lineChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        lineChart.data = data
+        lineChart.rightAxis.enabled = false
+        lineChart.legend.enabled = false
+        lineChart.borderLineWidth = 1.0
+        
+        
+        
+        lineChart.chartDescription?.text = "Visitors in past 3 days"
     }
     
     //MARK: UITextFieldDelegate
