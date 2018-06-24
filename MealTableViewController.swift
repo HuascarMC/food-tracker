@@ -87,6 +87,15 @@ class MealTableViewController: UITableViewController {
         cell.nameLabel.text = meal.name
         cell.photoImageView.image = meal.photo
         cell.ratingControl.rating = meal.rating
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "en_US")
+        let startDateString = dateFormatter.string(from: meal.startDate!)
+        let endDateString = dateFormatter.string(from: meal.endDate!)
+
+        cell.startDate.text = startDateString
+        cell.endDate.text = endDateString
 
         return cell
     }
