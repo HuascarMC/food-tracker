@@ -20,8 +20,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var lineChart: LineChartView!
+    @IBOutlet weak var BarChart: BarChartView!
     
-
 
     
     /*
@@ -34,6 +34,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     var malesCount = 10
     var femalesCount = 15
     var db: Firestore!
+     let ages = ["0-10", "11-20", "21-30", "31-40", "41-50", "51-60", "61-70"]
     var days = [
         "previousx1" : 7,
         "beforeYesterday" : 3,
@@ -43,6 +44,15 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         "yesterday" : 1
         
     ]
+    var agesCount = [
+        "10" : 20,
+        "20": 25,
+        "30" : 10,
+        "40" : 15,
+        "50" : 5,
+        "60" : 40,
+        "70" : 35,
+        ]
     
     @IBAction func cancel(_ sender: Any) {
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
@@ -113,6 +123,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Do any additional setup after loading the view.
         self.updatePieChart()
         self.updateLineChart()
+        self.setChart()
         // Enable the Save button only if the text field has a valid Meal name.
         updateSaveButtonState()
     }
@@ -121,6 +132,134 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setChart() {
+        let leftAxisFormatter = NumberFormatter()
+        leftAxisFormatter.maximumFractionDigits = 1
+        //legend
+        let legend = BarChart.legend
+        legend.enabled = true
+        legend.horizontalAlignment = .right
+        legend.verticalAlignment = .top
+        legend.orientation = .vertical
+        legend.drawInside = true
+        legend.yOffset = 10.0;
+        legend.xOffset = 10.0;
+        legend.yEntrySpace = 0.0;
+        
+        BarChart.noDataText = "You need to provide data for the chart."
+        var dataEntries: [BarChartDataEntry] = []
+        //        var dataEntries1: [BarChartDataEntry] = []
+        
+        let marker = BalloonMarker(color: UIColor(white: 180/255, alpha: 1),
+                                   font: .systemFont(ofSize: 15),
+                                   textColor: .white,
+                                   insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8))
+        marker.chartView = BarChart
+        marker.minimumSize = CGSize(width: 80, height: 40)
+        BarChart.marker = marker
+        
+        
+        let xAxis = BarChart.xAxis
+        xAxis.labelPosition = .bottom
+        xAxis.labelFont = .systemFont(ofSize: 10)
+        xAxis.labelTextColor = UIColor(white:1, alpha: 1)
+        xAxis.axisLineWidth = 3.0
+        xAxis.axisLineColor = UIColor(white: 1, alpha: 1)
+        //        xAxis.granularityEnabled = true
+        //        xAxis.granularity = 1
+        //        xAxis.xOffset = 0
+        //        xAxis.drawGridLinesEnabled = true
+        //        xAxis.labelPosition = .bottom
+        //        xAxis.centerAxisLabelsEnabled = true
+        xAxis.valueFormatter = IndexAxisValueFormatter(values:self.ages)
+        //        xAxis.granularity = 1
+        //        xAxis.granularityEnabled = true
+        //
+        
+        let greatestHue = self.agesCount.max { a, b in a.value < b.value }
+        
+        let yAxis = BarChart.leftAxis
+        yAxis.removeAllLimitLines()
+        //        leftAxis.addLimitLine(ll1)
+        //        leftAxis.addLimitLine(ll2)
+        //    leftAxis.axisMaximum = 10
+        //    leftAxis.axisMinimum = 0
+        yAxis.gridLineDashLengths = [5, 5]
+        yAxis.minWidth = 3.0
+        yAxis.labelTextColor = UIColor(white: 1, alpha: 1)
+        yAxis.axisLineWidth = 3.0
+        yAxis.axisLineColor = UIColor(white: 1, alpha: 1)
+        yAxis.drawLimitLinesBehindDataEnabled = true
+        yAxis.spaceTop = 0.35
+        yAxis.axisMinimum = 0
+        yAxis.axisMaximum = Double(((greatestHue?.value)! + 5))
+        yAxis.drawGridLinesEnabled = false
+        
+        var ind = 0
+        for (e, value) in self.agesCount {
+            
+            let dataEntry = BarChartDataEntry(x: Double(ind) , y: Double(value))
+            dataEntries.append(dataEntry)
+            
+            //            let dataEntry1 = BarChartDataEntry(x: Double(ind) , y: Double(value))
+            //            dataEntries1.append(dataEntry1)
+            
+            ind += 1
+            //stack barchart
+            //let dataEntry = BarChartDataEntry(x: Double(i), yValues:  [self.unitsSold[i],self.unitsBought[i]], label: "groupChart")
+            
+            
+            
+        }
+        
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "")
+        //        let chartDataSet1 = BarChartDataSet(values: dataEntries1, label: "Female")
+        
+        let dataSets: [BarChartDataSet] = [chartDataSet]
+        //        chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
+        chartDataSet.colors = ChartColorTemplates.colorful()
+        //let chartData = BarChartData(dataSet: chartDataSet)
+        
+        let chartData = BarChartData(dataSets: dataSets)
+        
+        
+        //        let groupSpace = 0.3
+        //        let barSpace = 0.05
+        //        let barWidth = 1
+        // (0.3 + 0.05) * 2 + 0.3 = 1.00 -> interval per "group"
+        
+        //        let groupCount = self.ages.count
+        //        let startYear = 0
+        
+        
+        //        chartData.barWidth = 0.5
+        //        chartData.groupWidth(groupSpace: 1.0, barSpace: 2.0)
+        //        BarChart.xAxis.axisMinimum = Double(startYear)
+        //        let gg = chartData.groupWidth(groupSpace: groupSpace, barSpace: barSpace)
+        //        print("Groupspace: \(gg)")
+        //        BarChart.xAxis.axisMaximum = Double(startYear) + gg * Double(groupCount)
+        
+        //        chartData.groupBars(fromX: Double(startYear), groupSpace: groupSpace, barSpace: barSpace)
+        //        chartData.groupWidth(groupSpace: 20, barSpace: 20)
+        BarChart.notifyDataSetChanged()
+        
+        BarChart.data = chartData
+        
+        
+        
+        
+        
+        
+        //background color
+        //    BarChart.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
+        
+        //chart animation
+        BarChart.animate(xAxisDuration: 1.5, yAxisDuration: 1.5, easingOption: .linear)
+        
+        
+    }
+
     
     private func updatePieChart() {
         let legend = pieChart.legend
