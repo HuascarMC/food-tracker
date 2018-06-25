@@ -17,7 +17,7 @@
             <objects>
                 <tableViewController id="fwu-Za-iGQ" customClass="MealTableViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2S4-ZS-zam">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <toolbar key="tableFooterView" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="top" barStyle="black" id="ypQ-UQ-M2E">
@@ -116,7 +116,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="436"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yTe-pB-gU8" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
@@ -217,14 +217,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ea-aN-dfd" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="280" y="93" width="21" height="229"/>
+                                <rect key="frame" x="280" y="137" width="21" height="229"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="229" id="25c-SP-TdN"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umj-YL-OMh" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="280" y="-121" width="21" height="206"/>
+                                <rect key="frame" x="280" y="-77" width="21" height="206"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="206" id="vfG-Pq-t4Z"/>
@@ -930,6 +930,6 @@
         <segue reference="GZ6-LX-C5t"/>
         <segue reference="S2X-nw-7aA"/>
         <segue reference="dau-N9-NAP"/>
-        <segue reference="5gI-YR-j5h"/>
+        <segue reference="lxC-BN-pWr"/>
     </inferredMetricsTieBreakers>
 </document>

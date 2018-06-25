@@ -18,15 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dea-rU-WpE">
-                                <rect key="frame" x="40" y="150" width="240" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="Dea-rU-WpE">
+                                <rect key="frame" x="40" y="150" width="240" height="218"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="AF3-OO-K1h"/>
-                                    <constraint firstAttribute="height" constant="200" id="uPs-Aj-NDO"/>
+                                    <constraint firstAttribute="height" constant="218" id="BJv-RV-zvG"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Dea-rU-WpE" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="2YT-Hw-dcZ"/>
                             <constraint firstItem="Dea-rU-WpE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="U7r-ht-rK6"/>
@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="50.625" y="373.75"/>
         </scene>
     </scenes>
     <resources>

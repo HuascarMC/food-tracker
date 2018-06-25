@@ -17,7 +17,7 @@ class SignViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     var db: Firestore!
     var userStats: DocumentReference? = nil
-    var currentUserStats = false
+    var currentUserStats = true
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +68,8 @@ class SignViewController: UIViewController {
 //
 //        }
 //
+
+
     }
     
     private func triggerAuth() {
