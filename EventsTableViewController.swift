@@ -77,7 +77,7 @@ class EventsTableViewController: UITableViewController {
         let cellIdentifier = "MealTableViewCell"
 
         // When scrolling make/render the cell be as a MealTableViewCell, if it's not trigger error.
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MealTableViewCell  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? EventTableViewCell  else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
 
@@ -179,7 +179,7 @@ class EventsTableViewController: UITableViewController {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
 
-            guard let selectedMealCell = sender as? MealTableViewCell else {
+            guard let selectedMealCell = sender as? EventTableViewCell else {
                 fatalError("Unexpected sender: \(sender)")
             }
 

@@ -28,7 +28,7 @@
                             </items>
                         </toolbar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="107" id="F2W-kf-PpL" customClass="MealTableViewCell" customModule="FoodTracker" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="107" id="F2W-kf-PpL" customClass="EventTableViewCell" customModule="FoodTracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F2W-kf-PpL" id="JKU-Hs-5yD">
@@ -122,7 +122,7 @@
                                 </constraints>
                             </stackView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-1a-o7S">
-                                <rect key="frame" x="16" y="137" width="320" height="133"/>
+                                <rect key="frame" x="16" y="137" width="427" height="133"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="133" id="vaC-la-TLL"/>
@@ -133,7 +133,7 @@
                                 </connections>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6dn-BA-hH0">
-                                <rect key="frame" x="351" y="164" width="86" height="30"/>
+                                <rect key="frame" x="458" y="164" width="86" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4a3-74-IsT"/>
                                     <constraint firstAttribute="width" secondItem="6dn-BA-hH0" secondAttribute="height" multiplier="43:15" id="J3Y-al-W0G"/>
@@ -174,7 +174,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Finish date:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CYR-F2-j3E">
-                                <rect key="frame" x="351" y="280" width="102" height="33"/>
+                                <rect key="frame" x="458" y="280" width="102" height="33"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="YlW-7v-DNT"/>
@@ -213,14 +213,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ea-aN-dfd" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="280" y="257" width="194" height="229"/>
+                                <rect key="frame" x="280" y="257" width="301" height="229"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="229" id="25c-SP-TdN"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umj-YL-OMh" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="280" y="43" width="194" height="206"/>
+                                <rect key="frame" x="280" y="43" width="301" height="206"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="206" id="vfG-Pq-t4Z"/>

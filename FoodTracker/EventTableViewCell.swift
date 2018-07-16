@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MealTableViewCell: UITableViewCell {
+class EventTableViewCell: UITableViewCell {
     
     // MARK: Properties
     @IBOutlet weak var nameLabel: UILabel!
