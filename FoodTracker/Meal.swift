@@ -76,12 +76,12 @@ class Meal: NSObject, NSCoding {
         
         let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
         
-        let startDate = aDecoder.decodeObject(forKey: PropertyKey.startDate) as? Date
+        let StartDate = aDecoder.decodeObject(forKey: PropertyKey.startDate) as? Date
         
-        let endDate = aDecoder.decodeObject(forKey: PropertyKey.endDate) as? Date
+        let EndDate = aDecoder.decodeObject(forKey: PropertyKey.endDate) as? Date
         
         // Must call designated initializer.
-        self.init(name: name, photo: photo, rating: rating, startDate: startDate, endDate: endDate)
+        self.init(name: name, photo: photo, rating: rating, startDate: StartDate, endDate: EndDate)
         
     }
     

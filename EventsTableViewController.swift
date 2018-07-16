@@ -8,7 +8,7 @@
 import os.log
 import UIKit
 
-class MealTableViewController: UITableViewController {
+class EventsTableViewController: UITableViewController {
 
     //MARK: Properties
 

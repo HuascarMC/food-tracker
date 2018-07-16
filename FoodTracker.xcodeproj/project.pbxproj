@@ -16,7 +16,7 @@
 		E85F465920BD8884001382C8 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85F465820BD8884001382C8 /* RatingControl.swift */; };
 		E863DD4520C44310007A9E96 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E863DD4420C44310007A9E96 /* GoogleService-Info.plist */; };
 		E87AFBC920C1C55E004530C3 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87AFBC820C1C55E004530C3 /* MealTableViewCell.swift */; };
-		E87AFBCD20C1CA6B004530C3 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87AFBCC20C1CA6B004530C3 /* MealTableViewController.swift */; };
+		E87AFBCD20C1CA6B004530C3 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87AFBCC20C1CA6B004530C3 /* EventsTableViewController.swift */; };
 		E8AB787120CAB653001E3A28 /* ChartStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB787020CAB653001E3A28 /* ChartStringFormatter.swift */; };
 		E8AB787320CD5534001E3A28 /* SignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB787220CD5534001E3A28 /* SignViewController.swift */; };
 		E8B162C220C158AF00C3990D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B162C020C158AC00C3990D /* Meal.swift */; };
@@ -54,7 +54,7 @@
 		E85F465820BD8884001382C8 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		E863DD4420C44310007A9E96 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E87AFBC820C1C55E004530C3 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
-		E87AFBCC20C1CA6B004530C3 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MealTableViewController.swift; path = ../MealTableViewController.swift; sourceTree = "<group>"; };
+		E87AFBCC20C1CA6B004530C3 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = ../EventsTableViewController.swift; sourceTree = "<group>"; };
 		E888EE24C1E54695C6FBA245 /* Pods_FoodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8AB787020CAB653001E3A28 /* ChartStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStringFormatter.swift; sourceTree = "<group>"; };
 		E8AB787220CD5534001E3A28 /* SignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 				E87AFBC820C1C55E004530C3 /* MealTableViewCell.swift */,
 				E8B162C020C158AC00C3990D /* Meal.swift */,
 				E8D043E620BB299A0075154A /* AppDelegate.swift */,
-				E87AFBCC20C1CA6B004530C3 /* MealTableViewController.swift */,
+				E87AFBCC20C1CA6B004530C3 /* EventsTableViewController.swift */,
 				E8D043E820BB299A0075154A /* MealViewController.swift */,
 				E85F465820BD8884001382C8 /* RatingControl.swift */,
 				E8D043EA20BB299A0075154A /* Main.storyboard */,
@@ -412,7 +412,7 @@
 				E8519E3220C46D1F00C7EDD8 /* DataViewController.swift in Sources */,
 				E8D043E720BB299A0075154A /* AppDelegate.swift in Sources */,
 				E82821DC20C6FF060051075E /* MainViewController.swift in Sources */,
-				E87AFBCD20C1CA6B004530C3 /* MealTableViewController.swift in Sources */,
+				E87AFBCD20C1CA6B004530C3 /* EventsTableViewController.swift in Sources */,
 				E87AFBC920C1C55E004530C3 /* MealTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

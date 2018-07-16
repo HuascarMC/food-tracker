@@ -113,8 +113,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             labelTextField.text   = meal.name
             photoImageView.image = meal.photo
             ratingControl.rating = meal.rating
-            startDatePicker.setDate(meal.startDate!, animated: true)
-            endDatePicker.setDate(meal.endDate!, animated: true)
+//            startDatePicker.setDate(meal.startDate!, animated: true)
+//            endDatePicker.setDate(meal.endDate!, animated: true)
         }
         
         // [START setup]
