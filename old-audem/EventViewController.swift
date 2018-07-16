@@ -28,7 +28,7 @@ class EventViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
      This value is either passed by `MealTableViewController` in `prepare(for:sender:)`
      or constructed as part of adding a new meal.
      */
-    var meal: Event?
+    var meal: Meal?
     var startDate: Date?
     var endDate: Date?
     var malesCount = 10
@@ -90,7 +90,7 @@ class EventViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         let endDate = dateConverter(date: endDatePicker.date)
         
         // Set the meal to be passed to MealTableViewController after the unwind segue.
-        meal = Event(name: name, photo: photo, rating: rating, startDate: startDate , endDate: endDate)
+        meal = Meal(name: name, photo: photo, rating: rating, startDate: startDate , endDate: endDate)
     }
     
     private func dateConverter(date: Date) -> Date {

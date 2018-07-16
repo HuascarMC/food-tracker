@@ -12,7 +12,7 @@ class EventsTableViewController: UITableViewController {
 
     //MARK: Properties
 
-    var meals = [Meal]()
+    var meals = [Event]()
 
     //MARK: Private Methods
 
@@ -21,15 +21,15 @@ class EventsTableViewController: UITableViewController {
         let photo2 = UIImage(named: "meal2")
         let photo3 = UIImage(named: "meal3")
 
-        guard let meal1 = Meal(name: "Black & White", photo: photo1, rating: 4, startDate: NSDate() as Date, endDate: NSDate() as Date) else {
+        guard let meal1 = Event(name: "Black & White", photo: photo1, rating: 4, startDate: NSDate() as Date, endDate: NSDate() as Date) else {
             fatalError("Unable to instantiate meal1")
         }
 
-        guard let meal2 = Meal(name: "Oceans", photo: photo2, rating: 5, startDate: NSDate() as Date, endDate: NSDate() as Date) else {
+        guard let meal2 = Event(name: "Oceans", photo: photo2, rating: 5, startDate: NSDate() as Date, endDate: NSDate() as Date) else {
             fatalError("Unable to instantiate meal2")
         }
 
-        guard let meal3 = Meal(name: "Less White Wine", photo: photo3, rating: 3, startDate: NSDate() as Date, endDate: NSDate() as Date) else {
+        guard let meal3 = Event(name: "Less White Wine", photo: photo3, rating: 3, startDate: NSDate() as Date, endDate: NSDate() as Date) else {
             fatalError("Unable to instantiate meal2")
         }
 
@@ -198,7 +198,7 @@ class EventsTableViewController: UITableViewController {
     //MARK: Private methods
     @available(iOS 9.3, *)
     private func saveMeals() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Event.ArchiveURL.path)
         if isSuccessfulSave {
             if #available(iOS 10.0, *) {
                 os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
@@ -214,8 +214,8 @@ class EventsTableViewController: UITableViewController {
         }
     }
 
-    private func loadMeals() -> [Meal]?  {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
+    private func loadMeals() -> [Event]?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Event.ArchiveURL.path) as? [Event]
     }
 
 
