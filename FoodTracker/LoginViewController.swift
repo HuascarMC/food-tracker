@@ -106,7 +106,7 @@ class LoginViewController: UIViewController {
 //        authViewController?.view.insertSubview(imageViewBackground, at: 1)
 //        self.present(authViewController!, animated: true, completion: nil)
 
-            let authViewController = BizzyAuthViewController(authUI: authUI!)
+            let authViewController = CustomizeAuthViewController(authUI: authUI!)
             let navc = UINavigationController(rootViewController: authViewController)
             self.present(navc, animated: true, completion: nil)
 

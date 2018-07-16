@@ -1,7 +1,7 @@
 import UIKit
 import FirebaseUI
 
-class BizzyAuthViewController: FUIAuthPickerViewController {
+class CustomizeAuthViewController: FUIAuthPickerViewController {
     
     
     override init(nibName: String?, bundle: Bundle?, authUI: FUIAuth) {
