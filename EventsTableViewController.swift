@@ -105,7 +105,7 @@ class EventsTableViewController: UITableViewController {
 
     //MARK: Actions
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
+        if let sourceViewController = sender.source as? EventViewController, let meal = sourceViewController.meal {
 
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing meal.
@@ -175,7 +175,7 @@ class EventsTableViewController: UITableViewController {
 //            os_log("Adding a new meal.", log: OSLog.default, type: .debug)
 
         case "ShowDetail":
-            guard let mealDetailViewController = segue.destination as? MealViewController else {
+            guard let mealDetailViewController = segue.destination as? EventViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
 

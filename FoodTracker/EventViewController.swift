@@ -10,7 +10,7 @@ import UIKit
 import Charts
 import Firebase
 
-class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EventViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var endDatePicker: UIDatePicker!
     @IBOutlet weak var startDatePicker: UIDatePicker!
