@@ -481,10 +481,10 @@
             </objects>
             <point key="canvasLocation" x="4081.875" y="492.5"/>
         </scene>
-        <!--Sign View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="8z4-CM-8fi">
             <objects>
-                <viewController id="Ggj-IT-Buu" customClass="SignViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ggj-IT-Buu" customClass="LoginViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zsg-Ul-jJF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -721,15 +721,15 @@
         <scene sceneID="agl-NU-Pgc">
             <objects>
                 <viewController id="w2E-za-wZ6" customClass="DataViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="PMG-xS-oGm">
+                    <view key="view" contentMode="scaleToFill" id="PMG-xS-oGm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7S-QX-QGb">
-                                <rect key="frame" x="11" y="81" width="293" height="566"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7S-QX-QGb">
+                                <rect key="frame" x="11" y="81" width="348" height="566"/>
                                 <subviews>
-                                    <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BLd-pF-ARE">
-                                        <rect key="frame" x="0.0" y="146" width="293" height="71"/>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BLd-pF-ARE">
+                                        <rect key="frame" x="0.0" y="146" width="348" height="71"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="71" id="2rs-za-9Oj"/>
                                         </constraints>
@@ -737,8 +737,8 @@
                                             <!--2018-06-04 11:14:46 +0000-->
                                         </date>
                                     </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USN-8K-YTZ">
-                                        <rect key="frame" x="117" y="98" width="68" height="38"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USN-8K-YTZ">
+                                        <rect key="frame" x="144.5" y="98" width="68" height="38"/>
                                         <color key="backgroundColor" red="0.67008710370000002" green="0.8243112937" blue="0.64036073159999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="Search">
@@ -748,17 +748,17 @@
                                             <action selector="search:" destination="w2E-za-wZ6" eventType="touchUpInside" id="zZQ-3H-bMJ"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uln-6w-JnI" customClass="PieChartView" customModule="Charts">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uln-6w-JnI" customClass="PieChartView" customModule="Charts">
                                         <rect key="frame" x="16" y="238" width="183.5" height="176.5"/>
                                         <color key="backgroundColor" red="1" green="0.96287778535860991" blue="0.97542018403553576" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Uln-6w-JnI" secondAttribute="height" multiplier="123:118" id="AS0-Jx-3tm"/>
                                         </constraints>
                                     </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RnE-si-QTz">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RnE-si-QTz">
                                         <rect key="frame" x="207.5" y="238" width="343.5" height="305"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXD-vh-E2w" customClass="BarChartView" customModule="Charts">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXD-vh-E2w" customClass="BarChartView" customModule="Charts">
                                                 <rect key="frame" x="8" y="8" width="327.5" height="289"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
@@ -773,7 +773,7 @@
                                             <constraint firstItem="fXD-vh-E2w" firstAttribute="bottom" secondItem="RnE-si-QTz" secondAttribute="bottomMargin" id="ygo-7t-DEP"/>
                                         </constraints>
                                     </scrollView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Total Visitors" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xvv-8d-O3v">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Total Visitors" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xvv-8d-O3v">
                                         <rect key="frame" x="8" y="40" width="97" height="29"/>
                                         <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -783,7 +783,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="0" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UkU-FW-fKj">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="0" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UkU-FW-fKj">
                                         <rect key="frame" x="229" y="44" width="51" height="25"/>
                                         <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>

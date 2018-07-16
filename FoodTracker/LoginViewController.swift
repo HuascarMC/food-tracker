@@ -10,7 +10,7 @@ import UIKit
 import FirebaseUI
 import Firebase
 
-class SignViewController: UIViewController {
+class LoginViewController: UIViewController {
     fileprivate(set) var auth:Auth?
     fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
     fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
