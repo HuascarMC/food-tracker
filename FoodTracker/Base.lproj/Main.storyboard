@@ -120,13 +120,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yTe-pB-gU8" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
-                                <rect key="frame" x="73" y="76" width="252" height="44"/>
+                                <rect key="frame" x="191" y="76" width="252" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yTe-pB-gU8" secondAttribute="height" multiplier="63:11" id="O6Y-pP-2l3"/>
                                 </constraints>
                             </stackView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Image" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-1a-o7S">
-                                <rect key="frame" x="16" y="137" width="202" height="133"/>
+                                <rect key="frame" x="16" y="137" width="320" height="133"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="133" id="vaC-la-TLL"/>
@@ -137,7 +137,7 @@
                                 </connections>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6dn-BA-hH0">
-                                <rect key="frame" x="233" y="164" width="86" height="30"/>
+                                <rect key="frame" x="351" y="164" width="86" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4a3-74-IsT"/>
                                     <constraint firstAttribute="width" secondItem="6dn-BA-hH0" secondAttribute="height" multiplier="43:15" id="J3Y-al-W0G"/>
@@ -178,7 +178,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Finish date:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CYR-F2-j3E">
-                                <rect key="frame" x="233" y="280" width="102" height="33"/>
+                                <rect key="frame" x="351" y="280" width="102" height="33"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="YlW-7v-DNT"/>
@@ -217,14 +217,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ea-aN-dfd" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="280" y="324" width="76" height="229"/>
+                                <rect key="frame" x="280" y="324" width="194" height="229"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="229" id="25c-SP-TdN"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umj-YL-OMh" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="280" y="110" width="76" height="206"/>
+                                <rect key="frame" x="280" y="110" width="194" height="206"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="206" id="vfG-Pq-t4Z"/>
@@ -717,19 +717,106 @@
             </objects>
             <point key="canvasLocation" x="2100" y="830"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="fmx-3E-BEW">
+            <objects>
+                <viewController id="WcU-yC-UhW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VcJ-MU-cTf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVq-V5-9vy">
+                                <rect key="frame" x="58" y="60" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIo-7D-y1e">
+                                <rect key="frame" x="58" y="132" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NyT-4s-r6s">
+                                <rect key="frame" x="58" y="207" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZK9-EY-5kS">
+                                <rect key="frame" x="58" y="282" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kD7-JB-ow3">
+                                <rect key="frame" x="58" y="356" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1L-cZ-WCX">
+                                <rect key="frame" x="58" y="433" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GI1-z2-d75">
+                                <rect key="frame" x="58" y="507" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FK8-ZD-CLc">
+                                <rect key="frame" x="262" y="60" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7Q-LX-a7s">
+                                <rect key="frame" x="262" y="132" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tug-Ur-f1k">
+                                <rect key="frame" x="262" y="207" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dN-Wi-QTy">
+                                <rect key="frame" x="262" y="282" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYA-wd-qPG">
+                                <rect key="frame" x="262" y="356" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFQ-fI-arf">
+                                <rect key="frame" x="262" y="433" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0w-U0-bra">
+                                <rect key="frame" x="262" y="507" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <viewLayoutGuide key="safeArea" id="Kdr-Sj-NUQ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="feo-Sc-VYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2830" y="830"/>
+        </scene>
         <!--Data View Controller-->
         <scene sceneID="agl-NU-Pgc">
             <objects>
                 <viewController id="w2E-za-wZ6" customClass="DataViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="PMG-xS-oGm">
+                    <view key="view" contentMode="scaleToFill" id="PMG-xS-oGm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7S-QX-QGb">
-                                <rect key="frame" x="11" y="81" width="293" height="566"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o7S-QX-QGb">
+                                <rect key="frame" x="11" y="81" width="348" height="566"/>
                                 <subviews>
-                                    <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BLd-pF-ARE">
-                                        <rect key="frame" x="0.0" y="146" width="293" height="71"/>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BLd-pF-ARE">
+                                        <rect key="frame" x="0.0" y="146" width="348" height="71"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="71" id="2rs-za-9Oj"/>
                                         </constraints>
@@ -737,8 +824,8 @@
                                             <!--2018-06-04 11:14:46 +0000-->
                                         </date>
                                     </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USN-8K-YTZ">
-                                        <rect key="frame" x="117" y="98" width="68" height="38"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="USN-8K-YTZ">
+                                        <rect key="frame" x="144.5" y="98" width="68" height="38"/>
                                         <color key="backgroundColor" red="0.67008710370000002" green="0.8243112937" blue="0.64036073159999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title="Search">
@@ -748,17 +835,17 @@
                                             <action selector="search:" destination="w2E-za-wZ6" eventType="touchUpInside" id="zZQ-3H-bMJ"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uln-6w-JnI" customClass="PieChartView" customModule="Charts">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uln-6w-JnI" customClass="PieChartView" customModule="Charts">
                                         <rect key="frame" x="16" y="238" width="183.5" height="176.5"/>
                                         <color key="backgroundColor" red="1" green="0.96287778535860991" blue="0.97542018403553576" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Uln-6w-JnI" secondAttribute="height" multiplier="123:118" id="AS0-Jx-3tm"/>
                                         </constraints>
                                     </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RnE-si-QTz">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RnE-si-QTz">
                                         <rect key="frame" x="207.5" y="238" width="343.5" height="305"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fXD-vh-E2w" customClass="BarChartView" customModule="Charts">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXD-vh-E2w" customClass="BarChartView" customModule="Charts">
                                                 <rect key="frame" x="8" y="8" width="327.5" height="289"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
@@ -773,7 +860,7 @@
                                             <constraint firstItem="fXD-vh-E2w" firstAttribute="bottom" secondItem="RnE-si-QTz" secondAttribute="bottomMargin" id="ygo-7t-DEP"/>
                                         </constraints>
                                     </scrollView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Total Visitors" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xvv-8d-O3v">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Total Visitors" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Xvv-8d-O3v">
                                         <rect key="frame" x="8" y="40" width="97" height="29"/>
                                         <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -783,7 +870,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="0" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UkU-FW-fKj">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="0" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UkU-FW-fKj">
                                         <rect key="frame" x="229" y="44" width="51" height="25"/>
                                         <color key="backgroundColor" red="0.18392423790000001" green="0.18392423790000001" blue="0.18392423790000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
