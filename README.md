@@ -32,8 +32,45 @@ The project is based on [Swift](https://developer.apple.com/swift/). (*try a [**
 
 5. Build and run the project
 
-6. make changes
+6. Make changes
 
 7. Build and run the project
 
 8. If any issues found put on github.
+
+9. Go to github and create a new pull request from your fork (make sure it's against the master branch)
+
+## Working On Issues
+
+Issues can be found on our Trello board which gives a more visual representation of progress than Github.List: [**Trello**](https://trello.com/b/j7YQcRaF/audem) and not github (use github only to open issues!).
+
+*if you decide to work on an issue please click 'members' and add your name to it, then move it into the 'sprint' queue. (Don't forget to move it into te 'complete' list when finished, and also close the issue in Github.
+
+## Guidelines
+
+
+### MVC
+
+## Tools
+
+- Charts
+
+## Coding Style
+
+
+## **Gotchas**
+
+---
+
+## Core Design Considerations
+
+
+## Vision 
+
+
+### Design Constraints 
+
+
+## Other Areas 
+
+
