@@ -57,9 +57,28 @@ class DataInputViewController: UIViewController {
     
     private func inputButtonPressed(_ button: UIButton) {
         switch(button.currentTitle) {
-        case "m0-10":
+        
         }
     }
+    
+    private func addVisitor(gender: String, age: String, date: Date) {
+        var ref: DocumentReference? = nil
+        ref = db.collection("visitors").addDocument(data: [
+            "gender": gender,
+            "age": age,
+            "date": date
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+                self.showAlert(text: "Error")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+                self.showAlert(text: "Saved")
+            }
+        }
+        // [END add_ada_lovelace]
+    }
+    
 
     /*
     // MARK: - Navigation
