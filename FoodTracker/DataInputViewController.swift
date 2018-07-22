@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import TTGSnackbar
 
 class DataInputViewController: UIViewController {
     @IBOutlet weak var date: UILabel!
@@ -54,12 +56,12 @@ class DataInputViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    private func inputButtonPressed(_ button: UIButton) {
-        switch(button.currentTitle) {
-        
-        }
-    }
+//
+//    private func inputButtonPressed(_ button: UIButton) {
+//        switch(button.currentTitle) {
+//
+//        }
+//    }
     
     private func addVisitor(gender: String, age: String, date: Date) {
         var ref: DocumentReference? = nil
@@ -79,7 +81,13 @@ class DataInputViewController: UIViewController {
         // [END add_ada_lovelace]
     }
     
-
+    private func showAlert(text: String) {
+        let snackbar = TTGSnackbar(message: text, duration: .short)
+        snackbar.show()
+        //    let alert = UIAlertController(title: "Alert", message: text, preferredStyle: .alert)
+        //    self.present(alert, animated: true, completion: nil)
+        //    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
+    }
     /*
     // MARK: - Navigation
 
