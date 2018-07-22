@@ -17,6 +17,7 @@
 		E863DD4520C44310007A9E96 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E863DD4420C44310007A9E96 /* GoogleService-Info.plist */; };
 		E87AFBC920C1C55E004530C3 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87AFBC820C1C55E004530C3 /* EventTableViewCell.swift */; };
 		E87AFBCD20C1CA6B004530C3 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87AFBCC20C1CA6B004530C3 /* EventsTableViewController.swift */; };
+		E889DB372104FC30004A614D /* DataInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E889DB362104FC30004A614D /* DataInputViewController.swift */; };
 		E8AB787120CAB653001E3A28 /* ChartStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB787020CAB653001E3A28 /* ChartStringFormatter.swift */; };
 		E8AB787320CD5534001E3A28 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AB787220CD5534001E3A28 /* LoginViewController.swift */; };
 		E8B162C220C158AF00C3990D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B162C020C158AC00C3990D /* Event.swift */; };
@@ -56,6 +57,7 @@
 		E87AFBC820C1C55E004530C3 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		E87AFBCC20C1CA6B004530C3 /* EventsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = ../EventsTableViewController.swift; sourceTree = "<group>"; };
 		E888EE24C1E54695C6FBA245 /* Pods_FoodTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E889DB362104FC30004A614D /* DataInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInputViewController.swift; sourceTree = "<group>"; };
 		E8AB787020CAB653001E3A28 /* ChartStringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStringFormatter.swift; sourceTree = "<group>"; };
 		E8AB787220CD5534001E3A28 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E8B162C020C158AC00C3990D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Event.swift; path = FoodTracker/Event.swift; sourceTree = SOURCE_ROOT; };
@@ -150,6 +152,7 @@
 				E8AB787020CAB653001E3A28 /* ChartStringFormatter.swift */,
 				E8519E3120C46D1F00C7EDD8 /* DataViewController.swift */,
 				E81D3C0B20C4256B009C09DC /* VisitorInputViewController.swift */,
+				E889DB362104FC30004A614D /* DataInputViewController.swift */,
 				E8D043ED20BB299A0075154A /* Assets.xcassets */,
 				E8D043EF20BB299A0075154A /* LaunchScreen.storyboard */,
 				E8D043F220BB299A0075154A /* Info.plist */,
@@ -403,6 +406,7 @@
 				E8B162C220C158AF00C3990D /* Event.swift in Sources */,
 				E816835C20DEA492005B00CF /* CustomizeAuthViewController.swift in Sources */,
 				E8D043E920BB299A0075154A /* EventViewController.swift in Sources */,
+				E889DB372104FC30004A614D /* DataInputViewController.swift in Sources */,
 				E81D3C0C20C4256B009C09DC /* VisitorInputViewController.swift in Sources */,
 				E8511AB420CED44600C2247D /* BalloonMarker.swift in Sources */,
 				E8AB787320CD5534001E3A28 /* LoginViewController.swift in Sources */,
