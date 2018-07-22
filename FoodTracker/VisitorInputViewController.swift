@@ -62,6 +62,7 @@ class VisitorInputViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func ageTapped(_ sender: UIButton) {
         for button in self.ages! {
             button.titleLabel?.textColor = UIColor.gray

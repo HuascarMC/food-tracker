@@ -9,11 +9,45 @@
 import UIKit
 
 class DataInputViewController: UIViewController {
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var toTenMale: UIButton!
+    @IBOutlet weak var toTwentyMale: UIButton!
+    @IBOutlet weak var toThirtyMale: UIButton!
+    @IBOutlet weak var toFortyMale: UIButton!
+    @IBOutlet weak var toFiftyMale: UIButton!
+    @IBOutlet weak var toSixtyMale: UIButton!
+    @IBOutlet weak var toSeventyMale: UIButton!
+    @IBOutlet weak var toTenFemale: UIButton!
+    @IBOutlet weak var toTwentyFemale: UIButton!
+    @IBOutlet weak var toThirtyFemale: UIButton!
+    @IBOutlet weak var toFortyFemale: UIButton!
+    @IBOutlet weak var toFiftyFemale: UIButton!
+    @IBOutlet weak var toSixtyFemale: UIButton!
+    @IBOutlet weak var toSeventyFemale: UIButton!
+    
+    var currentData: Date?
+    var db: Firestore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        
+        let date = NSDate()
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        let dateString = dateFormatter.string(from: date as Date)
+        self.currentDate = dateFromatter.date(from: dateString)
+    
+        dateFormatter.locale = Locale(identifier: "en_US")
+        let dateStringUS = daterFormatter.string(from: date as Date)
+        self.date.text = dateStringUS
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +55,11 @@ class DataInputViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    private func inputButtonPressed(_ button: UIButton) {
+        switch(button.currentTitle) {
+        case "m0-10":
+        }
+    }
 
     /*
     // MARK: - Navigation
