@@ -27,7 +27,7 @@ class DataInputViewController: UIViewController {
     @IBOutlet weak var toSixtyFemale: UIButton!
     @IBOutlet weak var toSeventyFemale: UIButton!
     
-    var currentData: Date?
+    var currentDate: Date?
     var db: Firestore!
 
     override func viewDidLoad() {
@@ -45,10 +45,10 @@ class DataInputViewController: UIViewController {
         let date = NSDate()
         dateFormatter.locale = Locale(identifier: "ja_JP")
         let dateString = dateFormatter.string(from: date as Date)
-        self.currentDate = dateFromatter.date(from: dateString)
+        self.currentDate = dateFormatter.date(from: dateString)
     
         dateFormatter.locale = Locale(identifier: "en_US")
-        let dateStringUS = daterFormatter.string(from: date as Date)
+        let dateStringUS = dateFormatter.string(from: date as Date)
         self.date.text = dateStringUS
     }
 
@@ -88,6 +88,7 @@ class DataInputViewController: UIViewController {
         //    self.present(alert, animated: true, completion: nil)
         //    Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in alert.dismiss(animated: true, completion: nil)} )
     }
+    
     /*
     // MARK: - Navigation
 
